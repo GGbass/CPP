@@ -1,22 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Weapon.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/18 21:52:46 by marvin            #+#    #+#             */
-/*   Updated: 2025/04/18 21:52:46 by marvin           ###   ########.fr       */
+/*   Created: 2025/04/29 17:45:36 by marvin            #+#    #+#             */
+/*   Updated: 2025/04/29 17:45:36 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PhoneBook.cpp"
-#include "Contact.hpp"
+#include "Weapon.hpp"
+//#include "includes.hpp"
 
-int	main(void)
+Weapon::Weapon ()
 {
-	PhoneBook	phoneBook;
+	this->type = "";
+}
 
-	phoneBook.run();
-	return (0);
+std::string	Weapon::getType(void)
+{
+	return (this->type);
+}
+
+void	Weapon::setType(std::string newType)
+{
+	this->type = newType;
 }

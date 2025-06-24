@@ -30,7 +30,7 @@ OBJ = $(SRC:.c=.o)
 
 CFLAGS =  -Wall -Werror -Wextra -std=c++98 -fsanitize=address,leak
 
-CC = g++
+CC = c++
 
 all: $(NAME) show_progress
 

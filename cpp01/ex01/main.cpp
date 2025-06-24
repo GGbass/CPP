@@ -5,18 +5,22 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/18 21:52:46 by marvin            #+#    #+#             */
-/*   Updated: 2025/04/18 21:52:46 by marvin           ###   ########.fr       */
+/*   Created: 2025/04/25 00:17:31 by marvin            #+#    #+#             */
+/*   Updated: 2025/04/25 00:17:31 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PhoneBook.cpp"
-#include "Contact.hpp"
+#include "Zombie.hpp"
 
 int	main(void)
 {
-	PhoneBook	phoneBook;
+	int	n = 10;
 
-	phoneBook.run();
+ 	Zombie*	horde = zombieHorde(n, "Braincito");
+	for (int i = 0; i < n; i++)
+	{
+		horde[i].announce();
+	}
+	delete[] horde;
 	return (0);
 }

@@ -1,22 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   HumanA.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/18 21:52:46 by marvin            #+#    #+#             */
-/*   Updated: 2025/04/18 21:52:46 by marvin           ###   ########.fr       */
+/*   Created: 2025/04/29 18:00:54 by marvin            #+#    #+#             */
+/*   Updated: 2025/04/29 18:00:54 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PhoneBook.cpp"
-#include "Contact.hpp"
+#include "HumanA.hpp"
 
-int	main(void)
+HumanA::HumanA(std::string name, Weapon::weapon )
 {
-	PhoneBook	phoneBook;
+	this->name = name;
+	//this->weapon = weapon;
+}
 
-	phoneBook.run();
-	return (0);
+HumanA::attack(void)
+{
+	std::cout << "attack! " << name << weapon.getType() << std::endl;
 }

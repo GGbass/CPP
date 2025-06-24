@@ -1,22 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/18 21:52:46 by marvin            #+#    #+#             */
-/*   Updated: 2025/04/18 21:52:46 by marvin           ###   ########.fr       */
+/*   Created: 2025/04/24 18:07:01 by marvin            #+#    #+#             */
+/*   Updated: 2025/04/24 18:07:01 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PhoneBook.cpp"
-#include "Contact.hpp"
+#ifndef ZOMBIE_HPP
+# define ZOMBIE_HPP
 
-int	main(void)
+# include <iostream>
+# include <iomanip>
+
+class	Zombie
 {
-	PhoneBook	phoneBook;
+	private:
+		std::string name;
 
-	phoneBook.run();
-	return (0);
-}
+	public:
+		Zombie(std::string name);
+		Zombie(void);
+		~Zombie();
+		void announce(void);
+		void setName(std::string name);
+
+};
+
+Zombie* zombieHorde(int n, std::string name);
+
+#endif

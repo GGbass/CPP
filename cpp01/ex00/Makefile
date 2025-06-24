@@ -20,11 +20,13 @@ MAGENTA = \033[0;95m
 CYAN = \033[0;96m
 WHITE = \033[0;97m
 
-NAME = phone_book
+NAME = zombies
 
-SRC =	./Contact.cpp \
-		./PhoneBook.cpp \
-		./main.cpp
+SRC =	./newZombie.cpp \
+		./randomChump.cpp \
+		./Zombie.cpp \
+    	./main.cpp
+#./main.cpp
 
 OBJ = $(SRC:.c=.o)
 
@@ -35,7 +37,7 @@ CC = c++
 all: $(NAME) show_progress
 
 run:
-	./$(NAME)
+	@make && ./$(NAME)
 
 $(NAME): $(OBJ)
 

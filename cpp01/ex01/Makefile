@@ -20,22 +20,22 @@ MAGENTA = \033[0;95m
 CYAN = \033[0;96m
 WHITE = \033[0;97m
 
-NAME = phone_book
+NAME = zombiehorde
 
-SRC =	./Contact.cpp \
-		./PhoneBook.cpp \
+SRC =	./zombieHorde.cpp \
+		./Zombie.cpp \
 		./main.cpp
 
 OBJ = $(SRC:.c=.o)
 
-CFLAGS =  -Wall -Werror -Wextra -std=c++98 -fsanitize=address,leak
+CFLAGS = -Wall -Werror -Wextra -std=c++98 -fsanitize=address,leak
 
 CC = c++
 
 all: $(NAME) show_progress
 
 run:
-	./$(NAME)
+	@make && ./$(NAME)
 
 $(NAME): $(OBJ)
 

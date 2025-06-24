@@ -1,22 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   newZombie.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/18 21:52:46 by marvin            #+#    #+#             */
-/*   Updated: 2025/04/18 21:52:46 by marvin           ###   ########.fr       */
+/*   Created: 2025/04/24 18:06:37 by marvin            #+#    #+#             */
+/*   Updated: 2025/04/24 18:06:37 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PhoneBook.cpp"
-#include "Contact.hpp"
+#include "Zombie.hpp"
 
-int	main(void)
+Zombie* newZombie(std::string name)
 {
-	PhoneBook	phoneBook;
-
-	phoneBook.run();
-	return (0);
+	return new Zombie(name);
 }

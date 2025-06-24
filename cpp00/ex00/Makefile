@@ -28,7 +28,7 @@ OBJ = $(SRC:.c=.o)
 
 CFLAGS =  -Wall -Werror -Wextra -std=c++98
 
-CC = g++
+CC = c++
 
 all: $(NAME) show_progress
 

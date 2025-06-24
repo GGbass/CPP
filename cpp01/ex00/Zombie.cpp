@@ -1,22 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Zombie.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/18 21:52:46 by marvin            #+#    #+#             */
-/*   Updated: 2025/04/18 21:52:46 by marvin           ###   ########.fr       */
+/*   Created: 2025/04/23 16:52:14 by marvin            #+#    #+#             */
+/*   Updated: 2025/04/23 16:52:14 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PhoneBook.cpp"
-#include "Contact.hpp"
+#include "Zombie.hpp"
 
-int	main(void)
+Zombie::Zombie (std::string name)
 {
-	PhoneBook	phoneBook;
 
-	phoneBook.run();
-	return (0);
+	this->name = name;
+}
+
+Zombie::~Zombie()
+{
+	std::cout << name << " Deleted!" << std::endl;
+}
+
+void	Zombie::announce()
+{
+	std::cout << this->Zombie::name << ": BraiiiiiiinnnzzzZ..." << std::endl;
 }

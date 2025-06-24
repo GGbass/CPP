@@ -5,18 +5,18 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/18 21:52:46 by marvin            #+#    #+#             */
-/*   Updated: 2025/04/18 21:52:46 by marvin           ###   ########.fr       */
+/*   Created: 2025/04/23 16:35:25 by marvin            #+#    #+#             */
+/*   Updated: 2025/04/23 16:35:25 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PhoneBook.cpp"
-#include "Contact.hpp"
+#include "Zombie.hpp"
 
-int	main(void)
+int	main()
 {
-	PhoneBook	phoneBook;
-
-	phoneBook.run();
+	Zombie* zombie = newZombie("Franky");
+	zombie->announce();
+	randomChump("Foo");
+	delete zombie;
 	return (0);
 }

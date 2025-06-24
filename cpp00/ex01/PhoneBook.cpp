@@ -11,8 +11,9 @@
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
+#include "Contact.hpp"
 
-class	Contact
+/* class	Contact
 {
 	private:
 	std::string first_name;
@@ -64,6 +65,7 @@ class	Contact
 		return this->darkest_secret;
 	};
 };
+ */
 
 class	PhoneBook
 {
@@ -149,7 +151,7 @@ class	PhoneBook
 		this->nextIndex = (this->nextIndex + 1) % 8;
 		return this->contacts[(this->nextIndex - 1 + 8) % 8].getFirstName();
 	}
-	
+
 	private: void	print_contacts()
 	{
 		std::cout << "|";
