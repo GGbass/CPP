@@ -26,7 +26,7 @@ SRC =	./Account.cpp \
     	./tests.cpp
 #./main.cpp
 
-OBJ = $(SRC:.c=.o)
+OBJ = $(SRC:.cpp=.o)
 
 CFLAGS =  -Wall -Werror -Wextra -std=c++98 -fsanitize=address,leak
 
@@ -48,12 +48,13 @@ show_progress:
 		echo "\nCompiled: 100%\n run: -> $(NAME) $(DEFAULT)"; \
 
 clean:
-	rm -f $(NAME)
+	rm -f $(OBJ)
 
 fclean:
-	rm -rf $(NAME)
+	rm -f $(NAME)
+	rm -f $(OBJ)
 
 re: fclean all
 
 
-.PHONY: clean fclean re all
+.PHONY: clean fclean re all show_progress

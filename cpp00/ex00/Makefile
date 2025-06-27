@@ -24,19 +24,20 @@ NAME = megaphone
 
 SRC =	./megaphone.cpp \
 
-OBJ = $(SRC:.c=.o)
+OBJ = $(SRC:.cpp=.o)
 
-CFLAGS =  -Wall -Werror -Wextra -std=c++98
+CXXFLAGS =  -Wall -Werror -Wextra -std=c++98
 
-CC = c++
+CXX = c++
 
-all: $(NAME) show_progress
+all: $(NAME) #show_progress
 
 show_progress:
 		@for file in $(SRC); do \
 			echo "$(GREEN)Compiling $$file "; \
 		done; \
 		echo "\nCompiled: 100%\n run: -> $(NAME)$(DEFAULT)"; \
+
 
 clean:
 	rm -f  $(NAME)
@@ -46,4 +47,4 @@ fclean: clean
 re: fclean all
 
 
-.PHONY: clean fclean re all
+.PHONY: clean fclean re all show_progress
