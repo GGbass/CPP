@@ -30,7 +30,12 @@ CXXFLAGS =  -Wall -Werror -Wextra -std=c++98
 
 CXX = c++
 
-all: $(NAME) #show_progress
+
+all: $(NAME) show_progress
+	
+$(NAME): $(OBJ)
+
+	$(CXX) $(OBJ) $(CXXFLAGS) -o $(NAME)
 
 show_progress:
 		@for file in $(SRC); do \
@@ -43,8 +48,9 @@ clean:
 	rm -f  $(NAME)
 
 fclean: clean
+	rm -f $(OBJ)
 
 re: fclean all
 
 
-.PHONY: clean fclean re all show_progress
+.PHONY: clean fclean re all show_progress all

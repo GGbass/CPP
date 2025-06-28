@@ -27,7 +27,7 @@ void	PhoneBook::run()
 		std::cout << "ADD: save a contact" << std::endl;
 		std::cout << "SEARCH: search a contact" << std::endl;
 		std::cout << "EXIT: exit the program" << std::endl;
-		std::cout << "\nType your option:";
+		std::cout << "\nType your option: ";
 		getline(std::cin,input);
 		std::cout << std::endl;
 		if (input == "ADD")
@@ -36,6 +36,10 @@ void	PhoneBook::run()
 		}
 		else if (input == "SEARCH")
 			this->search();
+		else if (input == "EXIT")
+			std::cout << "\n Turning off" << std::endl;
+		else
+			std::cout << input <<" doesn't matched any option \n" << std::endl;
 	}
 }
 
@@ -66,7 +70,7 @@ void PhoneBook::search()
 	getline(std::cin, input);
 	if (input.length() == 1 && input[0] >= '1' && input[0] <= '8')
 	{
-		int index = input[0] - '1';
+		int	index = input[0] - '1';
 		if (this->contacts[index].getFirstName().empty())
 			std::cout << "\nContact not found\n" << std::endl;
 		else
@@ -87,7 +91,7 @@ std::string	PhoneBook::addContact()
 {
 	this->contacts[this->nextIndex] = this->createContact();
 	this->nextIndex = (this->nextIndex + 1) % 8;
-	return this->contacts[(this->nextIndex - 1 + 8) % 8].getFirstName();
+	return (this->contacts[(this->nextIndex - 1 + 8) % 8].getFirstName());
 }
 
 void	PhoneBook::print_contacts()
@@ -129,7 +133,7 @@ std::string PhoneBook::getInput(std::string message, std::string error_message)
 		if (input.empty())
 			std::cout << error_message << std::endl;
 	}
-	return input;
+	return (input);
 }
 
 Contact PhoneBook::createContact()
@@ -145,6 +149,5 @@ Contact PhoneBook::createContact()
 	nickname = this->getInput("Enter the nickname: ", "You have to enter a nickname");
 	phone_number = this->getInput("Enter a phone number: ", "You have to enter a phone number");
 	darkest_secret = this->getInput("Enter the darkest secret: ", "You have to enter a darkest secret");
-
-	return Contact(first_name, last_name, nickname, phone_number, darkest_secret);
+	return (Contact(first_name, last_name, nickname, phone_number, darkest_secret));
 }

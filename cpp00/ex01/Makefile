@@ -28,18 +28,20 @@ SRC =	./Contact.cpp \
 
 OBJ = $(SRC:.cpp=.o)
 
-CFLAGS =  -Wall -Werror -Wextra -std=c++98 -fsanitize=address,leak
+CXXFLAGS =  -Wall -Werror -Wextra -std=c++98 #-fsanitize=address,leak
 
-CC = c++
+CXX = c++
+
 
 all: $(NAME) show_progress
 
+
 run:
-	./$(NAME)
+	@make && ./$(NAME)
 
 $(NAME): $(OBJ)
 
-	$(CC) $(OBJ) $(CFLAGS) -o $(NAME)
+	$(CXX) $(OBJ) $(CXXFLAGS) -o $(NAME)
 
 show_progress:
 		@for file in $(SRC); do \

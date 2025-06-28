@@ -28,7 +28,7 @@ SRC =	./newZombie.cpp \
     	./main.cpp
 #./main.cpp
 
-OBJ = $(SRC:.c=.o)
+OBJ = $(SRC:.cpp=.o)
 
 CFLAGS =  -Wall -Werror -Wextra -std=c++98 -fsanitize=address,leak
 
@@ -58,4 +58,4 @@ fclean:
 re: fclean all
 
 
-.PHONY: clean fclean re all
+.PHONY: clean fclean re all show_progress
