@@ -10,19 +10,22 @@
 
 class PhoneBook
 {
-	private:
-	Contact		contacts[8];
-	int			nextIndex;
+	public:
+		PhoneBook();
+		void		run();
 
-	public:		PhoneBook();
-	public:		void		run();
-	private:	std::string	addContact();
-	private:	static		std::string intToString(int i);
-	private:	static		void printCell(std::string str);
-	private:	void		search();
-	private:	void		print_contacts();
-	private:	std::string	getInput(std::string message, std::string error_message);
-	private:	Contact		createContact();
+	private:
+		Contact		contacts[8];
+		int			nextIndex;
+
+		static		std::string intToString(int i);
+		static		void printCell(std::string str);
+
+		Contact		createContact();
+		std::string	addContact();
+		void		print_contacts() const;
+		void		search();
+		std::string	getInput(std::string message, std::string error_message);
 };
 
 #endif

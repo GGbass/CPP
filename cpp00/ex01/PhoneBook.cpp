@@ -59,18 +59,20 @@ void	PhoneBook::printCell(std::string str)
 
 void PhoneBook::search()
 {
+	std::string	input;
+	int			index;
+
 	if (this->contacts[0].getFirstName().empty())
 	{
-		std::cout << "No contacts found\n" << std::endl;
-		return;
+		std::cout << "There's any contacts \n" << std::endl;
+		return ;
 	}
-	std::string input;
 	this->print_contacts();
 	std::cout << "\nEnter the index of the contact: ";
 	getline(std::cin, input);
 	if (input.length() == 1 && input[0] >= '1' && input[0] <= '8')
 	{
-		int	index = input[0] - '1';
+		index = input[0] - '1';
 		if (this->contacts[index].getFirstName().empty())
 			std::cout << "\nContact not found\n" << std::endl;
 		else
@@ -94,7 +96,7 @@ std::string	PhoneBook::addContact()
 	return (this->contacts[(this->nextIndex - 1 + 8) % 8].getFirstName());
 }
 
-void	PhoneBook::print_contacts()
+void	PhoneBook::print_contacts() const
 {
 	std::cout << "|";
 	PhoneBook::printCell("index");
