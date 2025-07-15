@@ -11,14 +11,13 @@
 /* ************************************************************************** */
 
 #include "Weapon.hpp"
-//#include "includes.hpp"
 
-Weapon::Weapon ()
+Weapon::Weapon (const std::string& type)
 {
-	this->type = "";
+	this->type = type;
 }
 
-std::string	Weapon::getType(void)
+std::string	Weapon::getType() const
 {
 	return (this->type);
 }

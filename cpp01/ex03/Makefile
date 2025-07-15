@@ -20,7 +20,7 @@ MAGENTA = \033[0;95m
 CYAN = \033[0;96m
 WHITE = \033[0;97m
 
-NAME = violence
+NAME = unnecessary_violence
 
 SRC =	./Weapon.cpp \
 		./HumanB.cpp \
@@ -29,9 +29,9 @@ SRC =	./Weapon.cpp \
 
 OBJ = $(SRC:.cpp=.o)
 
-CFLAGS = -Wall -Werror -Wextra -std=c++98 -fsanitize=address,leak
+CXXFLAGS = -Wall -Werror -Wextra -std=c++98 -fsanitize=address,leak
 
-CC = c++
+CXX = c++
 
 all: $(NAME) show_progress
 
@@ -40,7 +40,7 @@ run:
 
 $(NAME): $(OBJ)
 
-	$(CC) $(OBJ) $(CFLAGS) -o $(NAME)
+	$(CXX) $(OBJ) $(CXXFLAGS) -o $(NAME)
 
 show_progress:
 		@for file in $(SRC); do \
@@ -49,10 +49,10 @@ show_progress:
 		echo "\nCompiled: 100%\n run: -> $(NAME) $(DEFAULT)"; \
 
 clean:
+	rm -f $(OBJ)
 	rm -f $(NAME)
 
-fclean:
-	rm -rf $(NAME)
+fclean: clean
 
 re: fclean all
 

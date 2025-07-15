@@ -1,8 +1,6 @@
 #ifndef WEAPON_HPP
 # define WEAPON_HPP
-
-# include "includes.hpp"
-
+# include <string>
 
 class Weapon
 {
@@ -10,9 +8,8 @@ class Weapon
 		std::string type;
 
 	public:
-
-		const std::string getType(void);
-		void	setType(std::string type);
+		Weapon(const std::string& type);
+		std::string getType(void) const;
+		void	setType(std::string newType);
 };
-
 #endif

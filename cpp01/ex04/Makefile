@@ -26,7 +26,7 @@ SRC =	./main.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
-CXXFLAGS = -Wall -Werror -Wextra -std=c++98 #-fsanitize=address,leak
+CXXFLAGS = -Wall -Werror -Wextra -std=c++98 -fsanitize=address,leak
 
 CXX = c++
 
@@ -49,9 +49,7 @@ clean:
 	rm -f $(OBJ)
 	rm -f $(NAME)
 
-fclean:
-	rm -f $(OBJ)
-	rm -rf $(NAME)
+fclean: clean
 
 re: fclean all
 

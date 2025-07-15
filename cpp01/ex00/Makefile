@@ -25,14 +25,13 @@ NAME = zombies
 SRC =	./newZombie.cpp \
 		./randomChump.cpp \
 		./Zombie.cpp \
-    	./main.cpp
-#./main.cpp
+		./main.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
-CFLAGS =  -Wall -Werror -Wextra -std=c++98 -fsanitize=address,leak
+CXXFLAGS = -Wall -Werror -Wextra -std=c++98 -fsanitize=address,leak
 
-CC = c++
+CXX = c++
 
 all: $(NAME) show_progress
 
@@ -41,7 +40,7 @@ run:
 
 $(NAME): $(OBJ)
 
-	$(CC) $(OBJ) $(CFLAGS) -o $(NAME)
+	$(CXX) $(OBJ) $(CXXFLAGS) -o $(NAME)
 
 show_progress:
 		@for file in $(SRC); do \
@@ -50,10 +49,12 @@ show_progress:
 		echo "\nCompiled: 100%\n run: -> $(NAME) $(DEFAULT)"; \
 
 clean:
-	rm -f $(NAME)
+	rm $(OBJ)
+	rm $(NAME)
 
 fclean:
 	rm -rf $(NAME)
+	rm -rf $(OBJ)
 
 re: fclean all
 

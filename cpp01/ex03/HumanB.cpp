@@ -15,15 +15,18 @@
 HumanB::HumanB(std::string name)
 {
 	this->name = name;
-	this->weapon;
+	this->weapon = NULL;
 }
 
-HumanB::setWeapon(Weapon weapon)
+void	HumanB::setWeapon(Weapon& weapon)
 {
-	this->weapon = weapon;
+	this->weapon = &weapon;
 }
 
-HumanB::attack(void)
+void	HumanB::attack(void)
 {
-	std::cout << "attack! " << name << weapon.getType() << std::endl;
+	if (this->weapon)
+		std::cout << this->name << " attacks with their " << this->weapon->getType() << std::endl;
+	else
+		std::cout << this->name << " has no weapon to attack with" << std::endl;
 }
