@@ -48,9 +48,11 @@ show_progress:
 		echo "\nCompiled: 100%\n run: -> $(NAME) $(DEFAULT)"; \
 
 clean:
+	rm -f $(OBJ)
 	rm -f $(NAME)
 
 fclean:
+	rm -rf $(OBJ)
 	rm -rf $(NAME)
 
 re: fclean all

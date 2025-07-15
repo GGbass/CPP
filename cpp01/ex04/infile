@@ -22,8 +22,7 @@ WHITE = \033[0;97m
 
 NAME = program
 
-SRC =	./Replacer.cpp \
-		./main.cpp
+SRC =	./main.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
