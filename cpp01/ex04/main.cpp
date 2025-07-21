@@ -11,13 +11,13 @@ static void	errorArgvs()
 
 int	main(int argc, char **argv)
 {
-	if (argc != 4)
-		errorArgvs();
 	std::string filename = argv[1];
 	std::string search = argv[2];
 	std::string replace = argv[3];
+	if (argc != 4)
+		errorArgvs();
 
 	Replacer replacer(filename, search, replace);
-	replacer.replaceInFile();
+	replacer.fileMaker();
 	return (0);
 }
