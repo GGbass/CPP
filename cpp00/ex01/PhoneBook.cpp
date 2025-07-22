@@ -28,7 +28,7 @@ void	PhoneBook::run()
 		std::cout << "SEARCH: search a contact" << std::endl;
 		std::cout << "EXIT: exit the program" << std::endl;
 		std::cout << "\nType your option: ";
-		getline(std::cin,input);
+		getline(std::cin, input);
 		std::cout << std::endl;
 		if (input == "ADD")
 		{
@@ -36,7 +36,7 @@ void	PhoneBook::run()
 		}
 		else if (std::cin.eof())
 		{
-			std::cout << "EOF signal detected" << std::endl;
+			std::cout << "\nEOF signal detected" << std::endl;
 			exit(1);
 		}
 		else if (input == "SEARCH")
@@ -130,31 +130,32 @@ void	PhoneBook::print_contacts() const
 	}
 }
 
-std::string PhoneBook::getInput(std::string message, std::string error_message)
+std::string PhoneBook::getInput(std::string message, std::string errorMessage)
 {
-	std::string input;
+	std::string	input;
+
 	while (input.empty())
 	{
 		std::cout << message;
 		getline(std::cin, input);
 		if (input.empty())
-			std::cout << error_message << std::endl;
+			std::cout << errorMessage << std::endl;
 	}
 	return (input);
 }
 
 Contact PhoneBook::createContact()
 {
-	std::string first_name;
-	std::string last_name;
+	std::string firstName;
+	std::string lastName;
 	std::string nickname;
-	std::string phone_number;
-	std::string darkest_secret;
+	std::string phoneNumber;
+	std::string darkestSecret;
 
-	first_name = this->getInput("Enter first name: ", "You have to enter a name");
-	last_name = this->getInput("Enter last name: ", "You have to enter the last name");
+	firstName = this->getInput("Enter first name: ", "You have to enter a name");
+	lastName = this->getInput("Enter last name: ", "You have to enter the last name");
 	nickname = this->getInput("Enter the nickname: ", "You have to enter a nickname");
-	phone_number = this->getInput("Enter a phone number: ", "You have to enter a phone number");
-	darkest_secret = this->getInput("Enter the darkest secret: ", "You have to enter a darkest secret");
-	return (Contact(first_name, last_name, nickname, phone_number, darkest_secret));
+	phoneNumber = this->getInput("Enter a phone number: ", "You have to enter a phone number");
+	darkestSecret = this->getInput("Enter the darkest secret: ", "You have to enter a darkest secret");
+	return (Contact(firstName, lastName, nickname, phoneNumber, darkestSecret));
 }

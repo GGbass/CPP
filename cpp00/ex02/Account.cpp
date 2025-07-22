@@ -17,7 +17,7 @@ int	Account::_totalAmount = 0;
 int	Account::_totalNbDeposits = 0;
 int	Account::_totalNbWithdrawals = 0;
 
-void Account::_displayTimestamp()
+void	Account::_displayTimestamp()
 {
 	std::time_t current = std::time(NULL);
 	std::tm *localTime = std::localtime(&current);
@@ -52,7 +52,7 @@ Account::~Account()
 	std::cout << "index:" << _accountIndex << ";amount:" << _amount << ";closed"<< std::endl;
 }
 
-void Account::makeDeposit(int deposit)
+void	Account::makeDeposit(int deposit)
 {
 	if (deposit > 0)
 	{
@@ -92,7 +92,7 @@ bool	Account::makeWithdrawal(int withdrawal)
 	return (false);
 }
 
-void Account::displayStatus() const
+void	Account::displayStatus() const
 {
 	_displayTimestamp();
 	std::cout << "index:" << _accountIndex << ";amount:" << _amount
@@ -100,7 +100,7 @@ void Account::displayStatus() const
 			  << ";withdrawals:" << _nbWithdrawals << std::endl;
 }
 
-void Account::displayAccountsInfos()
+void	Account::displayAccountsInfos()
 {
 	_displayTimestamp();
 	std::cout << "accounts:" << _nbAccounts
