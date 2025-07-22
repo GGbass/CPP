@@ -34,6 +34,11 @@ void	PhoneBook::run()
 		{
 			std::cout << this->addContact() << " contact saved!\n\n";
 		}
+		else if (std::cin.eof())
+		{
+			std::cout << "EOF signal detected" << std::endl;
+			exit(1);
+		}
 		else if (input == "SEARCH")
 			this->search();
 		else if (input == "EXIT")
