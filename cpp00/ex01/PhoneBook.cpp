@@ -75,6 +75,11 @@ void PhoneBook::search()
 	this->print_contacts();
 	std::cout << "\nEnter the index of the contact: ";
 	getline(std::cin, input);
+	if (std::cin.eof())
+	{
+		std::cout << "\nEOF signal detected" << std::endl;
+		exit(1);
+	}
 	if (input.length() == 1 && input[0] >= '1' && input[0] <= '8')
 	{
 		index = input[0] - '1';
@@ -138,6 +143,11 @@ std::string PhoneBook::getInput(std::string message, std::string errorMessage)
 	{
 		std::cout << message;
 		getline(std::cin, input);
+		if (std::cin.eof())
+		{
+			std::cout << "\nEOF signal detected" << std::endl;
+			exit(1);
+		}
 		if (input.empty())
 			std::cout << errorMessage << std::endl;
 	}
