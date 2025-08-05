@@ -46,5 +46,8 @@ fclean:
 
 re: fclean all
 
-
+git:
+	git add .
+	git commit -m "Update"
+	git push
 .PHONY: clean fclean re all show_progress
