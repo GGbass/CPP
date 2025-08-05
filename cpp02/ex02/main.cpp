@@ -2,10 +2,10 @@
 
 int	main( void)
 {
-	Fixed	a;
-	Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
-	std::cout << a << std::endl;
-	std::cout << ++a << std::endl;
+	Fixed	a; // Default constructor
+	Fixed const b(Fixed( 5.05f ) * Fixed(2)); // Copy constructor and multiplication operator
+	std::cout << a << " here is 0 " << std::endl;
+	std::cout << ++a << " and here i s ? "<< std::endl;
 	std::cout << a << std::endl;
 	std::cout << a++ << std::endl;
 	std::cout << a << std::endl;
