@@ -10,8 +10,7 @@ WHITE = \033[0;97m
 
 NAME = bsp
 
-SRC =	./bsp.cpp \
-		./Point.cpp \
+SRC =	./Point.cpp \
 		./Fixed.cpp \
 		./main.cpp
 

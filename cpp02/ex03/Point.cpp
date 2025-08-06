@@ -5,23 +5,16 @@ Point::Point():_x(0), _y(0)
 {
 	std::cout << "Point default constructor called" << std::endl;
 }
-/* Point::Point() // default constructor
+
+Point::Point(const Fixed x, const Fixed y): _x(x), _y(y)
 {
-	_x = Fixed(0);
-	_y = Fixed(0);
-	std::cout << "Point default constructor called" << std::endl;
-} */
+	std::cout << "Point with Fixed parameterized constructor called" << std::endl;
+}
 
 Point::Point(const float x, const float y): _x(Fixed(x)), _y(Fixed(y))
 {
 	std::cout << "Point with float parameterized constructor called" << std::endl;
 }
-/* Point::Point(const float x, const float y)
-{
-	this->_xFixed(x);
-	this->_y = Fixed(y);
-	std::cout << "Point with float parameterized constructor called" << std::endl;
-} */
 
 Point::Point(const Point &other): _x(other._x), _y(other._y)
 {
