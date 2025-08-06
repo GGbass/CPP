@@ -4,12 +4,18 @@
 
 static bool bspAreas(Fixed areaABC, Fixed areaPAB, Fixed areaPBC, Fixed areaPCA)
 {
-	if (areaABC == 0) // If the area of triangle ABC is zero, the points are collinear.
+	if (areaABC == 0)
+	{
+		std::cout << "Points are collinear, triangle area is zero." << std::endl;
 		return (false);
+	}
 	if ((areaPAB > 0 && areaPBC > 0 && areaPCA > 0) || (areaPAB < 0 && areaPBC < 0 && areaPCA < 0)) // If all areas are positive or all are negative, the point is inside the triangle.
 		return (true);
-	if (areaPAB == 0 || areaPBC == 0 || areaPCA == 0) // If any area is zero, point is on the edge
-		return (true);
+	if (areaPAB == 0 || areaPBC == 0 || areaPCA == 0)
+	{
+		std::cout << "Point is on the edge of the triangle." << std::endl;
+		return (false);
+	}
 	if ((areaPAB < 0 && areaPBC > 0 && areaPCA > 0) || (areaPAB > 0 && areaPBC < 0 && areaPCA < 0)) // If the point is outside the triangle.
 		return (false);
 	return (false);

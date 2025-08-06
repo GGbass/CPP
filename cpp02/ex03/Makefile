@@ -23,6 +23,8 @@ CXX = c++
 all: $(NAME) show_progress
 
 run:
+	@make clean
+	@echo "$(GREEN)Running $(NAME)...$(DEFAULT)"
 	@make && ./$(NAME)
 
 $(NAME): $(OBJ)
@@ -40,6 +42,7 @@ clean:
 	rm -f $(NAME)
 
 fclean:
+	rm -f bsp.o
 	rm -rf $(OBJ)
 	rm -rf $(NAME)
 
@@ -49,4 +52,5 @@ git:
 	git add .
 	git commit -m "Update"
 	git push
-.PHONY: clean fclean re all show_progress
+
+.PHONY: clean fclean re all show_progress run
