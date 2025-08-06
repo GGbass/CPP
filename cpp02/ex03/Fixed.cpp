@@ -4,7 +4,7 @@ const int Fixed:: _fractionalBits = 8; // Number of bits used for the fractional
 
 Fixed::Fixed()
 {
-	std::cout << "Default constructor " << std::endl;
+	//std::cout << "Default constructor " << std::endl;
 	this->_value = 0;
 }
 
