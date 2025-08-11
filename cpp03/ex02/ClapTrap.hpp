@@ -1,8 +1,6 @@
 #ifndef ClapTrap_HPP
 #define ClapTrap_HPP
 
-
-
 #include <iostream>
 
 class ClapTrap
