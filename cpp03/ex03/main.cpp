@@ -1,12 +1,13 @@
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
 #include "FragTrap.hpp"
+#include "DiamondTrap.hpp"
 
 int	main(void)
 {
-	FragTrap*	troopy = new FragTrap("Troopy");
+	DiamondTrap*	troopy = new DiamondTrap("Troopy");
 
-	troopy->highFiveGuys();
+	//troopy->highFiveGuys();
 	delete troopy;
 	return (0);
 }

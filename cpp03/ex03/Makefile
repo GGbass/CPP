@@ -16,7 +16,8 @@ CPP_FILE = $(CLASS_NAME).cpp
 
 NAME = program
 
-SRC =	./FragTrap.cpp \
+SRC =	./DiamondTrap.cpp \
+		./FragTrap.cpp \
 		./ScavTrap.cpp \
 		./ClapTrap.cpp \
 		./main.cpp
