@@ -12,6 +12,7 @@ class ClapTrap
 		int			attackDamage;
 
 	public:
+		ClapTrap(void);
 		ClapTrap(std::string name);
 		ClapTrap(const ClapTrap &other); // Copy constructor
 		ClapTrap &operator=(const ClapTrap &other);
