@@ -33,15 +33,15 @@ ClapTrap::~ClapTrap()
 	std::cout << "ClapTrap " << this->name << " destroyed." << std::endl;
 }
 
-std::string ClapTrap::getName()
-{
-	return (this->name);
-}
 
-int ClapTrap::getAttackDamage() const
-{
-	return (this->attackDamage);
-}
+
+std::string ClapTrap::getName() const{return (this->name);}
+
+int ClapTrap::getHitPoints() const{return (this->hitPoints);}
+
+int ClapTrap::getEnergyPoints() const{return (this->energyPoints);}
+
+int ClapTrap::getAttackDamage() const{return (this->attackDamage);}
 
 bool ClapTrap::canAttack() const
 {

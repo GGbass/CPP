@@ -10,8 +10,9 @@ int	main(void)
 /* 	troopy->takeDamage(5);
 	troopy->beRepaired(3); */
 
-
-	ScavTrap test();
+/* 	ScavTrap	troopy2(*troopy);
+	troopy2.guardGate();
+	troopy2.attack("Target2"); */
 	delete troopy;
 	return (0);
 }

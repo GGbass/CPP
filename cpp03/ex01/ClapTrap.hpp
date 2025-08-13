@@ -19,6 +19,7 @@ class ClapTrap
 		int			attackDamage;
 
 	public:
+		ClapTrap();
 		ClapTrap(std::string name);
 		ClapTrap(const ClapTrap &other); // Copy constructor
 		ClapTrap &operator=(const ClapTrap &other);
@@ -29,7 +30,7 @@ class ClapTrap
 		void takeDamage(unsigned int amount);
 		void beRepaired(unsigned int amount);
 
-		std::string getName();
+		std::string getName() const;
 		int getHitPoints() const;
 		int getEnergyPoints() const;
 		int getAttackDamage() const;
