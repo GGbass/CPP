@@ -34,7 +34,7 @@ std::string Animal::getType()const { return (this->type);}
 
 Animal::~Animal()
 {
-	std::cout << "Default Destructor from " << getType() << "Animal\n";
+	std::cout << "Default Destructor from " << getType() << " Animal Class\n";
 }
 
 void	Animal::makeSound() const

@@ -1,6 +1,7 @@
 #ifndef Cat_HPP
 # define Cat_HPP
 #include "Animal.hpp"
+#include "Brain.hpp"
 
 
 class Cat : public Animal
@@ -12,6 +13,11 @@ class Cat : public Animal
 		~Cat();
 
 		void	makeSound() const;
+		Brain*	getBrain();
+		void	setIdeas();
+
+	private:
+		Brain *brain;
 };
 
 #endif // Cat_HPP
