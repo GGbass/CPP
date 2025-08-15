@@ -31,3 +31,24 @@ void	Dog::makeSound() const {std::cout << this->type << " Woof Woof!!\n";}
 
 Brain* Dog::getBrain() {return (this->brain);}
 
+void	Dog::setIdeas()
+{
+	std::string ideas[10] = 
+	{
+		"Fetch the ball",
+		"Bark at strangers",
+		"Dig a hole",
+		"Chase my tail",
+		"Guard the house",
+		"Play with a stick",
+		"Sniff everything",
+		"Lick my owner",
+		"Roll in the grass",
+		"Beg for treats"
+	};
+	for (int i = 0; i < 10; i++)
+		this->brain->setIdea(i, ideas[i]);
+	for (int i = 11; i < 100; i++)
+		this->brain->setIdea(i, "Empty idea");
+	std::cout << "Dog: Ideas set in the brain\n";
+}

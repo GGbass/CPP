@@ -14,6 +14,11 @@ class Dog : public Animal
 
 		void	makeSound() const;
 		Brain*	getBrain();
+		void	setIdeas();
+
+		// To avoid memory leaks, we should not copy the brain pointer directly.
+		// Instead, we should create a new Brain object for each Dog instance.
+		// This is handled in the constructor and destructor.
 
 	private:
 		Brain *brain;

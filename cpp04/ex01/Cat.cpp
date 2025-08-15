@@ -33,5 +33,22 @@ Brain* Cat::getBrain() {return (this->brain);}
 
 void	Cat::setIdeas()
 {
-	
+	std::cout << "Cat: Ideas set in the brain\n";
+	std::string ideas[10] = {
+		"Chase the mouse",
+		"Climb the tree",
+		"Scratch the furniture",
+		"Sleep in the sun",
+		"Meow at the door",
+		"Play with a ball of yarn",
+		"Watch birds from the window",
+		"Hide in a box",
+		"Lick my paws",
+		"Demand food"
+	};
+	for (int i = 0; i < 10; i++)
+		this->brain->setIdea(i, ideas[i]);
+	for (int i = 11; i < 100; i++)
+		this->brain->setIdea(i, "Empty idea");
+	std::cout << "Cat: Ideas set in the brain\n";
 }
