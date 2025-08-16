@@ -7,7 +7,7 @@ Brain::Brain()
 
 Brain::Brain(const Brain &other)
 {
-	for (int i = 0; 1 < 100 ; i++)
+	for (int i = 0; i < 100 ; i++)
 	{
 		this->ideas[i] = other.ideas[i];
 	}
@@ -17,7 +17,7 @@ Brain &Brain::operator=(const Brain &other)
 {
 	if (this != &other)
 	{
-		for (int i = 0; 1 < 100 ; i++)
+		for (int i = 0; i < 100 ; i++)
 		{
 			this->ideas[i] = other.ideas[i];
 		}
@@ -27,7 +27,7 @@ Brain &Brain::operator=(const Brain &other)
 
 Brain::~Brain()
 {
-	std::cout << "My ideaaas !! \n" ;
+	std::cout << "My ideaaas  noo!! \n" ;
 }
 
 std::string Brain::getIdea(int i) const { return  (this->ideas[i]);}
@@ -39,6 +39,7 @@ void	Brain::setIdea(int i, std::string idea)
 		std::cout << "Wrong index to set\n";
 		return ;
 	}
+	this->ideas[i] = "checking index";
 	this->ideas[i] = idea;
 }
 

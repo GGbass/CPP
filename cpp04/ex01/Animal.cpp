@@ -41,3 +41,18 @@ void	Animal::makeSound() const
 {
 	std::cout << this->type << " It's making a weird sound\n";
 }
+
+void	Animal::setIdeas()
+{
+	std::cout << "Animal: No brain to set ideas\n";
+}
+
+std::string Animal::getIdea(int i) const
+{
+	if (i < 0 || i >= 100)
+	{
+		std::cout << "Wrong index to get idea\n";
+		return "";
+	}
+	return "No idea set"; // Placeholder, as Animal does not have a Brain
+}

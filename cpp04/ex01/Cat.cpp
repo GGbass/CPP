@@ -5,10 +5,9 @@ Cat::Cat() : Animal("Cat"), brain(new Brain())
 	std::cout << "A cat it's created\n";
 }
 
-Cat::Cat(const Cat &other) : Animal(other)
+Cat::Cat(const Cat &other) : Animal(other), brain(new Brain(*other.brain))
 {
 	this->type = other.type;
-	this->brain = other.brain;
 }
 
 Cat &Cat::operator=(const Cat &other)
@@ -16,7 +15,7 @@ Cat &Cat::operator=(const Cat &other)
 	if (this != &other)
 	{
 		this->type = other.type;
-		this->brain = other.brain;
+		*this->brain = *other.brain;
 	}
 	return (*this);
 }
@@ -31,9 +30,18 @@ void	Cat::makeSound() const {std::cout << this->type << " Meeeowww \n";}
 
 Brain* Cat::getBrain() {return (this->brain);}
 
+std::string Cat::getIdea(int i) const
+{
+	if (i < 0 || i >= 100)
+	{
+		std::cout << "Wrong index to get idea\n";
+		return "";
+	}
+	return (this->brain->getIdea(i));
+}
+
 void	Cat::setIdeas()
 {
-	std::cout << "Cat: Ideas set in the brain\n";
 	std::string ideas[10] = {
 		"Chase the mouse",
 		"Climb the tree",
