@@ -13,8 +13,10 @@ int	main(void)
 	(void)i;
 	delete i; */
 
-/* 	Animal* animals[10];
+	Animal* animals[10];
+	/* Animal* a = new Animal();
 
+	delete a; */
 	for (int i = 0; i < 5; i++)
 		animals[i] = new Cat();
 	std::cout << "\n\n";
@@ -28,7 +30,7 @@ int	main(void)
 
 	std::cout << "\n\n";
 	for (int i = 0; i < 10; i++)
-		delete animals[i]; */
+		delete animals[i];
 
 	/* Deep copies  and printing ideas*/
 /* 
