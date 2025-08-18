@@ -1,6 +1,7 @@
 #ifndef AMateria_HPP
 # define AMateria_HPP
 # include "ICharacter.hpp"
+# include <iostream>
 
 class AMateria
 {

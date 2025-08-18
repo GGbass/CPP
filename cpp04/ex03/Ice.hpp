@@ -14,8 +14,9 @@ class Ice : public AMateria
 		Ice &operator=(const Ice &other);
 		~Ice();
 
-		std::string getType() const;
-		Ice* clone(void);
+		std::string	getType() const;
+		AMateria*	clone(void) const;
+		void		use(ICharacter& target);
 };
 
 #endif // Ice_HPP

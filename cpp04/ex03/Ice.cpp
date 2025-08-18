@@ -25,9 +25,13 @@ Ice &Ice::operator=(const Ice &other)
 
 std::string Ice::getType() const {return (this->type);}
 
-Ice *Ice::clone(void) const { return (new Ice(*this));}
+AMateria *Ice::clone(void) const { return (new Ice(*this));}
 
 Ice::~Ice()
 {
 	std::cout << "Deleting this Ice Materia!\n";
+}
+void Ice::use(ICharacter &target)
+{
+	std::cout << "Shoots an ice bolt at " << target.getName() << "\n";
 }

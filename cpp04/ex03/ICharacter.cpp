@@ -2,10 +2,12 @@
 
 ICharacter::ICharacter()
 {
-    // Constructor implementation
+	std::cout << "Creating an ICharacter\n";
 }
+
+ICharacter
 
 ICharacter::~ICharacter()
 {
-    // Destructor implementation
+	std::cout << "Deleting an ICharacter\n";
 }
