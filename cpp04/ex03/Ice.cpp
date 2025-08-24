@@ -2,17 +2,17 @@
 
 Ice::Ice(void) : AMateria("ice"), type("ice")
 {
-	std::cout << "Default Ice Materia\n";
+	std::cout << "Default Ice Materia \n";
 }
 
-Ice::Ice("ice") : AMateria("ice"), type("ice")
+Ice::Ice(std::string const &name) : AMateria("ice"), type(name)
 {
-	std::cout << "Creating an Ice Materia\n";
+	std::cout << "Creating an Ice Materia \n";
 }
 
-Ice::Ice(const Ice &other)
+Ice::Ice(const Ice &other) : AMateria(other), type(other.type)
 {
-	this->type = other.type;
+	std::cout << "Copying an Ice Materia\n";
 }
 
 Ice &Ice::operator=(const Ice &other)
@@ -33,5 +33,6 @@ Ice::~Ice()
 }
 void Ice::use(ICharacter &target)
 {
-	std::cout << "Shoots an ice bolt at " << target.getName() << "\n";
+	if (target.getName() != "")
+		std::cout << "Shoots an ice bolt at " << target.getName() << "\n";
 }

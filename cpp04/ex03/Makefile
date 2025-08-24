@@ -16,7 +16,14 @@ CPP_FILE = $(CLASS_NAME).cpp
 
 NAME = program
 
-SRC =	./main.cpp
+SRC =	./IMateriaSource.cpp \
+		./AMateria.cpp \
+		./Cure.cpp \
+		./Ice.cpp \
+		./ICharacter.cpp \
+		./Character.cpp \
+		./MateriaSource.cpp \
+		./main.cpp
 
 OBJ = $(SRC:.cpp=.o)
 

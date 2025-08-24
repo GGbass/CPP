@@ -2,17 +2,17 @@
 
 AMateria::AMateria(void) : type("")
 {
-	std::cout << "Default AMateria constructor\n";
+	//std::cout << "Default AMateria constructor\n";
 }
 
 AMateria::AMateria(std::string const &type) : type(type)
 {
-	std::cout << "AMateria constructor  type: " << this->type << "Created\n";
+	//std::cout << "AMateria constructor  type: " << this->type << " Created\n";
 }
 AMateria::AMateria(const AMateria &other)
 {
 	this->type = other.type;
-	std::cout << "Copy AMateria constructor called\n";
+	//std::cout << "Copy AMateria constructor called\n";
 }
 
 AMateria &AMateria::operator=(const AMateria &other)
@@ -20,14 +20,14 @@ AMateria &AMateria::operator=(const AMateria &other)
 	if (this != &other)
 	{
 		this->type = other.getType();
-		std::cout << " Copy assigment operator\n";
+		//std::cout << " Copy assigment operator\n";
 	}
 	return (*this);
 }
 
 AMateria::~AMateria()
 {
-	std::cout "Destroying AMateria\n";
+	//std::cout << "Destroying AMateria\n";
 }
 
 std::string const & AMateria::getType() const

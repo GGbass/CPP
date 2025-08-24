@@ -2,12 +2,17 @@
 #define ICharacter_HPP
 #include <iostream>
 
+class AMateria;
+
 class ICharacter
 {
+	protected:
+		std::string name;
 	public:
-		virtual	ICharacter(void);
-		virtual	ICharacter(const ICharacter &other);
-		virtual	ICharacter &operator=(const ICharacter &other);
+		ICharacter(void);
+		ICharacter(std::string name);
+		ICharacter(const ICharacter &other);
+		ICharacter &operator=(const ICharacter &other);
 		virtual	~ICharacter();
 	
 		virtual	std::string const & getName() const = 0;
