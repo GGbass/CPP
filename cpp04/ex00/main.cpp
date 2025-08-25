@@ -7,7 +7,6 @@
 
 int	main(void)
 {
-	
 	std::cout << "\n\n";
 	const Animal* meta = new Animal();
 	std::cout << "\n\n";
@@ -18,6 +17,7 @@ int	main(void)
 	std::cout << j->getType() << " \n" << std::endl;
 	std::cout << i->getType() << " \n" << std::endl;
 
+	std::cout << "\n\n";
 	i->makeSound(); //will output the cat sound!
 	std::cout << "\n\n";
 	j->makeSound();
@@ -28,7 +28,6 @@ int	main(void)
 	delete meta;
 	delete j;
 	delete i;
-
 
 	/* Dog a;
 	Cat	b;

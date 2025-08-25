@@ -1,20 +1,12 @@
 #include "Animal.hpp"
 
-/* Animal::Animal()
-{
-	this->type = "Default";
-	std::cout << "Animal default constructor called\n";
-} */
-
 Animal::Animal() : type("Default")
 {
-	//this->type = "Default";
 	std::cout << "Animal default constructor called\n";
 }
 
 Animal::Animal(std::string type) : type(type)
 {
-	//this->type = type;
 	std::cout << "Animal constructor called from " << this->type <<  std::endl;
 }
 

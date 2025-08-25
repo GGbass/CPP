@@ -15,14 +15,18 @@ Cat &Cat::operator=(const Cat &other)
 	if (this != &other)
 	{
 		this->type = other.type;
-		*this->brain = *other.brain;
+		//*this->brain = *other.brain;
+		if (this->brain != NULL)
+			delete this->brain;
+		this->brain = new Brain(*other.brain);
 	}
 	return (*this);
 }
 
 Cat::~Cat()
 {
-	delete this->brain;
+	if (this->brain)
+		delete this->brain;
 	std::cout << "Cat: Deleting this " << this->type << " Class \n";
 }
 

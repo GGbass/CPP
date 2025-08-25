@@ -2,12 +2,13 @@
 
 Cat::Cat() : Animal("Cat")
 {
-	std::cout << "A cat it's created\n";
+	std::cout << "A cat is created\n";
 }
 
 Cat::Cat(const Cat &other) : Animal(other)
 {
 	this->type = other.type;
+	std::cout << "Copy Constructor\n";
 }
 
 Cat &Cat::operator=(const Cat &other)
