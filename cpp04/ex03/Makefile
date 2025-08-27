@@ -16,18 +16,16 @@ CPP_FILE = $(CLASS_NAME).cpp
 
 NAME = program
 
-SRC =	./IMateriaSource.cpp \
-		./AMateria.cpp \
+SRC =	./AMateria.cpp \
 		./Cure.cpp \
 		./Ice.cpp \
-		./ICharacter.cpp \
 		./Character.cpp \
 		./MateriaSource.cpp \
 		./main.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
-CXXFLAGS = -Wall -Werror -Wextra -std=c++98 -fsanitize=address,leak
+CXXFLAGS = -Wall -Werror -Wextra -std=c++98 #-fsanitize=address,leak
 
 CXX = c++
 

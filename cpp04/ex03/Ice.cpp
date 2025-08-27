@@ -35,4 +35,6 @@ void Ice::use(ICharacter &target)
 {
 	if (target.getName() != "")
 		std::cout << "Shoots an ice bolt at " << target.getName() << "\n";
+	else
+		std::cout << "Shoots an ice bolt at an unknown target\n";
 }

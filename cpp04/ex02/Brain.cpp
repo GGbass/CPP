@@ -11,6 +11,7 @@ Brain::Brain(const Brain &other)
 	{
 		this->ideas[i] = other.ideas[i];
 	}
+	std::cout << "Copying a brain to someone\n";
 }
 
 Brain &Brain::operator=(const Brain &other)
@@ -21,14 +22,12 @@ Brain &Brain::operator=(const Brain &other)
 		{
 			this->ideas[i] = other.ideas[i];
 		}
+		std::cout << "Assigning a brain to someone\n";
 	}
 	return (*this);
 }
 
-Brain::~Brain()
-{
-	std::cout << "My ideaaas  noo!! \n" ;
-}
+Brain::~Brain(){std::cout << "My ideaaas  noo!! \n" ;}
 
 std::string Brain::getIdea(int i) const { return  (this->ideas[i]);}
 

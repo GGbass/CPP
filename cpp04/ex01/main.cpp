@@ -7,12 +7,7 @@
 
 int	main(void)
 {
-	/* const Animal* j = new Dog();
-	const Animal* i = new Cat();
-	delete j;
-	delete i; */
-
-/* 	Animal* animals[10];
+	Animal* animals[10];
 
 	for (int i = 0; i < 5; i++)
 		animals[i] = new Cat();
@@ -22,16 +17,20 @@ int	main(void)
 	std::cout << "\n";
 	for (int i = 0; i < 10; i++)
 		animals[i]->makeSound();
-
-	
-
 	std::cout << "\n";
 	for (int i = 0; i < 10; i++)
-		delete animals[i]; */
+		delete animals[i];
 
 	/* Deep copies  and printing ideas*/
 
-	Animal*	doggy;
+/* 	Dog* dog = new Dog();
+	dog->setIdeas();
+	Dog* dogCopy = new Dog(*dog);
+	std::cout << dogCopy->getIdea(0) << std::endl;
+
+	delete dog;
+	delete dogCopy; */
+/* 	Animal*	doggy;
 	Animal*	kitty;
 
 	doggy= new Dog();
@@ -71,7 +70,6 @@ int	main(void)
 	delete doggyCopy;
 	std::cout << "\n";
 	delete kittyCopy;
-
-
+ */
 	return (0);
 }

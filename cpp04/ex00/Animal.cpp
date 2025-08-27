@@ -26,10 +26,10 @@ std::string Animal::getType()const { return (this->type);}
 
 Animal::~Animal()
 {
-	std::cout << "Default Destructor from " << getType() << "Animal\n";
+	std::cout << "Default Destructor from " << getType() << " Animal\n";
 }
 
 void	Animal::makeSound() const
 {
-	std::cout << this->type << " It's making a weird sound\n";
+	std::cout << this->type << " Is making a weird sound\n";
 }

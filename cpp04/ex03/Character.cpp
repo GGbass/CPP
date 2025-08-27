@@ -1,27 +1,25 @@
 #include "Character.hpp"
 
-Character::Character() : ICharacter(), name("Unnamed")
+Character::Character() //: ICharacter(), name("Unnamed")
 {
 	for (int i = 0; i < 4; i++)
 		inventory[i] = NULL;
 	std::cout << "Creating a default Character\n";
 }
 
-Character::Character(std::string name) : ICharacter(), name(name)
+Character::Character(std::string name) : name(name)//ICharacter(), name(name)
 {
 	for (int i = 0; i < 4; i++)
 		inventory[i] = NULL;
 	std::cout << "Creating a Character with name: " << this->name << "\n";
 }
 
-Character::Character(const Character &other) : ICharacter(other), name(other.name)
+Character::Character(const Character &other) : name(other.name)//ICharacter(other), name(other.name)
 {
 	for (int i = 0; i < 4; i++)
 	{
 		if (other.inventory[i])
-		{
 			this->inventory[i] = other.inventory[i]->clone();
-		}
 		else
 			this->inventory[i] = NULL;
 	}
@@ -36,11 +34,12 @@ Character	&Character::operator=(const Character &other)
 		for (int i = 0; i < 4; i++)
 		{
 			if (this->inventory[i])
+			{
 				delete this->inventory[i];
+				this->inventory[i] = NULL;
+			}
 			if (other.inventory[i])
 				this->inventory[i] = other.inventory[i]->clone();
-			else
-				this->inventory[i] = NULL;
 		}
 	}
 	std::cout << "Assigning a Character\n";
@@ -84,8 +83,8 @@ void	Character::unequip(int idx)
 void	Character::use(int idx, ICharacter &target)
 {
 	if (idx < 0 || idx >= 4 || !this->inventory[idx])
-		return;
-	std::cout << "Using " << this->inventory[idx]->getType() << " on " << target.getName() << "\n";
+		return (std::cout << "Wrong index\n"), void();
+	std::cout << this->name << " Using " << this->inventory[idx]->getType() << " on " << target.getName() << "\n";
 	this->inventory[idx]->use(target);
 }
 

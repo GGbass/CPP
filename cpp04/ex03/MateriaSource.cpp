@@ -6,9 +6,8 @@ MateriaSource::MateriaSource(void)
 		materia[i] = NULL;
 	std::cout << "Creating a MateriaSource\n";
 }
-MateriaSource::MateriaSource(const MateriaSource &other) : IMateriaSource(other)
+MateriaSource::MateriaSource(const MateriaSource &other) //: IMateriaSource(other)
 {
-	//*this = other;
 	for (int i = 0; i < 4; i++)
 	{
 		if (other.materia[i])
@@ -25,10 +24,13 @@ MateriaSource &MateriaSource::operator=(const MateriaSource &other)
 	{
 		for (int i = 0; i < 4; i++)
 		{
+			if (this->materia[i])
+			{
+				delete this->materia[i];
+				this->materia[i] = NULL;
+			}
 			if (other.materia[i])
 				this->materia[i] = other.materia[i]->clone();
-			else
-				this->materia[i] = NULL;
 		}
 		std::cout << "Assigning a MateriaSource\n";
 	}
