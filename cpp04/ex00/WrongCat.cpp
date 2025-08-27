@@ -2,7 +2,7 @@
 
 WrongCat::WrongCat() : WrongAnimal("WrongCat")
 {
-	std::cout << "A WrongCat it's created\n";
+	std::cout << "A WrongCat is created\n";
 }
 
 WrongCat::WrongCat(const WrongCat &other) :WrongAnimal(other)

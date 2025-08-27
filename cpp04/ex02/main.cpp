@@ -32,45 +32,55 @@ int	main(void)
 	for (int i = 0; i < 10; i++)
 		delete animals[i];
 
+
+	/* Abstract class example */
+/* Animal* anima = new Animal();
+
+	anima->makeSound();
+
+	delete anima; */
+
 	/* Deep copies  and printing ideas*/
-/* 
-	Animal* doggy;
-	Animal* kitty;
-	
-	doggy = new Dog();
-	std::cout << "\n\n";
+
+/* 	Animal*	doggy;
+	Animal*	kitty;
+
+	doggy= new Dog();
+	std::cout << "\n";
 	kitty = new Cat();
 
-	std::cout << "\n\n";
+	std::cout << "\n";
 	doggy->makeSound();
-	std::cout << "\n\n";
+	std::cout << "\n";
 	kitty->makeSound();
-	std::cout << "\n\n";
+	std::cout << "\n";
 	doggy->setIdeas();
-	std::cout << "\n\n";
+	std::cout << "\n";
 	kitty->setIdeas();
-	std::cout << "\n\n";
+	std::cout << "\n";
 	std::cout << kitty->getIdea(11) << std::endl;
-	kitty->setIdea(11, "I will scarch the door !!");
+	std::cout << "\n";
+	kitty->setIdea(11, "I will scratch the door !!");
+	std::cout << "\n";
 	std::cout << kitty->getIdea(11) << std::endl;
+	std::cout << "\n";
 	std::cout << doggy->getIdea(0) << std::endl;
+	std::cout << "\n";
 	std::cout << kitty->getIdea(0) << std::endl;
-	std::cout << "\n\n";
+	std::cout << "\n";
 	Animal* doggyCopy = new Dog(*dynamic_cast<Dog*>(doggy));
-	std::cout << "\n\n";
+	std::cout << "\n";
 	Animal* kittyCopy = new Cat(*dynamic_cast<Cat*>(kitty));
-	std::cout << "\n\n";
-	std::cout << doggyCopy->getIdea(0) << std::endl;
-	std::cout << "\n\n";
-	std::cout << kittyCopy->getIdea(0) << std::endl;
-	std::cout << "\n\n";
+	std::cout << "\n";
 	delete doggy;
-	std::cout << "\n\n";
+	std::cout << doggyCopy->getIdea(0) << std::endl;
+	std::cout << "\n";
 	delete kitty;
-	std::cout << "\n\n";
+	std::cout << "\n";
+	std::cout << kittyCopy->getIdea(11) << std::endl;
+	std::cout << "\n";
 	delete doggyCopy;
-	std::cout << "\n\n";
-	delete kittyCopy;
-	std::cout << "\n\n"; */
+	std::cout << "\n";
+	delete kittyCopy; */
 	return (0);
 }

@@ -26,7 +26,7 @@ SRC =	./Brain.cpp \
 
 OBJ = $(SRC:.cpp=.o)
 
-CXXFLAGS = -Wall -Werror -Wextra -std=c++98 -fsanitize=address,leak
+CXXFLAGS = -Wall -Werror -Wextra -std=c++98 #-fsanitize=address,leak
 
 CXX = c++
 

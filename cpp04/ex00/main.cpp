@@ -7,7 +7,7 @@
 
 int	main(void)
 {
-	std::cout << "\n\n";
+/* 	std::cout << "\n\n";
 	const Animal* meta = new Animal();
 	std::cout << "\n\n";
 	const Animal* j = new Dog();
@@ -27,7 +27,7 @@ int	main(void)
 
 	delete meta;
 	delete j;
-	delete i;
+	delete i; */
 
 	/* Dog a;
 	Cat	b;
@@ -35,11 +35,9 @@ int	main(void)
 	a.makeSound();
 	b.makeSound(); */
 
-		/* 
-	const WrongAnimal* meta = new WrongAnimal();
-
+	const WrongAnimal*	meta = new WrongAnimal();
 	std::cout << "\n\n";
-	const WrongAnimal* i = new WrongCat();
+	const WrongAnimal*	i = new WrongCat();
 	
 	std::cout << "\n\n";
 	std::cout << i->getType() << " \n" << std::endl;
@@ -47,9 +45,10 @@ int	main(void)
 	meta->makeSound();
 	std::cout << "\n\n";
 	i->makeSound();
+	std::cout << "\n\n";
 
 	delete meta;
-	delete i; */
+	delete i;
 
 	return (0);
 }
