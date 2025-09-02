@@ -16,7 +16,10 @@ CPP_FILE = $(CLASS_NAME).cpp
 
 NAME = program
 
-SRC =	./Bureaucrat.cpp \
+SRC =	./PresidentialPardonForm.cpp \
+		./RobotomyRequestForm.cpp \
+		./ShrubberyCreationForm.cpp \
+		./Bureaucrat.cpp \
 		./AForm.cpp \
 		./main.cpp
 
