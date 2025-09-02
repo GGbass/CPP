@@ -43,7 +43,7 @@ MateriaSource::~MateriaSource()
 	{
 		if (this->materia[i])
 		{
-			std::cout << "Deleting " << this->materia[i]->getType() << " Materia\n";
+			//std::cout << "Deleting " << this->materia[i]->getType() << " Materia\n";
 			delete this->materia[i];
 		}
 	}

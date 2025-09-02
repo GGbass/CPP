@@ -4,33 +4,12 @@
 #include "WrongAnimal.hpp"
 #include "WrongCat.hpp"
 #include "Brain.hpp"
+#include <cstdlib>
 
-int	main(void)
+
+void	moreCopyTest(void)
 {
-	Animal* animals[10];
-
-	for (int i = 0; i < 5; i++)
-		animals[i] = new Cat();
-	std::cout << "\n";
-	for (int i = 5; i < 10; i++)
-		animals[i] = new Dog();
-	std::cout << "\n";
-	for (int i = 0; i < 10; i++)
-		animals[i]->makeSound();
-	std::cout << "\n";
-	for (int i = 0; i < 10; i++)
-		delete animals[i];
-
-	/* Deep copies  and printing ideas*/
-
-/* 	Dog* dog = new Dog();
-	dog->setIdeas();
-	Dog* dogCopy = new Dog(*dog);
-	std::cout << dogCopy->getIdea(0) << std::endl;
-
-	delete dog;
-	delete dogCopy; */
-/* 	Animal*	doggy;
+	Animal*	doggy;
 	Animal*	kitty;
 
 	doggy= new Dog();
@@ -70,6 +49,42 @@ int	main(void)
 	delete doggyCopy;
 	std::cout << "\n";
 	delete kittyCopy;
- */
+}
+void	smallCopyTest(void)
+{
+	
+	Dog* dog = new Dog();
+	dog->setIdeas();
+	Dog* dogCopy = new Dog(*dog);
+	delete dog;
+	std::cout << dogCopy->getIdea(0) << std::endl;
+
+	delete dogCopy;
+}
+
+void	animalsArray(void)
+{
+	Animal* animals[10];
+
+	for (int i = 0; i < 5; i++)
+		animals[i] = new Cat();
+	std::cout << "\n";
+	for (int i = 5; i < 10; i++)
+		animals[i] = new Dog();
+	std::cout << "\n";
+	for (int i = 0; i < 10; i++)
+		animals[i]->makeSound();
+	std::cout << "\n";
+	for (int i = 0; i < 10; i++)
+		delete animals[i];
+}
+
+int	main(void)
+{
+
+	animalsArray();
+	/* Deep copies  and printing ideas*/
+/* 	smallCopyTest();
+	moreCopyTest(); */
 	return (0);
 }

@@ -21,7 +21,7 @@ int	main(void)
 	std::cout << "\n\n";
 	for (int i = 0; i < 10; i++)
 		delete animals[i];
-	//Animal* a = new Animal();
-	//delete a;
+	/* Animal* a = new Animal();
+	delete a; */
 	return (0);
 }
