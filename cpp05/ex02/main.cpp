@@ -1,8 +1,7 @@
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
 
 int	main(void)
 {
-
 	return (0);
 }

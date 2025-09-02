@@ -1,5 +1,5 @@
-#ifndef Form_HPP
-# define Form_HPP
+#ifndef AForm_HPP
+# define AForm_HPP
 # include <iostream>
 # include <stdexcept>
 # include "Bureaucrat.hpp"
@@ -7,7 +7,7 @@
 // Forward declaration to break circular dependency
 class Bureaucrat;
 
-class Form
+class AForm
 {
 	private:
 		std::string const	name;
@@ -16,13 +16,13 @@ class Form
 		int const			executeGrade;
 
 	public:
-		Form();
-		Form(std::string const& name, int signGrade, int executeGrade);
-		Form(Form const& other);
-		Form& operator=(Form const& other);
-		~Form();
+		AForm();
+		AForm(std::string const& name, int signGrade, int executeGrade);
+		AForm(AForm const& other);
+		AForm& operator=(AForm const& other);
+		virtual ~AForm();
 
-		std::string const&	getName() const;
+		virtual std::string const&	getName() const = 0;
 		int					getSignGrade() const;
 	bool				getIsSigned() const;
 		int					getExecuteGrade() const;

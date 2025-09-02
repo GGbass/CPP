@@ -5,7 +5,7 @@
 //# include "Form.hpp"
 
 // Forward declaration to break circular dependency
-class Form;
+class AForm;
 
 class Bureaucrat
 {
@@ -24,7 +24,7 @@ class Bureaucrat
 		int			getGrade() const;
 		void		incrementGrade();
 		void		decrementGrade();
-		int			signForm(Form &form);
+		int			signForm(AForm &form);
 	
 	class	GradeTooHighException : public std::exception
 	{

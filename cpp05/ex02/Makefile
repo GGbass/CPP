@@ -17,7 +17,7 @@ CPP_FILE = $(CLASS_NAME).cpp
 NAME = program
 
 SRC =	./Bureaucrat.cpp \
-		./Form.cpp \
+		./AForm.cpp \
 		./main.cpp
 
 OBJ = $(SRC:.cpp=.o)
