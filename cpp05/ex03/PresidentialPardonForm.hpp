@@ -17,6 +17,7 @@ class PresidentialPardonForm : public AForm
 		const std::string&	getTarget() const;
 		std::string const&	getName() const;
 		void				execute(const Bureaucrat& executor) const;
+		AForm*				clone(std::string const& target) const;
 };
 
 std::ostream& operator<<(std::ostream& os, PresidentialPardonForm const& form);

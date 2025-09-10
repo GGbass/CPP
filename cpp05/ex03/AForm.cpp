@@ -105,3 +105,4 @@ std::ostream& operator<<(std::ostream& os, AForm const& AForm)
 			os << "Form is not signed\n";
 	return (os);
 }
+

@@ -14,10 +14,10 @@ class RobotomyRequestForm : public AForm
 		RobotomyRequestForm& operator=(const RobotomyRequestForm& other);
 		~RobotomyRequestForm();
 
-	const std::string&	getTarget() const;
-	std::string const&	getName() const;
-	void				execute(const Bureaucrat& executor) const;
-
+		const std::string&	getTarget() const;
+		std::string const&	getName() const;
+		void				execute(const Bureaucrat& executor) const;
+		AForm*				clone(std::string const& target) const;
 };
 
 #endif // RobotomyRequestForm_HPP

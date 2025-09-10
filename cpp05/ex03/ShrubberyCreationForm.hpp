@@ -17,10 +17,10 @@ class ShrubberyCreationForm : public AForm
 		ShrubberyCreationForm& operator=(const ShrubberyCreationForm& other);
 		~ShrubberyCreationForm();
 		
-	const std::string&	getTarget() const;
-	std::string const&	getName() const;
-	void				execute(const Bureaucrat& executor) const;
-
+		const std::string&	getTarget() const;
+		std::string const&	getName() const;
+		void				execute(const Bureaucrat& executor) const;
+		AForm*				clone(std::string const& target) const;
 };
 
 std::ostream& operator<<(std::ostream& os, ShrubberyCreationForm const& form);

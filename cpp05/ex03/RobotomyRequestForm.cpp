@@ -56,6 +56,10 @@ RobotomyRequestForm::~RobotomyRequestForm()
 	std::cout << "This RobotomyRequestForm with target " << this->target << " deleted!\n";
 }
 
+AForm* RobotomyRequestForm::clone(std::string const& target) const
+{
+	return (new RobotomyRequestForm(target));
+}
 
 std::ostream& operator<<(std::ostream& os, RobotomyRequestForm const& form)
 {

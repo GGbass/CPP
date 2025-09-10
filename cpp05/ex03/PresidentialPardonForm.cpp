@@ -48,6 +48,11 @@ void	PresidentialPardonForm::execute(const Bureaucrat& executor) const
 	std::cout << "The pardon for " << this->target << "was approved! by Zaphod Beeblebrox\n";
 }
 
+AForm* PresidentialPardonForm::clone(std::string const& target) const
+{
+	return (new PresidentialPardonForm(target));
+}
+
 std::ostream& operator<<(std::ostream& os, PresidentialPardonForm const& form)
 {
 	AForm const & base = static_cast<AForm const&>(form);

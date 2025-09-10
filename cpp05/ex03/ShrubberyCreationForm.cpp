@@ -62,6 +62,11 @@ void	ShrubberyCreationForm::execute(const Bureaucrat& executor) const
 	outfile.close();
 }
 
+AForm* ShrubberyCreationForm::clone(std::string const& target) const
+{
+	return (new ShrubberyCreationForm(target));
+}
+
 
 std::ostream& operator<<(std::ostream& os, ShrubberyCreationForm const& form)
 {
