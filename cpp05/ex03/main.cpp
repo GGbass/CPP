@@ -2,6 +2,7 @@
 #include "ShrubberyCreationForm.hpp"
 #include "PresidentialPardonForm.hpp"
 #include "RobotomyRequestForm.hpp"
+#include "Intern.hpp"
 
 void	tryPresidentialPardonForm(void) // PresidentialPardon 25 5 
 {
@@ -74,8 +75,8 @@ void	tryShrubberyCreationForm(void) /* Shrubbery 145 137 */
 
 int	main(void)
 {
-	tryShrubberyCreationForm();
+/* 	tryShrubberyCreationForm();
 	tryRobotomyRequestForm();
-	tryPresidentialPardonForm();
+	tryPresidentialPardonForm(); */
 	return (0);
 }
