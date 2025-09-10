@@ -3,7 +3,7 @@
 
 Bureaucrat::Bureaucrat() : name("Default"), grade(150)
 {
-	std::cout << "Bureaucrat default constructor called" << std::endl;
+	std::cout << "Bureaucrat " << this->name << " called" << std::endl;
 }
 
 Bureaucrat::Bureaucrat(std::string const& name, int grade): name(name), grade(grade)
@@ -16,7 +16,7 @@ Bureaucrat::Bureaucrat(std::string const& name, int grade): name(name), grade(gr
 	{
 		throw Bureaucrat::GradeTooLowException();
 	}
-	std::cout << "Bureaucrat constructor called" << std::endl;
+	std::cout << "Bureaucrat " << this->name << " called" << std::endl;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat& other) : name(other.name), grade(other.grade)

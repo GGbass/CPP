@@ -4,6 +4,11 @@
 # include <stdexcept>
 # include "Bureaucrat.hpp"
 
+#define BLUE "\033[0;34m"
+#define GREEN "\033[0;32m"
+#define RED "\033[0;31m"
+#define DEFAULT "\033[0m"
+
 // Forward declaration to break circular dependency
 class Bureaucrat;
 
@@ -26,7 +31,7 @@ class AForm
 		int					getSignGrade() const;
 		bool				getIsSigned() const;
 		int					getExecuteGrade() const;
-		void				beSigned(Bureaucrat const& bureaucrat);
+		virtual void		beSigned(Bureaucrat const& bureaucrat);
 		virtual void		execute(Bureaucrat const& executor) const = 0;
 
 	class GradeTooHighException : public std::exception

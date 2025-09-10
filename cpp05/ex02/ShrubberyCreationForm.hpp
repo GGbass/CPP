@@ -23,4 +23,6 @@ class ShrubberyCreationForm : public AForm
 
 };
 
+std::ostream& operator<<(std::ostream& os, ShrubberyCreationForm const& form);
+
 #endif // ShrubberyCreationForm_HPP

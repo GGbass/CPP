@@ -8,7 +8,7 @@ ShrubberyCreationForm::ShrubberyCreationForm() : AForm("ShrubberyCreationForm", 
 
 ShrubberyCreationForm::ShrubberyCreationForm(const std::string& target) : AForm("ShrubberyCreationForm", 145, 137), target(target)
 {
-	std::cout << "ShrubberyCreationForm constructor called\n";
+	std::cout << "ShrubberyCreationForm constructor called with target:" << this->target << std::endl;
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &other) : AForm(other), target(other.target)
@@ -18,7 +18,7 @@ ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &other)
 		if (other.target != "")
 			this->target = other.target;
 	}
-	std::cout << "ShrubberyCreationForm copy constructor called\n";
+	std::cout << "ShrubberyCreationForm copy constructor called with target:" << this->target << std::endl;
 }
 ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationForm &other)
 {
@@ -42,11 +42,8 @@ std::string const& ShrubberyCreationForm::getName() const { return AForm::getNam
 
 void	ShrubberyCreationForm::execute(const Bureaucrat& executor) const
 {
-	/* if (!this->getIsSigned())
-		throw AForm::FormNotSignedException();
-	if (executor.getGrade() > this->getExecuteGrade())
-		throw AForm::GradeTooLowException(); */
-	(void)executor;
+	AForm::execute(executor);
+
 	std::ofstream outfile((this->target + "_shrubbery").c_str());
 	if (!outfile)
 	{
@@ -63,4 +60,13 @@ void	ShrubberyCreationForm::execute(const Bureaucrat& executor) const
 			   "  _ -  | |   -_\n"
 			   "      // \\\\\n";
 	outfile.close();
+}
+
+
+std::ostream& operator<<(std::ostream& os, ShrubberyCreationForm const& form)
+{
+	AForm const & base = static_cast<AForm const&>(form);
+	os << base;
+	os << "Target: " << form.getTarget() << "\n";
+	return (os);
 }
