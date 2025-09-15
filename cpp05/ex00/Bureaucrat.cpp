@@ -16,6 +16,7 @@ Bureaucrat::Bureaucrat(std::string const& name, int grade): name(name)
 		throw Bureaucrat::GradeTooLowException();
 	}
 	this->grade = grade;
+	std::cout << "Bureaucrat " << this->name << " constructor called" << std::endl;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat& other) : name(other.name), grade(other.grade)
@@ -27,10 +28,11 @@ Bureaucrat&	Bureaucrat::operator=(const Bureaucrat& other)
 {
 	if (this != &other)
 	{
-		this->name = other.name;
 		this->grade = other.grade;
+		/* this->~Bureaucrat();
+		new (this) Bureaucrat(other); */
+		std::cout << "Bureaucrat assignment operator called" << std::endl;
 	}
-	std::cout << "Bureaucrat assignment operator called" << std::endl;
 	return (*this);
 }
 

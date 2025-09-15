@@ -27,7 +27,7 @@ void	tryHighGrade()
 		std::cout << "\n=== Test 3: Grade Too High ===" << std::endl;
 		//Bureaucrat topGrade("TopGuy", 1);
 		std::cout << *topGrade;
-		topGrade->incrementGrade(); // This should throw
+		topGrade->incrementGrade();
 	}
 	catch (Bureaucrat::GradeTooHighException& e)
 	{
@@ -63,13 +63,17 @@ void	tryValid()
 	{
 		std::cout << "=== Test 1: Valid Operations ===" << std::endl;
 		Bureaucrat* bureaucrat = new Bureaucrat("Johnny", 42);
+		Bureaucrat* anotherBureaucrat = new Bureaucrat();
+		std::cout << std::endl;
 		std::cout << *bureaucrat;
-
 		bureaucrat->incrementGrade();
 		std::cout << *bureaucrat;
 		bureaucrat->decrementGrade();
 		std::cout << *bureaucrat;
+
+		*anotherBureaucrat = *bureaucrat;
 		delete bureaucrat;
+		delete anotherBureaucrat;
 	}
 	catch (Bureaucrat::GradeTooHighException& e)
 	{
@@ -84,8 +88,8 @@ void	tryValid()
 int	main(void)
 {
 	tryValid();
-	tryInvalidCreation();
+/* 	tryInvalidCreation();
 	tryHighGrade();
-	tryLowGrade();
+	tryLowGrade(); */
 	return (0);
 }

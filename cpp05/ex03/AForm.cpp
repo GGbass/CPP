@@ -25,7 +25,7 @@ AForm& AForm::operator=(const AForm &other)
 {
 	if (this != &other)
 	{
-		this->~AForm();
+		//this->~AForm();
 		//new (this) AForm(other);
 	}
 	std::cout << "Form assignment operator called from: " << this->name << std::endl;
