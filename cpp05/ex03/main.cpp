@@ -4,15 +4,37 @@
 #include "RobotomyRequestForm.hpp"
 #include "Intern.hpp"
 
+void	tryIntern()
+{
+	Intern* intern = new Intern();
+	Bureaucrat* max = new Bureaucrat("Max", 5);
+	AForm* form;
+	form = intern->makeForm("shrubbery creation", "Bender");
+	if (form)
+	{
+		std::cout << "\n\n";
+		std::cout << *form;
+		try
+		{
+			max->signForm(*form);
+			max->executeForm(*form);
+		
+		}
+		catch(std::exception& e)
+		{
+			std::cerr << e.what() << std::endl;
+		}
+		std::cout << "\n\n";
+		
+	}
+	delete max;
+	if (form)
+		delete form;
+	delete intern;
+}
+
 int	main(void)
 {
-	Intern	someRandomIntern;
-	AForm*	rrf;
-	rrf = someRandomIntern.makeForm("robotomy request", "Bender");
-	if (rrf)
-	{
-		std::cout << *rrf;
-		delete rrf;
-	}
+	tryIntern();
 	return (0);
 }

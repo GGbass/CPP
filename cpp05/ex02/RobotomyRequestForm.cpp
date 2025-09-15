@@ -18,6 +18,8 @@ RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& other) : AFo
 	{
 		if (other.target != "")
 			this->target = other.target;
+		else
+			this->target = "Default_target";
 	}
 	std::cout << "RobotomyRequestForm copy constructor called\n";
 }
@@ -30,8 +32,9 @@ RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &o
 			this->target = other.target;
 		else
 			this->target = "Default_target";
+		this->AForm::operator=(other);
+		std::cout << "RobotomyRequestForm copy assignment called\n";
 	}
-	std::cout << "RobotomyRequestForm copy assignment called\n";
 	return (*this);
 }
 

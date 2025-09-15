@@ -76,7 +76,7 @@ void	AForm::execute(Bureaucrat const &executor) const
 				  << " because bureaucrat's grade is too low." << std::endl;
 		throw AForm::GradeTooHighException();
 	}
-	std::cout << "Bureaucrat " << executor.getName() << "executes " << this->name << std::endl;
+	std::cout << "Bureaucrat   " << executor.getName() << "    executes " << this->name << std::endl;
 }
 
 const char* AForm::FormNotSignedException::what() const throw()

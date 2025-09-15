@@ -4,7 +4,7 @@
 
 AForm::AForm() : name("Default"), isSigned(false), signGrade(150), executeGrade(150)
 {
-	std::cout << "Form default constructor called" << std::endl;
+	//std::cout << "Form default constructor called" << std::endl;
 }
 
 AForm::AForm(std::string const& name, int signGrade, int executeGrade) : name(name), isSigned(false), signGrade(signGrade), executeGrade(executeGrade)
@@ -25,10 +25,11 @@ AForm& AForm::operator=(const AForm &other)
 {
 	if (this != &other)
 	{
-		this->~AForm();
-		//new (this) AForm(other);
+		/* this->~AForm();
+		new (this) AForm(other); */
+		this->isSigned = other.isSigned;
+		//std::cout << "Form assignment operator called from: " << this->name << std::endl;
 	}
-	std::cout << "Form assignment operator called from: " << this->name << std::endl;
 	return (*this);
 }
 
@@ -58,7 +59,7 @@ void	AForm::beSigned(Bureaucrat const &b)
 		throw GradeTooHighException();
 	}
 	std::cout << "Bureaucrat " << b.getName() 
-			  << " signs Form : " << this->name << std::endl;
+			  << " signs Form: " << this->name << std::endl;
 	this->isSigned = true;
 }
 
@@ -76,7 +77,7 @@ void	AForm::execute(Bureaucrat const &executor) const
 				  << " because bureaucrat's grade is too low." << std::endl;
 		throw AForm::GradeTooHighException();
 	}
-	std::cout << "Bureaucrat " << executor.getName() << "executes " << this->name << std::endl;
+	std::cout << "Bureaucrat " << executor.getName() << " executes: " << this->name << std::endl;
 }
 
 const char* AForm::FormNotSignedException::what() const throw()

@@ -22,7 +22,7 @@ void	tryPresidentialPardonForm(void) // PresidentialPardon 25 5
 	}
 	delete form;
 	delete zaphod;
-		std::cout << "\n";
+	std::cout << "\n";
 }
 
 void	tryRobotomyRequestForm(void) // RobotomyRequest 72 45
@@ -47,11 +47,10 @@ void	tryRobotomyRequestForm(void) // RobotomyRequest 72 45
 	std::cout << "\n";
 }
 
-
 void	tryShrubberyCreationForm(void) /* Shrubbery 145 137 */
 {
 	std::cout << "-----------Starting ShrubberyCreationForm test-----------\n";
-	Bureaucrat* weber = new Bureaucrat("Weber", 148);
+	Bureaucrat* weber = new Bureaucrat("Weber", 137);
 	ShrubberyCreationForm* form = new ShrubberyCreationForm("home2");
 	try
 	{
@@ -69,6 +68,7 @@ void	tryShrubberyCreationForm(void) /* Shrubbery 145 137 */
 	}
 	delete form;
 	delete weber;
+
 	std::cout << "\n";
 }
 

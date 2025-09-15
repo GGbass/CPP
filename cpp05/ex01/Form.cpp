@@ -24,10 +24,11 @@ Form& Form::operator=(const Form &other)
 {
 	if (this != &other)
 	{
-		this->~Form();
-		new (this) Form(other);
+		/* this->~Form();
+		new (this) Form(other); */
+		this->isSigned = other.isSigned;
+		std::cout << "Form assignment operator called from: " << this->name << std::endl;
 	}
-	std::cout << "Form assignment operator called from: " << this->name << std::endl;
 	return (*this);
 }
 

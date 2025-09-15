@@ -10,10 +10,10 @@ class Intern
 	private:
 		std::string	formNames[3];
 		AForm*		(Intern::*forms[3])(const std::string& target);
-		AForm*	createShrubberyForm(const std::string& target);
-		AForm*	createPresidentialForm(const std::string& target);
-		AForm*	createRobotomyForm(const std::string& target);
-		int		getIndex(const std::string& formType);
+		AForm*		createShrubberyForm(const std::string& target);
+		AForm*		createPresidentialForm(const std::string& target);
+		AForm*		createRobotomyForm(const std::string& target);
+		int			getIndex(const std::string& formType);
 
 	public:
 		Intern();

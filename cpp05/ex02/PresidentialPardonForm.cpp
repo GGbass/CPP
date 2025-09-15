@@ -28,6 +28,7 @@ PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPard
 			this->target = other.target;
 		else
 			this->target = "default_target";
+		this->AForm::operator=(other);
 	}
 	std::cout << "PresidentialPardonForm copy assigment called\n";
 	return (*this);
