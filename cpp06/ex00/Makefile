@@ -29,7 +29,7 @@ all: $(NAME) show_progress
 
 run: clean all
 	@echo "$(GREEN)Running $(NAME)...$(DEFAULT)\n"
-	@./$(NAME)
+	@./$(NAME) hola
 
 class:
 	@if [ -z "$(CLASS)" ]; then \

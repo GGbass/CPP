@@ -35,5 +35,10 @@ ScalarConverter::~ScalarConverter()
 
 void	ScalarConverter::converter(std::string str)
 {
-	(void) str;
+	if (str.empty())
+	{
+		std::cout << "Converter called with empty param" << std::endl;
+		return ;
+	}
+	std::cout << "Converter called with param: " << str << std::endl;
 }
