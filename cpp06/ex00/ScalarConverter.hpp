@@ -4,11 +4,12 @@
 
 class ScalarConverter
 {
+	private:
+		int		getType(std::string str);
 
 	public:
-		static void converter(std::string str);
+		static void	converter(std::string str);
 
-		ScalarConverter();
 		ScalarConverter(std::string str);
 		ScalarConverter(const ScalarConverter&  other);
 		ScalarConverter& operator=(const ScalarConverter& other);
