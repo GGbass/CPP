@@ -30,54 +30,23 @@ ScalarConverter::~ScalarConverter()
 
 void ScalarConverter::converter(std::string str)
 {
-	int	type = ScalarConverter::checkType(str);
-	switch (type)
+	int	type = ScalarConverter::getType(str);
+	if (type == -1)
 	{
-		case 0:
-			std::cout << "Detected type: char" << std::endl;
-			break;
-		case 1:
-			std::cout << "Detected type: double" << std::endl;
-			break;
-		case 2:
-			std::cout << "Detected type: float" << std::endl;
-			break;
-		case 3:
-			std::cout << "Detected type: int" << std::endl;
-			break;
-		default:
-			std::cout << "Detected type: invalid" << std::endl;
-			break;
-	}
-	std::cout << "Converter called with param: " << str << std::endl;
-}
-
-/* void	ScalarConverter::converter(std::string str)
-{
-	if (str.empty())
-	{
-		std::cout << "Converter called with empty param" << std::endl;
+		std::cout << "Error: Invalid argument" << std::endl;
 		return ;
 	}
-	char	c = static_cast<char>(str[0]);
-	int		i = static_cast<int>(str[0]);
-	float	f = static_cast<float>(str[0]);
-	double	d = static_cast<double>(str[0]);
-	if (c < 32 || c > 126 && str.length() == 1)
-		std::cout << "char: Non displayable" << std::endl;
-	else
-		std::cout << "char: '" << c << "'" << std::endl;
-	if (str.length() > 1)
-		std::cout << "int: impossible" << std::endl;
-	else
-		std::cout << "int: " << i << std::endl;
-	if ()
-	std::cout << "float: " << f << "f" << std::endl;
-	std::cout << "double: " << d << std::endl;
-	std::cout << "Converter called with param: " << str << std::endl;
-} */
+	ScalarConverter::printConversion(type, str);
+}
 
-int ScalarConverter::getType(std::string str)
+/* get the base
+	char
+	int
+	float
+	double
+ */
+
+int	ScalarConverter::getType(std::string str)
 {
 	bool	dot_found = false;
 	int		sign = 0;
@@ -90,7 +59,7 @@ int ScalarConverter::getType(std::string str)
 		i++;
 		sign = 1;
 	}
-	for (; i < str.length(); i++)
+	while (i < str.length())
 	{
 		if (str[i] == '.')
 		{
@@ -102,14 +71,43 @@ int ScalarConverter::getType(std::string str)
 		{
 			if (str[i] == 'f' && i == str.length() - 1 && dot_found)
 				return (2); // float
-			return (-1);
+			/* return (-1); */
 		}
+		i++;
 	}
 	if (dot_found)
 		return (1); // double
 	return (3); // int
 }
 
+void	ScalarConverter::printConversion(int type, std::string str)
+{
+	char	c;
+	int		i;
+	float	f;
+	double	d;
+	(void)type;
+	c = static_cast<char>(str[0]);
+	if (NO_PRINTABLE(c))
+		std::cout << "Non displayable" << std::endl;
+/* 	else if (type != 0)
+		std::cout << "char: impossible" << std::endl; */
+	else if (type == 2)
+		std::cout << "char: *" << std::endl;
+	else
+		std::cout << "char: " << c << std::endl;
+	/* check int */
+	std::stringstream(str) >> i;
+	std::cout << "int: " << i << std::endl;
+
+	/* check float */
+	std::stringstream(str) >> f;
+	std::cout << "float: " << f << "f" << std::endl;
+	/* check double */
+	std::stringstream(str) >> d;
+	std::cout << "double: " << d << std::endl;
+	std::cout << "Converter called with param: " << str << std::endl;
+}
 
 
 /* Printing
