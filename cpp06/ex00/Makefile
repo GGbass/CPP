@@ -14,7 +14,7 @@ CLASS_NAME = $(CLASS)
 HPP_FILE = $(CLASS_NAME).hpp
 CPP_FILE = $(CLASS_NAME).cpp
 
-NAME = program
+NAME = convert
 
 SRC =	./ScalarConverter.cpp \
 		./main.cpp
@@ -30,6 +30,11 @@ all: $(NAME) show_progress
 run: clean all
 	@echo "$(GREEN)Running $(NAME)...$(DEFAULT)\n"
 	@./$(NAME) hola
+	
+
+test: clean all
+	@echo "$(GREEN)Running tests...$(DEFAULT)\n"
+	@./tester.sh $(NAME)
 
 class:
 	@if [ -z "$(CLASS)" ]; then \

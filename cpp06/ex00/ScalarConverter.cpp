@@ -30,21 +30,17 @@ ScalarConverter::~ScalarConverter()
 
 void ScalarConverter::converter(std::string str)
 {
-	int	type = ScalarConverter::getType(str);
+	int		type = getType(str);
 	if (type == -1)
 	{
 		std::cout << "Error: Invalid argument" << std::endl;
 		return ;
 	}
-	ScalarConverter::printConversion(type, str);
+	printChar(str, type);
+	printInt(str, type);
+	printFloat(str, type);
+	printDouble(str, type);
 }
-
-/* get the base
-	char
-	int
-	float
-	double
- */
 
 int	ScalarConverter::getType(std::string str)
 {
@@ -52,12 +48,14 @@ int	ScalarConverter::getType(std::string str)
 	int		sign = 0;
 	size_t	i = 0;
 
-	if (str.length() == 1 && !isdigit(str[0]))
+	if (str.length() == 1 && !isdigit(str[0]) && PRINTABLE(str[0]))
 		return (0); // char
 	if (str[0] == '-' || str[0] == '+')
-	{
+	{ 
 		i++;
 		sign = 1;
+		if (!isdigit(str[i]))
+			return (-1);
 	}
 	while (i < str.length())
 	{
@@ -69,9 +67,10 @@ int	ScalarConverter::getType(std::string str)
 		}
 		else if (!isdigit(str[i]))
 		{
-			if (str[i] == 'f' && i == str.length() - 1 && dot_found)
+			if (str[i] == 'f' && str[i + 1] == '\0' && dot_found)
 				return (2); // float
-			/* return (-1); */
+			if (sign)
+			return (-1);
 		}
 		i++;
 	}
@@ -80,41 +79,77 @@ int	ScalarConverter::getType(std::string str)
 	return (3); // int
 }
 
-void	ScalarConverter::printConversion(int type, std::string str)
+void	ScalarConverter::printChar(std::string str, int type)
 {
 	char	c;
-	int		i;
-	float	f;
-	double	d;
-	(void)type;
-	c = static_cast<char>(str[0]);
-	if (NO_PRINTABLE(c))
-		std::cout << "Non displayable" << std::endl;
-/* 	else if (type != 0)
-		std::cout << "char: impossible" << std::endl; */
-	else if (type == 2)
-		std::cout << "char: *" << std::endl;
-	else
-		std::cout << "char: " << c << std::endl;
-	/* check int */
-	std::stringstream(str) >> i;
-	std::cout << "int: " << i << std::endl;
 
-	/* check float */
-	std::stringstream(str) >> f;
-	std::cout << "float: " << f << "f" << std::endl;
-	/* check double */
-	std::stringstream(str) >> d;
-	std::cout << "double: " << d << std::endl;
-	std::cout << "Converter called with param: " << str << std::endl;
+	if (type == 0)
+		c = static_cast<char>(str[0]);
+	if (PRINTABLE(c))
+		std::cout << "char: " << c << std::endl;
+	else if (str.length() >= 3)
+		std::cout << "char: Impossible" << std::endl;
+	else if (NO_PRINTABLE(c))
+		std::cout << "Non displayable" << std::endl;
+	else
+		std::cout << " for real ? char: *" << c << std::endl;
 }
 
+void	ScalarConverter::printInt(std::string str, int type)
+{
+	int		i = atoi(str.c_str());
+	double	d = atof(str.c_str());
 
-/* Printing
+	if (d != d)
+		std::cout << "int: Impossible" << std::endl;
+	else if (type == 1 || type == 2 || (type == 3 && str.length() < 11))
+	{
+		if (OUT_OF_RANGE(i))
+		{
+			std::cout << "int: Impossible" << std::endl;
+			return ;
+		}
+		std::cout << "int: " << i << std::endl;
+	}
+	else
+		std::cout << "int: Impossible" << std::endl;
+}
 
-For char: if non-printable (ASCII < 32 or = 127), print “Non displayable.”
+void	ScalarConverter::printFloat(std::string str, int type)
+{
+	float	f = static_cast<float>(atof(str.c_str()));
 
-For any impossible cast, print “impossible.”
+	if (f != f)
+		std::cout << "float: nanf" << std::endl;
+	else if (type == 1 || type == 2 || (type == 3 && str.length() < 11))
+	{
+		if (OUT_OF_RANGE(f))
+		{
+			std::cout << "float: Impossible" << std::endl;
+			return ;
+		}
+		std::cout << std::fixed << std::setprecision(1);
+		std::cout << "float: " << f << "f" << std::endl;
+	}
+	else
+		std::cout << "float: Impossible" << std::endl;
+}
 
-Always append f to float outputs and set precision (.1 minimum).
-*/
+void	ScalarConverter::printDouble(std::string str, int type)
+{
+	double	d = static_cast<double>(atof(str.c_str()));
+	if (d != d)
+		std::cout << "double: nan" << std::endl;
+	else if (type == 1 || type == 2 || (type == 3 && str.length() < 11))
+	{
+		if (OUT_OF_RANGE(d))
+		{
+			std::cout << "double: Impossible" << std::endl;
+			return ;
+		}
+		std::cout << std::fixed << std::setprecision(1);
+		std::cout << "double: " << d  << std::endl;
+	}
+	else
+		std::cout << "double: Impossible" << std::endl;
+}

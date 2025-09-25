@@ -18,10 +18,10 @@ static std::string getInputString(int argc, char **argv)
 int	main(int argc, char **argv)
 {
 	std::string param = getInputString(argc, argv);
+	if (param.find(' ') != std::string::npos)
+		return ((std::cout << "Error: Invalid argument" << std::endl), 0);
 	if (param.empty() || param == "")
-	{
 		return (1);
-	}
 	ScalarConverter::converter(param);
 	return (0);
 }
