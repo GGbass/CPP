@@ -15,6 +15,7 @@ class ScalarConverter
 {
 	private:
 		static int		getType(std::string str);
+		static bool		isConvertible(std::string str, int type);
 		static void		printChar(std::string str, int type);
 		static void		printInt(std::string str, int type);
 		static void		printFloat(std::string str, int type);

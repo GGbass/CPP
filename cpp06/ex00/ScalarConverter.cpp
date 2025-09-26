@@ -82,17 +82,14 @@ int	ScalarConverter::getType(std::string str)
 void	ScalarConverter::printChar(std::string str, int type)
 {
 	char	c;
-
-	if (type == 0)
-		c = static_cast<char>(str[0]);
+	c = static_cast<char>(atoi(str.c_str()));
+	(void)type;
 	if (PRINTABLE(c))
 		std::cout << "char: " << c << std::endl;
 	else if (str.length() >= 3)
 		std::cout << "char: Impossible" << std::endl;
-	else if (NO_PRINTABLE(c))
-		std::cout << "Non displayable" << std::endl;
 	else
-		std::cout << " for real ? char: *" << c << std::endl;
+		std::cout << "Non displayable" << std::endl;
 }
 
 void	ScalarConverter::printInt(std::string str, int type)
@@ -104,7 +101,7 @@ void	ScalarConverter::printInt(std::string str, int type)
 		std::cout << "int: Impossible" << std::endl;
 	else if (type == 1 || type == 2 || (type == 3 && str.length() < 11))
 	{
-		if (OUT_OF_RANGE(i))
+		if (OUT_OF_RANGE(d))
 		{
 			std::cout << "int: Impossible" << std::endl;
 			return ;
@@ -125,6 +122,7 @@ void	ScalarConverter::printFloat(std::string str, int type)
 	{
 		if (OUT_OF_RANGE(f))
 		{
+			//
 			std::cout << "float: Impossible" << std::endl;
 			return ;
 		}
