@@ -5,6 +5,7 @@
 # include <sstream>
 # include <iomanip>
 # include <cstdlib>
+# include <cmath>
 
 # define NO_PRINTABLE(c) (c < 32 || c > 126)
 # define PRINTABLE(c) (c >= 32 && c <= 126)
@@ -20,15 +21,13 @@ class ScalarConverter
 		static void		printInt(std::string str, int type);
 		static void		printFloat(std::string str, int type);
 		static void		printDouble(std::string str, int type);
-
-	public:
-		static void	converter(std::string str);
-
 		ScalarConverter(std::string str);
 		ScalarConverter(const ScalarConverter&  other);
 		ScalarConverter& operator=(const ScalarConverter& other);
 		virtual ~ScalarConverter() = 0;
 
+	public:
+		static void	converter(std::string str);
 };
 
 #endif // ScalarConverter_HPP

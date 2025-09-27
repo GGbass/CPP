@@ -30,12 +30,10 @@ ScalarConverter::~ScalarConverter()
 
 void ScalarConverter::converter(std::string str)
 {
-	int		type = getType(str);
-	if (type == -1)
-	{
-		std::cout << "Error: Invalid argument" << std::endl;
-		return ;
-	}
+	int type;
+
+	if ((type = getType(str)) == -1)
+		return (std::cout << "Error: Invalid argument" << std::endl, void());
 	printChar(str, type);
 	printInt(str, type);
 	printFloat(str, type);
@@ -54,10 +52,12 @@ int	ScalarConverter::getType(std::string str)
 	{ 
 		i++;
 		sign = 1;
-		if (!isdigit(str[i]))
+		if (!isdigit(str[i]) && !str.compare(i, 3, "inf") && !str.compare(i, 3, "nan"))
 			return (-1);
 	}
-	while (i < str.length())
+	if (std::isinf(atof(str.c_str())) == 1.0f || std::isinf(atof(str.c_str())) == -1.0f)
+		return (4); // inf
+	while(str[i] != '\0')
 	{
 		if (str[i] == '.')
 		{
@@ -69,11 +69,11 @@ int	ScalarConverter::getType(std::string str)
 		{
 			if (str[i] == 'f' && str[i + 1] == '\0' && dot_found)
 				return (2); // float
-			if (sign)
-			return (-1);
+
 		}
 		i++;
 	}
+	if (sign)
 	if (dot_found)
 		return (1); // double
 	return (3); // int
@@ -129,6 +129,13 @@ void	ScalarConverter::printFloat(std::string str, int type)
 		std::cout << std::fixed << std::setprecision(1);
 		std::cout << "float: " << f << "f" << std::endl;
 	}
+	else if (type == 4)
+	{
+		if (f > 0)
+			std::cout << "float: inff" << std::endl;
+		else
+			std::cout << "float: -inff" << std::endl;
+	}
 	else
 		std::cout << "float: Impossible" << std::endl;
 }
@@ -136,6 +143,7 @@ void	ScalarConverter::printFloat(std::string str, int type)
 void	ScalarConverter::printDouble(std::string str, int type)
 {
 	double	d = static_cast<double>(atof(str.c_str()));
+
 	if (d != d)
 		std::cout << "double: nan" << std::endl;
 	else if (type == 1 || type == 2 || (type == 3 && str.length() < 11))
@@ -147,6 +155,13 @@ void	ScalarConverter::printDouble(std::string str, int type)
 		}
 		std::cout << std::fixed << std::setprecision(1);
 		std::cout << "double: " << d  << std::endl;
+	}
+	else if (type == 4)
+	{
+		if (d > 0)
+			std::cout << "double: inf" << std::endl;
+		else
+			std::cout << "double: -inf" << std::endl;
 	}
 	else
 		std::cout << "double: Impossible" << std::endl;

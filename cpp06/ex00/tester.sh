@@ -35,6 +35,11 @@ current_test=(
 	"nanf"
 	"+inff"
 	"-inff"
+	"1797.e+3"
+	"1797e+30"
+	"1e400"
+	"1e400"
+
 )
 
 
@@ -52,6 +57,7 @@ test_valid_cases=(
 	"nanf"
 	"+inff"
 	"-inff"
+	"1.797e+30"
 )
 
 for case in "${current_test[@]}"; do
@@ -67,7 +73,6 @@ done
 #done
 
 
-#The following parts are fully supported in C++98:
 
 #std::stod() →  Not available in C++98
 
