@@ -1,5 +1,13 @@
 #ifndef Serializer_HPP
 #define Serializer_HPP
+#include <iostream>
+#include <stdint.h>
+
+struct Data
+{
+	std::string content;
+};
+
 
 class Serializer
 {
