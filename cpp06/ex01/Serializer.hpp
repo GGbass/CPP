@@ -5,9 +5,9 @@
 
 struct Data
 {
-	std::string content;
+	int			id;
+	std::string	content;
 };
-
 
 class Serializer
 {
@@ -16,6 +16,7 @@ class Serializer
 		Serializer(const Serializer &other);
 		Serializer &operator=(const Serializer &other);
 		~Serializer();
+
 	public:
 		static uintptr_t	serialize(Data* ptr);
 		static Data*		deserialize(uintptr_t raw);
