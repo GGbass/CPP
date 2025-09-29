@@ -4,9 +4,7 @@
 
 class B : public Base
 {
-	public:
-		B();
-		~B();
+
 };
 
 #endif // B_HPP

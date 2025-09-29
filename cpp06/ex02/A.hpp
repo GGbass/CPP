@@ -2,9 +2,10 @@
 #define A_HPP
 #include "Base.hpp"
 
+
 class A : public Base
 {
-	public:
+
 };
 
 #endif // A_HPP
