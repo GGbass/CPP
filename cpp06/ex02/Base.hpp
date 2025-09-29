@@ -1,0 +1,11 @@
+#ifndef Base_HPP
+#define Base_HPP
+
+class Base
+{
+public:
+	Base();
+	~Base();
+};
+
+#endif // Base_HPP

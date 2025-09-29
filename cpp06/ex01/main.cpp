@@ -3,23 +3,26 @@
 int	main(void)
 {
 	Data *original = new Data();
-	original->id = 1;
-	original->content = "Hello World";
-	std::cout << &original << std::endl;
+	original->id = 30;
+	original->content = "Gonzalo";
+
+	std::cout << "Original Data address: " << original << std::endl;
+	std::cout << "Original Data id: " << original->id << std::endl;
+	std::cout << "Original Data content: " << original->content << std::endl;
+
 	uintptr_t raw = Serializer::serialize(original);
-	Data *data = Serializer::deserialize(raw);
+	std::cout << "Serialized Data (as uintptr_t): " << raw << std::endl;
+	std::cout << "Size of uintptr_t: " << sizeof(raw) << " bytes" << std::endl;
+	Data *deserialized = Serializer::deserialize(raw);
 
-	std::cout << &data << std::endl;
-	std::cout << "ID: " << data->id << std::endl;
-	std::cout << "Content: " << data->content << std::endl;
-	
-	original->id = 2;
-	original->content =  "changed";
-
-	std::cout << "ID: " << original->id << std::endl;
-	std::cout << "Content: " << original->content << std::endl;
-	std::cout << "ID: " << data->id << std::endl;
-
-	delete original;
+	deserialized->id = 112;
+	std::cout << "Deserialized Data address: " << deserialized << std::endl;
+	std::cout << "Deserialized Data id: " << deserialized->id << std::endl;
+	std::cout << "Deserialized Data content: " << deserialized->content << std::endl;
+	delete(original);
 	return (0);
 }
+
+
+//serialize: convierte un puntero a un entero sin signo lo suficientemente grande como para contener un puntero (uintptr_t).
+//deserialize: convierte un valor entero sin signo (uintptr_t) de nuevo a un puntero
