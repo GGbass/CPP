@@ -25,4 +25,4 @@ int	main(void)
 
 
 //serialize: convierte un puntero a un entero sin signo lo suficientemente grande como para contener un puntero (uintptr_t).
-//deserialize: convierte un valor entero sin signo (uintptr_t) de nuevo a un puntero
+//deserialize: convierte un valor entero sin signo (uintptr_t) de nuevo a un puntero a la struct
