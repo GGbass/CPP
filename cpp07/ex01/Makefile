@@ -14,7 +14,7 @@ CLASS_NAME = $(CLASS)
 HPP_FILE = $(CLASS_NAME).hpp
 CPP_FILE = $(CLASS_NAME).cpp
 
-NAME = templates
+NAME = iter
 
 SRC =	./main.cpp
 
