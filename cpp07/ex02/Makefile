@@ -16,8 +16,7 @@ CPP_FILE = $(CLASS_NAME).cpp
 
 NAME = Array
 
-SRC =	./Array.cpp \
-		./main.cpp
+SRC =	./main.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
