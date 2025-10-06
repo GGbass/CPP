@@ -18,6 +18,8 @@ NAME = Array
 
 SRC =	./main.cpp
 
+INCLUDE = Array.tpp Array.hpp
+
 OBJ = $(SRC:.cpp=.o)
 
 CXXFLAGS = -Wall -Werror -Wextra -std=c++98 -fsanitize=address,leak
@@ -66,8 +68,7 @@ class:
 	@echo "}" >> $(CPP_FILE)
 	@echo "✅ Class $(CLASS_NAME) created in $(CLASS_DIR)/"
 
-$(NAME): $(OBJ)
-
+$(NAME): $(OBJ) $(INCLUDE)
 	$(CXX) $(OBJ) $(CXXFLAGS) -o $(NAME)
 
 show_progress:
