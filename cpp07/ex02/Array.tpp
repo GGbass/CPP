@@ -3,13 +3,14 @@
 template < typename T >
 Array<T>::Array() : arr(NULL), size(0)
 {
-	//T arr = new T();
 	std::cout << "Default constructor called" << std::endl;
 }
 
 template < typename T >
-Array<T>::Array(unsigned int n) : arr(new T[n]), size(n)
+Array<T>::Array(unsigned int n)
 {
+	if (n > 0)
+		this->array = new T[n]();
 	std::cout << "Constructor called" << std::endl;
 }
 
@@ -54,7 +55,7 @@ Array<T>& Array<T>::operator=(const Array &other)
 }
 
 template < typename T >
-int	Array<T>::getSize(void) const
+unsigned int	Array<T>::getSize(void) const
 {
 	return (this->size);
 }
@@ -66,4 +67,26 @@ Array<T>::~Array()
 	if (arr)
 		delete[] arr;
 	std::cout << "Destructor called" << std::endl;
+}
+
+template <typename T>
+const char* Array<T>::OutOfRangeException::what() const throw ()
+{
+	return ("Out of bounds!\n");
+}
+
+template <typename T>
+void	Array<T>::printIndex(unsigned int i)
+{
+	if (i >= 0 && i < this->size)
+		std::cout << "content: " << this->arr[i] << std::endl;
+}
+
+template <typename T>
+void	Array<T>::setIndex(unsigned int i, T content)
+{
+	if (i >= 0 && i < this->size)
+	{
+		this->array[i] = content;
+	}
 }

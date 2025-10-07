@@ -52,7 +52,6 @@ void	moreCopyTest(void)
 }
 void	smallCopyTest(void)
 {
-	
 	Dog* dog = new Dog();
 	dog->setIdeas();
 	Dog* dogCopy = new Dog(*dog);

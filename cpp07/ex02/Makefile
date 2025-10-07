@@ -15,14 +15,14 @@ HPP_FILE = $(CLASS_NAME).hpp
 CPP_FILE = $(CLASS_NAME).cpp
 
 NAME = Array
+INCLUDE = Array.tpp Array.hpp
 
 SRC =	./main.cpp
 
-INCLUDE = Array.tpp Array.hpp
 
 OBJ = $(SRC:.cpp=.o)
 
-CXXFLAGS = -Wall -Werror -Wextra -std=c++98 -fsanitize=address,leak
+CXXFLAGS = -Wall -Werror -Wextra -I -std=c++98 -fsanitize=address,leak
 
 CXX = c++
 

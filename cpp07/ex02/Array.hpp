@@ -7,21 +7,28 @@
 template < typename T >
 class	Array
 {
-	//private:
-
-	public:
+	private:
 		T *arr;
 		unsigned int size;
+	public:
+		// T *arr;
+		// unsigned int size;
 		Array();
 		Array(unsigned int n);
 		Array(const Array &other);
 		Array& operator=(const Array &other);
 		~Array();
-		int	getSize() const;
+		unsigned int	getSize() const;
+		void	setIndex(unsigned int i, T content);
+		void	printIndex(unsigned int i);
 		//T getSomething() const ;
-};
 
-//todo make a getter for size in order to make a copy constructor and so on
+	struct OutOfRangeException : public std::exception
+	{
+		public:
+			virtual const char *what() const throw();
+	};
+};
 
 #include "Array.tpp"
 
