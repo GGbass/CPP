@@ -94,7 +94,7 @@ T& Array<T>::operator[](unsigned int i)
 {
 	if (i >= this->size)
 		throw OutOfRangeException();
-	std::cout << "[] operator called" << std::endl;
+	//std::cout << "[] operator called" << std::endl;
 	return (this->arr[i]);
 }
 
@@ -103,6 +103,6 @@ const T& Array<T>::operator[](unsigned int i) const
 {
 	if (i >= this->size)
 		throw OutOfRangeException();
-	std::cout << " const [] operator called" << std::endl;
+	//std::cout << " const [] operator called" << std::endl;
 	return (this->arr[i]);
 }
