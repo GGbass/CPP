@@ -1,8 +1,8 @@
 //#include <iostream>
 #include "Array.hpp"
-# define MAX_VAL 750
+# define MAX_VAL 5
 
-/* int	main(int, char**)
+int	main(int, char**)
 {
 	Array<int> numbers(MAX_VAL);
 	int* mirror = new int[MAX_VAL];
@@ -12,13 +12,12 @@
 		const int value = rand();
 		numbers[i] = value;
 		mirror[i] = value;
-	} 
+	}
 	//SCOPE
 	{
 		Array<int> tmp = numbers;
 		Array<int> test(tmp);
 	}
-
 	for (int i = 0; i < MAX_VAL; i++)
 	{
 		if (mirror[i] != numbers[i])
@@ -48,9 +47,9 @@
 	{
 		numbers[i] = rand();
 	}
-	delete [] mirror;//
-	return 0;
-} */
+	delete [] mirror;
+	return (0);
+}
 
 
 
@@ -63,7 +62,7 @@
 // 	delete ar;
 // }
 
-void	arrInt(void)
+/* void	arrInt(void)
 {
 	Array<int> *arrInt = new Array<int>(5);
 
@@ -97,3 +96,4 @@ int	main(void)
 	WeirdCaseFromSubject();
 	return (0);
 }
+ */

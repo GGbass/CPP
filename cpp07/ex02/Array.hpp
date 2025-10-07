@@ -11,13 +11,15 @@ class	Array
 		T *arr;
 		unsigned int size;
 	public:
-		// T *arr;
-		// unsigned int size;
 		Array();
 		Array(unsigned int n);
 		Array(const Array &other);
 		Array& operator=(const Array &other);
 		~Array();
+
+		T& operator[](unsigned int i);
+		const T& operator[](unsigned int i) const;
+		
 		unsigned int	getSize() const;
 		void	setIndex(unsigned int i, T content);
 		void	printIndex(unsigned int i);

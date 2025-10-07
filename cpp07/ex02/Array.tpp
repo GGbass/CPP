@@ -7,10 +7,8 @@ Array<T>::Array() : arr(NULL), size(0)
 }
 
 template < typename T >
-Array<T>::Array(unsigned int n)
+Array<T>::Array(unsigned int n) : arr(n > 0 ? new T[n] : NULL), size(n)
 {
-	if (n > 0)
-		this->array = new T[n]();
 	std::cout << "Constructor called" << std::endl;
 }
 
@@ -87,6 +85,24 @@ void	Array<T>::setIndex(unsigned int i, T content)
 {
 	if (i >= 0 && i < this->size)
 	{
-		this->array[i] = content;
+		this->arr[i] = content;
 	}
+}
+
+template <typename T>
+T& Array<T>::operator[](unsigned int i)
+{
+	if (i >= this->size)
+		throw OutOfRangeException();
+	std::cout << "[] operator called" << std::endl;
+	return (this->arr[i]);
+}
+
+template <typename T>
+const T& Array<T>::operator[](unsigned int i) const
+{
+	if (i >= this->size)
+		throw OutOfRangeException();
+	std::cout << " const [] operator called" << std::endl;
+	return (this->arr[i]);
 }
