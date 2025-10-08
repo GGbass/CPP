@@ -1,8 +1,9 @@
-//#include <iostream>
+#include <iostream>
 #include "Array.hpp"
-# define MAX_VAL 5
+# define MAX_VAL 750
 
-int	main(int, char**)
+
+/* int	main(int, char**)
 {
 	Array<int> numbers(MAX_VAL);
 	int* mirror = new int[MAX_VAL];
@@ -49,36 +50,70 @@ int	main(int, char**)
 	}
 	delete [] mirror;
 	return (0);
+} */
+
+
+void	arrString(void)
+{
+	try
+	{
+		Array<std::string> *ar = new Array<std::string>(-1);
+		ar->setIndex(0, "Hello");
+		ar->setIndex(1, "World");
+		ar->printArray();
+		// Copy string constructor
+		Array<std::string> *ar2 = new Array<std::string>(*ar);
+		delete (ar);
+		ar2->printArray();
+		// Assigning operator
+		Array<std::string> *ar3 = new Array<std::string>();
+		*ar3 = *ar2;
+		delete (ar2);
+		ar3->printArray();
+		std::cout << std::endl;
+		ar3->printIndex(1);
+		delete (ar3);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	
+/* 	Array<std::string> *ar = new Array<std::string>(2);
+	ar->setIndex(0, "Hello");
+	ar->setIndex(1, "World");
+	ar->printArray();
+	// Copy string constructor
+	Array<std::string> *ar2 = new Array<std::string>(*ar);
+	delete (ar);
+	ar2->printArray();
+	// Assigning operator
+	Array<std::string> *ar3 = new Array<std::string>();
+	*ar3 = *ar2;
+	delete (ar2);
+	ar3->printArray();
+	std::cout << std::endl;
+	ar3->printIndex(1);
+	delete (ar3); */
 }
 
-
-
-// void	arrString(void)
-// {
-// 	Array<std::string> *ar = new Array<std::string>(5);
-// 	ar->arr[0] = "Hello";
-// 	ar->arr[1] = "world";
-// 	std::cout << ar->arr[0] << " " << ar->arr[1] << std::endl;
-// 	delete ar;
-// }
-
-/* void	arrInt(void)
+void	arrInt(void)
 {
 	Array<int> *arrInt = new Array<int>(5);
 
 	arrInt->setIndex(0, 42);
 	arrInt->setIndex(1, 45);
-	
-	std::cout << arrInt->printIndex(0) << " " << arrInt->printIndex(1) << std::endl;
-	// Copy int constructor 
+
+	arrInt->printArray();
+	// Copy int constructor
 	Array<int> *arrIntCopy = new Array<int>(*arrInt);
 	delete arrInt;
-	std::cout << arrIntCopy->arr[0] << " " << arrIntCopy->arr[1] << std::endl;
-	// Assigning operator 
+	arrIntCopy->printArray();
+	// Assigning operator
 	Array<int> *arrIntAssign = new Array<int>();
 	*arrIntAssign = *arrIntCopy;
 	delete arrIntCopy;
-	std::cout << arrIntAssign->arr[0] << " " << arrIntAssign->arr[1] << std::endl;
+	arrIntAssign->printArray();
 	delete arrIntAssign;
 }
 
@@ -91,9 +126,11 @@ void	WeirdCaseFromSubject()
 
 int	main(void)
 {
-	//arrString();
-	arrInt();
-	WeirdCaseFromSubject();
+	std::cout << "----- STRING ARRAY -----" << std::endl;
+	arrString();
+	// std::cout << "----- INT ARRAY -----" << std::endl;
+	// arrInt();
+	// std::cout << "----- WEIRD CASE -----" << std::endl;
+	// WeirdCaseFromSubject();
 	return (0);
 }
- */

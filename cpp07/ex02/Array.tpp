@@ -7,8 +7,14 @@ Array<T>::Array() : arr(NULL), size(0)
 }
 
 template < typename T >
-Array<T>::Array(unsigned int n) : arr(n > 0 ? new T[n] : NULL), size(n)
+Array<T>::Array(unsigned int n) : arr(new T[n]), size(n)
 {
+	if (n < 0)
+	{
+		if (arr)
+			delete[] arr;
+		throw OutOfRangeException();
+	}
 	std::cout << "Constructor called" << std::endl;
 }
 
@@ -73,11 +79,19 @@ const char* Array<T>::OutOfRangeException::what() const throw ()
 	return ("Out of bounds!\n");
 }
 
+/* template <typename T>
+std::string	Array<T>::getIndex(unsigned int i)
+{
+	if (i >= 0 && i < this->size)
+		return (static_cast<std::string>this->arr[i]);
+	//return ( << "content: " << this->arr[i] << std::endl);
+} */
+
 template <typename T>
 void	Array<T>::printIndex(unsigned int i)
 {
 	if (i >= 0 && i < this->size)
-		std::cout << "content: " << this->arr[i] << std::endl;
+		std::cout << this->arr[i] << std::endl;
 }
 
 template <typename T>
@@ -105,4 +119,27 @@ const T& Array<T>::operator[](unsigned int i) const
 		throw OutOfRangeException();
 	//std::cout << " const [] operator called" << std::endl;
 	return (this->arr[i]);
+}
+
+/* template <typename T>
+std::ostream& operator<<(std::ostream& os, const Array<T>& array)
+{
+	for (unsigned int i = 0; i < array.getSize(); i++)
+	{
+		//os << static_cast<std::string>(array[i]);
+		os << array.printIndex(i) << " ";
+	}
+	return (os);
+}
+ */
+
+
+template <typename T>
+void	Array<T>::printArray(void)
+{
+	for (unsigned int i = 0; i < this->size; i++)
+	{
+		std::cout << this->arr[i] << "\n";
+	}
+	std::cout << std::endl;
 }

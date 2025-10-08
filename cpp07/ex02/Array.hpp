@@ -21,9 +21,10 @@ class	Array
 		const T& operator[](unsigned int i) const;
 		
 		unsigned int	getSize() const;
-		void	setIndex(unsigned int i, T content);
-		void	printIndex(unsigned int i);
-		//T getSomething() const ;
+		void			setIndex(unsigned int i, T content);
+		//std::string		getIndex(unsigned int i);
+		void			printIndex(unsigned int i);
+		void			printArray(void);
 
 	struct OutOfRangeException : public std::exception
 	{
@@ -31,6 +32,9 @@ class	Array
 			virtual const char *what() const throw();
 	};
 };
+
+/* template <typename T>
+std::ostream& operator<<(std::ostream& os, const Array<T>& array); */
 
 #include "Array.tpp"
 
