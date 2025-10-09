@@ -30,5 +30,11 @@ int	main(void)
 	std::cout << "e: = " << e << " and f: = " << f << std::endl;
 	std::cout << "min value between e: = " << e << " and f: = " << f << " -> " << ::min(e,f) << std::endl;
 	std::cout << "max value between e: = " << e << " and f: = " << f << " -> " << ::max(e,f) << std::endl;
+
+/* 	std::cout << "---------Class case ---------\n";
+	Awesome wa(2), wb(4);
+	::swap(wa,wb);
+	std::cout << wa << " " << wb << std::endl;
+	std::cout << "max: = " << ::max(wa,wb) << std::endl; */
 	return (0);
 }

@@ -19,10 +19,8 @@ class	Array
 
 		T& operator[](unsigned int i);
 		const T& operator[](unsigned int i) const;
-		
 		unsigned int	getSize() const;
 		void			setIndex(unsigned int i, T content);
-		//std::string		getIndex(unsigned int i);
 		void			printIndex(unsigned int i);
 		void			printArray(void);
 
@@ -33,9 +31,14 @@ class	Array
 	};
 };
 
-/* template <typename T>
-std::ostream& operator<<(std::ostream& os, const Array<T>& array); */
+template <typename T>
+std::ostream& operator<<(std::ostream& os, const Array<T>& array);
+/* {
+for (unsigned int i = 0; i < array.getSize(); i++)
+		os << array[i] << std::endl;
+	return (os);
+} */
 
 #include "Array.tpp"
 
-#endif // Array_HPP
+#endif

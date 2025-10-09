@@ -22,7 +22,7 @@ SRC =	./main.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
-CXXFLAGS = -Wall -Werror -Wextra -I -std=c++98 -fsanitize=address,leak
+CXXFLAGS = -Wall -Werror -Wextra -I -std=c++98
 
 CXX = c++
 

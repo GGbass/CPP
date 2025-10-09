@@ -3,7 +3,7 @@
 # define MAX_VAL 750
 
 
-/* int	main(int, char**)
+int	main(int, char**)
 {
 	Array<int> numbers(MAX_VAL);
 	int* mirror = new int[MAX_VAL];
@@ -33,7 +33,7 @@
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << e.what() << '\n';
+		std::cerr << "Error: -2 " << e.what() << '\n';
 	}
 	try
 	{
@@ -41,7 +41,7 @@
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << e.what() << '\n';
+		std::cerr << "Error: "<< e.what() << '\n';
 	}
 
 	for (int i = 0; i < MAX_VAL; i++)
@@ -50,17 +50,19 @@
 	}
 	delete [] mirror;
 	return (0);
-} */
+}
 
 
-void	arrString(void)
+/* void	arrString(void)
 {
 	try
 	{
-		Array<std::string> *ar = new Array<std::string>(-1);
+		Array<std::string> *ar = new Array<std::string>(3);
 		ar->setIndex(0, "Hello");
 		ar->setIndex(1, "World");
+		ar->setIndex(2, "!!!");
 		ar->printArray();
+
 		// Copy string constructor
 		Array<std::string> *ar2 = new Array<std::string>(*ar);
 		delete (ar);
@@ -78,23 +80,6 @@ void	arrString(void)
 	{
 		std::cerr << e.what() << '\n';
 	}
-	
-/* 	Array<std::string> *ar = new Array<std::string>(2);
-	ar->setIndex(0, "Hello");
-	ar->setIndex(1, "World");
-	ar->printArray();
-	// Copy string constructor
-	Array<std::string> *ar2 = new Array<std::string>(*ar);
-	delete (ar);
-	ar2->printArray();
-	// Assigning operator
-	Array<std::string> *ar3 = new Array<std::string>();
-	*ar3 = *ar2;
-	delete (ar2);
-	ar3->printArray();
-	std::cout << std::endl;
-	ar3->printIndex(1);
-	delete (ar3); */
 }
 
 void	arrInt(void)
@@ -128,9 +113,10 @@ int	main(void)
 {
 	std::cout << "----- STRING ARRAY -----" << std::endl;
 	arrString();
-	// std::cout << "----- INT ARRAY -----" << std::endl;
-	// arrInt();
-	// std::cout << "----- WEIRD CASE -----" << std::endl;
-	// WeirdCaseFromSubject();
+	std::cout << "----- INT ARRAY -----" << std::endl;
+	arrInt();
+	std::cout << "----- WEIRD CASE -----" << std::endl;
+	WeirdCaseFromSubject();
 	return (0);
 }
+ */
