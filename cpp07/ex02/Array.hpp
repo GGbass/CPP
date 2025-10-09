@@ -33,11 +33,6 @@ class	Array
 
 template <typename T>
 std::ostream& operator<<(std::ostream& os, const Array<T>& array);
-/* {
-for (unsigned int i = 0; i < array.getSize(); i++)
-		os << array[i] << std::endl;
-	return (os);
-} */
 
 #include "Array.tpp"
 
