@@ -15,14 +15,14 @@ HPP_FILE = $(CLASS_NAME).hpp
 CPP_FILE = $(CLASS_NAME).cpp
 
 NAME = easyfind
-INCLUDE = easyfind.hpp
+INCLUDE = easyfind.hpp easyfind.tpp
 
 SRC =	./main.cpp
 
 
 OBJ = $(SRC:.cpp=.o)
 
-CXXFLAGS = -Wall -Werror -Wextra -I -std=c++98
+CXXFLAGS = -Wall -Werror -Wextra -I -std=c++98 -fsanitize=address,leak
 
 CXX = c++
 
