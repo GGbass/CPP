@@ -12,6 +12,8 @@ void	printFounded(int indx, int toFind)
 template <typename T>
 void	easyfind(T x, int toFind)
 {
+	if (x.size() < 1)
+		return (std::cout << "Empty container" << std::endl, void());
 	for (int element: x)
 	{
 		if (element == toFind)
