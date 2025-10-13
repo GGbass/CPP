@@ -17,8 +17,8 @@ void	weirdCase(void)
 	std::cout << "------Weird Case -------" << std::endl;
 
 	//int	*arr = new int{0 ,1, 2, 3, 4};
-	std::vector<int> vect = {0, 1, 2, 3, 5};
-	::easyfind(vect, 5);
+	std::vector<int> vect = {4, 1, 2, 3, 5};
+	::easyfind(vect, 0);
 	//delete vect;
 	//delete arr[];
 }

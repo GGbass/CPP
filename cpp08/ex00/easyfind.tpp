@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   easyfind.tpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gongarci <gongarci@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gongarci <gongarci@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/12 01:34:36 by gongarci          #+#    #+#             */
-/*   Updated: 2025/10/13 20:59:55 by gongarci         ###   ########.fr       */
+/*   Updated: 2025/10/14 01:40:37 by gongarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ void	easyfind(T	&x, int	toFind)
 	size_t index = std::distance(x.begin(), check);
 	printFounded(static_cast<int>(index + 1), toFind);
 }
-
 
 const char* NotFoundException::what() const throw()
 {
