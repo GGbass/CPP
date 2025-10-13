@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "//wsl.localhost/Ubuntu/home/gonzo/cpp/cpp07/ex02",
-      "program": "//wsl.localhost/Ubuntu/home/gonzo/cpp/cpp07/ex02/build/Debug/outDebug",
+      "cwd": "//wsl.localhost/Ubuntu/home/gonzo/cpp/cpp08/ex00",
+      "program": "//wsl.localhost/Ubuntu/home/gonzo/cpp/cpp08/ex00/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
