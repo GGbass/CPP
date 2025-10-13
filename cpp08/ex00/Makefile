@@ -28,7 +28,7 @@ CXX = c++
 
 all: $(NAME) show_progress
 
-run: clean all
+run: fclean all
 	@echo "$(GREEN)Running $(NAME)...$(DEFAULT)\n"
 	@./$(NAME)
 	
