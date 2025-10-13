@@ -6,7 +6,7 @@
 /*   By: gongarci <gongarci@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/12 01:34:36 by gongarci          #+#    #+#             */
-/*   Updated: 2025/10/13 00:59:28 by gongarci         ###   ########.fr       */
+/*   Updated: 2025/10/13 20:49:15 by gongarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,11 @@ void	easyfind(T x, int toFind)
 template <typename T>
 void	easyfind(T	&x, int	toFind)
 {
-	if (x.size() < 1)
+	//if (x.size() < 1)
+	if (x.empty())
 		return (std::cout << "Empty container" << std::endl, void());
 	typename T::iterator check = std::find(x.begin(), x.end(), toFind);
+	//std::cout << check << std::endl;
 	if (check == x.end())
 		throw NotFoundException();
 	size_t index = std::distance(x.begin(), check);
