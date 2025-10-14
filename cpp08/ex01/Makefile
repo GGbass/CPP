@@ -14,10 +14,11 @@ CLASS_NAME = $(CLASS)
 HPP_FILE = $(CLASS_NAME).hpp
 CPP_FILE = $(CLASS_NAME).cpp
 
-NAME = easyfind
-INCLUDE = easyfind.hpp easyfind.tpp
+NAME = span
+INCLUDE = Span.hpp
 
-SRC =	./main.cpp
+SRC =	./Span.cpp \
+		./main.cpp
 
 
 OBJ = $(SRC:.cpp=.o)
