@@ -14,6 +14,7 @@
 
 int	main(void)
 {
+
 	Span sp = Span(5);
 	sp.addNumber(6);
 	sp.addNumber(3);
@@ -22,6 +23,6 @@ int	main(void)
 	sp.addNumber(11);
 	std::cout << sp.shortestSpan() << std::endl;
 	std::cout << sp.longestSpan() << std::endl;
-	std::cout << sp;
+	//std::cout << sp;
 	return (0);
 }

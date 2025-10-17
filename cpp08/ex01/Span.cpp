@@ -6,7 +6,7 @@
 /*   By: gongarci <gongarci@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 20:41:13 by gongarci          #+#    #+#             */
-/*   Updated: 2025/10/17 01:26:31 by gongarci         ###   ########.fr       */
+/*   Updated: 2025/10/18 01:36:01 by gongarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ Span::Span(void) : _size(0), _minValue(0), _maxValue(0)
 
 Span::Span(unsigned int n) : _size(n), _minValue(0), _maxValue(0)
 {
-
 	std::cout << "Span constructor called" << std::endl;
 }
 
@@ -51,18 +50,23 @@ Span::~Span()
 	std::cout << "Destructor called" << std::endl;
 }
 
+void	Span::printNumbers(void)
+{
+	if (this->_vect.size())
+	{
+		for (int i = 0; i < (int)this->_vect.size(); i++)
+			std::cout << this->_vect[i] << std::endl;
+	}
+}
+
 int	Span::getMinValue() const { return (this->_minValue);}
 int	Span::getMaxValue() const { return (this->_maxValue);}
-
-const char* Span::MaxCapacityExceeded::what() const throw ()
-{
-	return ("Max capacity exceeded \n");
-}
+int	Span::getSize() const {return (this->_size);}
 
 void	Span::addNumber(int n)
 {
 	if (this->_vect.size() >= this->_size)
-		throw MaxCapacityExceeded();
+		throw std::invalid_argument("Error: Capacity exceeded\n");
 	this->_vect.push_back(n);
 	if (this->_vect.size() == 1)
 	{
@@ -75,7 +79,6 @@ void	Span::addNumber(int n)
 		this->_minValue = n;
 }
 
-
 unsigned int	Span::getNumber(unsigned int index) const
 {
 	if (index < this->_size)
@@ -83,11 +86,8 @@ unsigned int	Span::getNumber(unsigned int index) const
 	return (0);
 }
 
-int	Span::getSize() const {return (this->_size);}
-
 std::ostream& operator<<(std::ostream& os, const Span &span)
 {
-	std::cout << "vector size: = " << span.getSize() << std::endl;
 	os << "{";
 	for (unsigned i = 0; i < (unsigned int)span.getSize(); i++)
 	{
@@ -97,29 +97,30 @@ std::ostream& operator<<(std::ostream& os, const Span &span)
 	}
 	return (os << "}" << std::endl);
 }
-/* 
-int	Span::secondMinValue(void)
-{
-	int	secondMin = this->_minValue;
-	for (int i = 0; i < this->_size; i++)
-	{
-		if (secondMind > this->_vect[i])
-			secondMin = this->_vect[i];
-	}
-	return (secondMin);
-} */
 
 int	Span::shortestSpan(void)
 {
+	int	shortest;
+	int	gap;
 	if (this->_size <= 1)
 		throw std::invalid_argument("Error: Wrong size of numbers for a Span");
-	
-	return (0);
+	std::vector<int> tmp = this->_vect;
+	std::sort(tmp.begin(), tmp.end());
+	shortest = tmp[1] - tmp.front();
+	for (size_t i = 2; i < tmp.size(); i++)
+	{
+		gap = tmp[i] - tmp[i -1];
+		if (gap < shortest)
+			shortest = gap;
+	}
+	return (shortest);
 }
 
 int	Span::longestSpan(void)
 {
 	if (!this->_size || this->_size == 1)
 		throw std::invalid_argument("Error: Wrong size of numbers for a Span");
-	return (this->_maxValue - this->_minValue);
+	std::vector<int> tmp = this->_vect;
+	std::sort(tmp.begin(), tmp.end());
+	return ((tmp.back()) - (tmp.front()));
 }
