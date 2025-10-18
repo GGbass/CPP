@@ -6,7 +6,7 @@
 /*   By: gongarci <gongarci@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 20:41:07 by gongarci          #+#    #+#             */
-/*   Updated: 2025/10/18 01:20:55 by gongarci         ###   ########.fr       */
+/*   Updated: 2025/10/18 19:12:29 by gongarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,9 @@
 #include <vector>
 #include <stdexcept>
 #include <algorithm>
+#include <iterator>
+#include <cstdlib>
+
 
 class Span
 {
@@ -24,6 +27,7 @@ class Span
 		unsigned int			_size;
 		int						_minValue;
 		int						_maxValue;
+		int						_stored;
 
 	public:
 		Span();
@@ -31,13 +35,21 @@ class Span
 		Span(const Span &other);
 		Span& operator=(const Span &other);
 		~Span();
-		void		addNumber(int n);
+		/* methods */
 		void		printNumbers();
 		int			shortestSpan();
 		int			longestSpan();
 		int			getMinValue() const;
 		int			getMaxValue() const;
 		int			getSize() const;
+		void		addNumber(int n);
+		template <typename Iterator>
+		void		addNumbers(Iterator begin, Iterator end)
+		{
+			for (;begin != end ; ++begin)
+				this->addNumber(*begin);
+			std::cout << "Add Numbers check \n" << std::endl;
+		}
 		unsigned int		getNumber(unsigned int index) const;
 };
 

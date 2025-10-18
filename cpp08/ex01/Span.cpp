@@ -6,7 +6,7 @@
 /*   By: gongarci <gongarci@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 20:41:13 by gongarci          #+#    #+#             */
-/*   Updated: 2025/10/18 01:36:01 by gongarci         ###   ########.fr       */
+/*   Updated: 2025/10/18 19:23:45 by gongarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,12 @@ Span::Span(void) : _size(0), _minValue(0), _maxValue(0)
 
 Span::Span(unsigned int n) : _size(n), _minValue(0), _maxValue(0)
 {
+	std::cout << n << " in constructor \n";
+	int checker = n;
+	std::cout << checker << " in constructor \n";
+	
+	if (n < 1)
+		throw std::invalid_argument("Error: Wrong size given");
 	std::cout << "Span constructor called" << std::endl;
 }
 
@@ -65,9 +71,10 @@ int	Span::getSize() const {return (this->_size);}
 
 void	Span::addNumber(int n)
 {
-	if (this->_vect.size() >= this->_size)
+	if (this->_stored >= (int)this->_vect.size())
 		throw std::invalid_argument("Error: Capacity exceeded\n");
 	this->_vect.push_back(n);
+	this->_stored++;
 	if (this->_vect.size() == 1)
 	{
 		this->_minValue = n;
