@@ -12,6 +12,7 @@
 
 #include "MutantStack.hpp"
 
+#include <list>
 
 void	mainGiven(void)
 {

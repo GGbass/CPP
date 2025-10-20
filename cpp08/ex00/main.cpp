@@ -19,7 +19,6 @@ void	weirdCase(void)
 	//int	*arr = new int{0 ,1, 2, 3, 4};
 	try
 	{
-
 		std::vector<int> vect = {4, 1, 2, 3, 5};
 		::easyfind(vect, 0);
 	}

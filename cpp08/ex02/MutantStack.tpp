@@ -6,7 +6,7 @@
 /*   By: gongarci <gongarci@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 15:32:43 by gongarci          #+#    #+#             */
-/*   Updated: 2025/10/20 17:54:48 by gongarci         ###   ########.fr       */
+/*   Updated: 2025/10/20 23:06:23 by gongarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ MutantStack<T, Container>::MutantStack()
 }
 
 template <typename T, typename Container>
-MutantStack<T, Container> MutantStack<T,Container>(const MutantStack &other) : std::stack<T>(std::deque<T>(other))
+MutantStack<T, Container>::MutantStack(const MutantStack &other) : std::stack<T>(std::deque<T>(other))
 {
 	std::cout << "Copy constructor called" << std::endl;
 }
@@ -34,14 +34,13 @@ MutantStack<T, Container>& MutantStack<T,Container>::operator=(const MutantStack
 	return (*this);
 }
 
-template <typename T, typename Container>
+/* template <typename T, typename Container>
 typename Container::iterator MutantStack<T, Container>::begin()
 {
 	return this->c.begin();
-}
-
-/* MutantStack::~MutantStack()
+} */
+template <typename T, typename Container>
+MutantStack<T, Container>::~MutantStack()
 {
 	std::cout << "Destructor called" << std::endl;
 }
- */
