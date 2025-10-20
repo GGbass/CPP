@@ -6,24 +6,20 @@
 /*   By: gongarci <gongarci@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 20:41:13 by gongarci          #+#    #+#             */
-/*   Updated: 2025/10/18 19:23:45 by gongarci         ###   ########.fr       */
+/*   Updated: 2025/10/19 21:10:56 by gongarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Span.hpp"
 
-Span::Span(void) : _size(0), _minValue(0), _maxValue(0)
+Span::Span(void) : _size(0), _minValue(0), _maxValue(0), _stored(0)
 {
-	std::cout << "Decault Span constructor called" << std::endl;
+	std::cout << "Default Span constructor called" << std::endl;
 }
 
-Span::Span(unsigned int n) : _size(n), _minValue(0), _maxValue(0)
+Span::Span(unsigned int n) : _size(n), _minValue(0), _maxValue(0), _stored(0)
 {
-	std::cout << n << " in constructor \n";
-	int checker = n;
-	std::cout << checker << " in constructor \n";
-	
-	if (n < 1)
+	if (n <= 1)
 		throw std::invalid_argument("Error: Wrong size given");
 	std::cout << "Span constructor called" << std::endl;
 }
@@ -35,6 +31,8 @@ Span::Span(const Span &other)
 		this->_vect = other._vect;
 		this->_minValue = other._minValue;
 		this->_maxValue = other._maxValue;
+		this->_size = other._size;
+		this->_stored = other._stored;
 		std::cout << "Copy constructor called" << std::endl;
 	}
 }
@@ -46,6 +44,8 @@ Span& Span::operator=(const Span &other)
 		this->_vect = (other._vect);
 		this->_minValue = other._minValue;
 		this->_maxValue = other._maxValue;
+		this->_size = other._size;
+		this->_stored = other._stored;
 		std::cout << "Asssigning operator called" << std::endl;
 	}
 	return (*this);
@@ -71,7 +71,7 @@ int	Span::getSize() const {return (this->_size);}
 
 void	Span::addNumber(int n)
 {
-	if (this->_stored >= (int)this->_vect.size())
+	if (this->_stored >= (int)this->_size)
 		throw std::invalid_argument("Error: Capacity exceeded\n");
 	this->_vect.push_back(n);
 	this->_stored++;

@@ -12,30 +12,55 @@
 
 #include "Span.hpp"
 
+void	copyTest()
+{
+	Span *sp =  new Span(5);
+	sp->addNumber(6);
+	sp->addNumber(3);
+	sp->addNumber(17);
+	sp->addNumber(9);
+	sp->addNumber(11);
+	/* --------Copy constructor  */
+	Span *spanCopy = new Span(*sp);
+	delete sp;
+	std::cout << spanCopy->shortestSpan() << std::endl;
+	std::cout << spanCopy->longestSpan() << std::endl;
+	///std::cout << *spanCopy;
+	/* Assigning operator */
+	Span *spanAssign = new Span();
+
+	*spanAssign = *spanCopy;
+	std::cout << std::endl;
+	delete spanCopy;
+	std::cout << *spanAssign;
+	std::cout << std::endl;
+	delete spanAssign;
+}
+
 void	TenThousandsTest(void)
 {
-	Span *span = new Span(-1);
-	std::vector<int> BigList(100000);
+	std::cout << " a lot of numbers test" << std::endl;
+	Span *span = new Span(10000);
+	std::vector<int> BigList(10000);
 	try
 	{
+
 		srand(time(NULL));
 		std::generate(BigList.begin(), BigList.end(), std::rand);
 		span->addNumbers(BigList.begin(), BigList.end());
 		std::cout << span->shortestSpan() << std::endl;
 		std::cout << span->longestSpan() << std::endl;
-		/* std::cout << span->getMinValue() << std::endl;
-		std::cout << span->getMaxValue() << std::endl; */
-		//std::cout << *span;
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << e.what() << '\n';
+		std::cerr << e.what() << std::endl;
 	}
-	delete span;
+		delete span;
 }
 
 void	mainGiven()
 {
+	std::cout << "Main given test" << std::endl;
 	Span sp = Span(5);
 	sp.addNumber(6);
 	sp.addNumber(3);
@@ -49,7 +74,8 @@ void	mainGiven()
 
 int	main(void)
 {
-	//mainGiven();
+	mainGiven();
 	TenThousandsTest();
+	//copyTest();
 	return (0);
 }
