@@ -16,18 +16,17 @@ void	weirdCase(void)
 {
 	std::cout << "------Weird Case -------" << std::endl;
 
-	//int	*arr = new int{0 ,1, 2, 3, 4};
 	try
 	{
 		std::vector<int> vect = {4, 1, 2, 3, 5};
-		::easyfind(vect, 0);
+		const std::vector<int> vect2 = (vect);
+		::easyfind(vect2, 4);
 	}
 	catch (const std::exception &e)
 	{
 		std::cerr << "Error: " << e.what() << std::endl;
 	}
-	//delete vect;
-	//delete arr[];
+
 }
 
 void	notFounded(void)
@@ -54,7 +53,7 @@ void	foundCase(void)
 	try
 	{
 		std::cout << "------Found Case --------" << std::endl;
-		std::vector<int>	vect = {0, 1, 2, 3, 4};
+		std::vector<int> vect = {0, 1, 2, 3, 4};
 		::easyfind(vect, 4);
 	}
 	catch (const std::exception &e)
@@ -66,8 +65,8 @@ void	foundCase(void)
 
 int	main(void)
 {
-	// foundCase();
-	// notFounded();
-	weirdCase();
+	foundCase();
+	notFounded();
+	//weirdCase();
 	return (0);
 }

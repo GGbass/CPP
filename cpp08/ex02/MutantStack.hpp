@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   MutantStack.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gongarci <gongarci@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: gongarci <gongarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 15:32:39 by gongarci          #+#    #+#             */
-/*   Updated: 2025/10/20 23:05:58 by gongarci         ###   ########.fr       */
+/*   Updated: 2025/10/23 22:16:43 by gongarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,12 @@ class MutantStack : public std::stack<T, Container>
 		typedef typename Container::iterator iterator;
 		typedef typename Container::const_iterator const_iterator;
 
-		iterator begin() { return (this->c.begin());}
-		iterator end() { return (this->c.end());}
-		const_iterator begin() const { return (this->c.begin());}
-		const_iterator end() const { return (this->c.begin());}
+		iterator begin();
+		iterator end();
+		const_iterator begin() const;
+		const_iterator end() const;
+		// const_iterator begin() const { return (this->c.begin());}
+		// const_iterator end() const { return (this->c.begin());}
 };
 
 #include "MutantStack.tpp"

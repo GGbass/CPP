@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   MutantStack.tpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gongarci <gongarci@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: gongarci <gongarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 15:32:43 by gongarci          #+#    #+#             */
-/*   Updated: 2025/10/20 23:06:23 by gongarci         ###   ########.fr       */
+/*   Updated: 2025/10/23 22:17:47 by gongarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,29 @@ MutantStack<T, Container>& MutantStack<T,Container>::operator=(const MutantStack
 	return (*this);
 }
 
-/* template <typename T, typename Container>
-typename Container::iterator MutantStack<T, Container>::begin()
+template <typename T, typename Container>
+typename MutantStack<T, Container>::iterator MutantStack<T, Container>::begin()
 {
-	return this->c.begin();
-} */
+	return (this->c.begin());
+}
+
+template <typename T, typename Container>
+typename MutantStack<T, Container>::iterator MutantStack<T, Container>::end()
+{
+	return (this->c.end());
+}
+
+template <typename T, typename Container>
+typename MutantStack<T, Container>::const_iterator MutantStack<T, Container>::begin() const
+{
+	return (this->c.begin());
+}
+
+template <typename T, typename Container>
+typename MutantStack<T, Container>::const_iterator MutantStack<T, Container>::end() const
+	return (this->c.end());
+}
+
 template <typename T, typename Container>
 MutantStack<T, Container>::~MutantStack()
 {

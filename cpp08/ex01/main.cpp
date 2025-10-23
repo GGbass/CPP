@@ -39,12 +39,11 @@ void	copyTest()
 
 void	TenThousandsTest(void)
 {
-	std::cout << " a lot of numbers test" << std::endl;
+	std::cout << " ----- A lot of numbers test-----" << std::endl;
 	Span *span = new Span(10000);
 	std::vector<int> BigList(10000);
 	try
 	{
-
 		srand(time(NULL));
 		std::generate(BigList.begin(), BigList.end(), std::rand);
 		span->addNumbers(BigList.begin(), BigList.end());
@@ -60,7 +59,7 @@ void	TenThousandsTest(void)
 
 void	mainGiven()
 {
-	std::cout << "Main given test" << std::endl;
+	std::cout << "-----Main given test-----" << std::endl;
 	Span sp = Span(5);
 	sp.addNumber(6);
 	sp.addNumber(3);

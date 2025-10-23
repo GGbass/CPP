@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Span.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gongarci <gongarci@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: gongarci <gongarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 20:41:13 by gongarci          #+#    #+#             */
-/*   Updated: 2025/10/19 21:10:56 by gongarci         ###   ########.fr       */
+/*   Updated: 2025/10/23 21:36:03 by gongarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,9 +107,10 @@ std::ostream& operator<<(std::ostream& os, const Span &span)
 
 int	Span::shortestSpan(void)
 {
-	int	shortest;
-	int	gap;
-	if (this->_size <= 1)
+	int	shortest = 0;
+	int	gap = 0;
+
+	if (this->_size <= 1 || this->_vect.size() <= 1)
 		throw std::invalid_argument("Error: Wrong size of numbers for a Span");
 	std::vector<int> tmp = this->_vect;
 	std::sort(tmp.begin(), tmp.end());
