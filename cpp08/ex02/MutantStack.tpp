@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   MutantStack.tpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gongarci <gongarci@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gongarci <gongarci@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 15:32:43 by gongarci          #+#    #+#             */
-/*   Updated: 2025/10/23 22:17:47 by gongarci         ###   ########.fr       */
+/*   Updated: 2025/10/24 10:06:26 by gongarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ typename MutantStack<T, Container>::const_iterator MutantStack<T, Container>::be
 
 template <typename T, typename Container>
 typename MutantStack<T, Container>::const_iterator MutantStack<T, Container>::end() const
+{
 	return (this->c.end());
 }
 
@@ -61,4 +62,22 @@ template <typename T, typename Container>
 MutantStack<T, Container>::~MutantStack()
 {
 	std::cout << "Destructor called" << std::endl;
+}
+template <typename T, typename Container>
+std::ostream& operator<<(std::ostream& os, MutantStack<T,Container> const &ms)
+{
+	// Container::iterator it = this->begin();
+	// Container::iterator ite = this->end();
+	Container it = ms->begin();
+	Container ite = ms->end();
+	 os << "[";
+	while( it != ite)
+	{
+		os << ' ';
+		os << *it;
+		it++;
+	}
+	os << "]";
+	
+	return (os);
 }

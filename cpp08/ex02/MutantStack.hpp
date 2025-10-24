@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   MutantStack.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gongarci <gongarci@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gongarci <gongarci@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 15:32:39 by gongarci          #+#    #+#             */
-/*   Updated: 2025/10/23 22:16:43 by gongarci         ###   ########.fr       */
+/*   Updated: 2025/10/24 09:56:57 by gongarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 # include <stack>
 # include <deque>
 # include <iostream>
-
-
 
 template <typename T, typename Container = std::deque<T> >
 class MutantStack : public std::stack<T, Container>
@@ -34,9 +32,9 @@ class MutantStack : public std::stack<T, Container>
 		iterator end();
 		const_iterator begin() const;
 		const_iterator end() const;
-		// const_iterator begin() const { return (this->c.begin());}
-		// const_iterator end() const { return (this->c.begin());}
 };
+template <typename T, typename Container = std::deque<T> >
+std::ostream& operator<<(std::ostream &os, MutantStack<T, Container> const &src);
 
 #include "MutantStack.tpp"
-#endif // MutantStack_HPP
+#endif

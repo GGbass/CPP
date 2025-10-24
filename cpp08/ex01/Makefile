@@ -69,7 +69,7 @@ class:
 	@echo "}" >> $(CPP_FILE)
 	@echo "✅ Class $(CLASS_NAME) created in $(CLASS_DIR)/"
 
-$(NAME): $(OBJ) $(INCLUDE)
+$(NAME): $(OBJ)
 	$(CXX) $(OBJ) $(CXXFLAGS) -o $(NAME)
 
 show_progress:

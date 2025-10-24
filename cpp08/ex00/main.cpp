@@ -15,7 +15,6 @@
 void	weirdCase(void)
 {
 	std::cout << "------Weird Case -------" << std::endl;
-
 	try
 	{
 		std::vector<int> vect = {4, 1, 2, 3, 5};
@@ -26,7 +25,6 @@ void	weirdCase(void)
 	{
 		std::cerr << "Error: " << e.what() << std::endl;
 	}
-
 }
 
 void	notFounded(void)

@@ -8,7 +8,7 @@ MAGENTA = \033[0;95m
 CYAN = \033[0;96m
 WHITE = \033[0;97m
 
-CLASS_DIR = . #current directory
+CLASS_DIR = .
 CLASS ?= $(filter-out class,$(MAKECMDGOALS))
 CLASS_NAME = $(CLASS)
 HPP_FILE = $(CLASS_NAME).hpp
@@ -26,9 +26,9 @@ CXXFLAGS = -Wall -Werror -Wextra -I -std=c++98 -fsanitize=address,leak
 
 CXX = c++
 
-all: $(NAME) show_progress
+all: $(NAME)
 
-run: clean all
+run: fclean all
 	@echo "$(GREEN)Running $(NAME)...$(DEFAULT)\n"
 	@./$(NAME)
 	
@@ -68,7 +68,7 @@ class:
 	@echo "}" >> $(CPP_FILE)
 	@echo "✅ Class $(CLASS_NAME) created in $(CLASS_DIR)/"
 
-$(NAME): $(OBJ) $(INCLUDE)
+$(NAME): $(OBJ)
 	$(CXX) $(OBJ) $(CXXFLAGS) -o $(NAME)
 
 show_progress:

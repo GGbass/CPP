@@ -12,8 +12,6 @@
 
 #include "MutantStack.hpp"
 
-#include <list>
-
 void	mainGiven(void)
 {
 	MutantStack<int> mstack;
@@ -39,8 +37,25 @@ void	mainGiven(void)
 	std::stack<int> s(mstack);
 }
 
-int main(void)
+void	test()
 {
-	mainGiven();
+	MutantStack<std::string> str;
+	str.push("hello");
+	str.push("world");
+/* 	MutantStack<std::string>::iterator it = str.begin();
+	MutantStack<std::string>::iterator ite = str.end();
+	while (it != ite)
+	{
+		std::cout << *it << std::endl;
+		it++;
+	} */
+	std::cout << *str << std::endl;
+	
+}
+
+int	main(void)
+{
+	// mainGiven();
+	test();
 	return 0;
 }

@@ -38,7 +38,7 @@ test: clean all
 	@./tester.sh $(NAME)
 
 class:
-	@if [ -z "$(CLASS)" ]; then \
+	if [ -z "$(CLASS)" ]; then \
 		echo "Error: CLASS variable not set. Usage: make class CLASS=YourClassName"; \
 		exit 1; \
 	fi
@@ -68,14 +68,14 @@ class:
 	@echo "}" >> $(CPP_FILE)
 	@echo "✅ Class $(CLASS_NAME) created in $(CLASS_DIR)/"
 
-$(NAME): $(OBJ) $(INCLUDE)
+$(NAME): $(OBJ)
 	$(CXX) $(OBJ) $(CXXFLAGS) -o $(NAME)
 
 show_progress:
 		@for file in $(SRC); do \
 			echo "$(GREEN)Compiling $$file "; \
 		done; \
-		echo "\nCompiled: 100%\n run: -> $(NAME) $(DEFAULT)"; \
+		echo "\nCompiled: 100%\nrun: -> $(NAME) $(DEFAULT)"; \
 
 clean:
 	rm -f $(NAME)
