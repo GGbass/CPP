@@ -6,7 +6,7 @@
 /*   By: gongarci <gongarci@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 15:32:43 by gongarci          #+#    #+#             */
-/*   Updated: 2025/10/24 10:06:26 by gongarci         ###   ########.fr       */
+/*   Updated: 2025/10/24 10:17:49 by gongarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,10 +66,8 @@ MutantStack<T, Container>::~MutantStack()
 template <typename T, typename Container>
 std::ostream& operator<<(std::ostream& os, MutantStack<T,Container> const &ms)
 {
-	// Container::iterator it = this->begin();
-	// Container::iterator ite = this->end();
-	Container it = ms->begin();
-	Container ite = ms->end();
+	typename MutantStack<T, Container>::const_iterator it = ms.begin();
+	typename MutantStack<T, Container>::const_iterator ite = ms.end();
 	 os << "[";
 	while( it != ite)
 	{
@@ -78,6 +76,6 @@ std::ostream& operator<<(std::ostream& os, MutantStack<T,Container> const &ms)
 		it++;
 	}
 	os << "]";
-	
+
 	return (os);
 }

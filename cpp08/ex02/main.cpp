@@ -39,23 +39,17 @@ void	mainGiven(void)
 
 void	test()
 {
-	MutantStack<std::string> str;
-	str.push("hello");
-	str.push("world");
-/* 	MutantStack<std::string>::iterator it = str.begin();
-	MutantStack<std::string>::iterator ite = str.end();
-	while (it != ite)
-	{
-		std::cout << *it << std::endl;
-		it++;
-	} */
+	MutantStack<std::string> *str =  new MutantStack<std::string>();
+	str->push("hello");
+	str->push("world");
+
 	std::cout << *str << std::endl;
-	
+	delete str;
 }
 
 int	main(void)
 {
-	// mainGiven();
+	mainGiven();
 	test();
 	return 0;
 }
