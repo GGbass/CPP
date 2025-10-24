@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   MutantStack.tpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gongarci <gongarci@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: gongarci <gongarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 15:32:43 by gongarci          #+#    #+#             */
-/*   Updated: 2025/10/24 10:17:49 by gongarci         ###   ########.fr       */
+/*   Updated: 2025/10/24 19:39:18 by gongarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,18 @@ MutantStack<T, Container>::MutantStack()
 }
 
 template <typename T, typename Container>
-MutantStack<T, Container>::MutantStack(const MutantStack &other) : std::stack<T>(std::deque<T>(other))
+MutantStack<T, Container>::MutantStack(const MutantStack &other) : std::stack<T, Container>(other)
 {
 	std::cout << "Copy constructor called" << std::endl;
 }
 
 template <typename T, typename Container>
-MutantStack<T, Container>& MutantStack<T,Container>::operator=(const MutantStack &other)
+MutantStack<T, Container>& MutantStack<T,Container>::operator=(const MutantStack<T, Container> &other)
 {
 	if (this != &other)
 	{
-		this = std::stack<T>::operator=(other); //check later this line
+		std::stack<T, Container>::operator=(other);
+		//this->c = other.c;
 		std::cout << "Assigning operator called" << std::endl;
 	}
 	return (*this);
@@ -63,6 +64,7 @@ MutantStack<T, Container>::~MutantStack()
 {
 	std::cout << "Destructor called" << std::endl;
 }
+
 template <typename T, typename Container>
 std::ostream& operator<<(std::ostream& os, MutantStack<T,Container> const &ms)
 {
@@ -76,6 +78,5 @@ std::ostream& operator<<(std::ostream& os, MutantStack<T,Container> const &ms)
 		it++;
 	}
 	os << "]";
-
 	return (os);
 }

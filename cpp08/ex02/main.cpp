@@ -14,6 +14,7 @@
 
 void	mainGiven(void)
 {
+	std::cout << "----- Main Given -----|" << std::endl;
 	MutantStack<int> mstack;
 	mstack.push(5);
 	mstack.push(17);
@@ -37,19 +38,29 @@ void	mainGiven(void)
 	std::stack<int> s(mstack);
 }
 
-void	test()
+void	copyTest()
 {
+	std::cout << "-----Copy Test -----|" << std::endl;
 	MutantStack<std::string> *str =  new MutantStack<std::string>();
 	str->push("hello");
 	str->push("world");
-
+	MutantStack<std::string> *stackCopy = new MutantStack<std::string>(*str);
+	
 	std::cout << *str << std::endl;
 	delete str;
+	std::cout << *stackCopy << std::endl;
+	MutantStack<std::string> *stackAssign = new MutantStack<std::string>();
+	*stackAssign = *stackCopy;
+	delete stackCopy;
+	std::cout << *stackAssign << std::endl;
+
+	delete stackAssign;
+
 }
 
 int	main(void)
 {
 	mainGiven();
-	test();
+	//copyTest();
 	return 0;
 }
