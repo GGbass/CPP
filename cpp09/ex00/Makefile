@@ -31,7 +31,7 @@ all: $(NAME)
 
 run: fclean all
 	@echo "$(GREEN)Running $(NAME)...$(DEFAULT)\n"
-	@./$(NAME)
+	@./$(NAME) input.txt
 	
 
 test: clean all
