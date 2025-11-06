@@ -7,11 +7,14 @@
 #include <sstream>
 #include <fstream>
 #include <exception>
-
+#include <cstring>
 class BitcoinExchange
 {
 	private:
 		std::map<std::string, double> _map;
+
+		int	parseLine(std::string line);
+		std::string*	split(std::string, char);
 
 	public:
 		BitcoinExchange();
@@ -19,7 +22,7 @@ class BitcoinExchange
 		BitcoinExchange& operator=(const BitcoinExchange& other);
 		~BitcoinExchange();
 		int loadDatabase(std::string);
-		int	loadFileInput(std::string);
+		int	loadFileInput(std::string) {return 0;}
 		//int	printResult();
 };
 
