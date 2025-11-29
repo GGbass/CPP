@@ -8,22 +8,30 @@
 #include <fstream>
 #include <exception>
 #include <cstring>
-class BitcoinExchange
+#include <climits>
+
+class	BitcoinExchange
 {
 	private:
-		std::map<std::string, double> _map;
-
-		int	parseLine(std::string line);
-		std::string*	split(std::string, char);
+		std::map<std::string, double> _dataBase;
+		int		parseLine(std::string line);
+		void	printDataBase();
+		std::string	closestDate(); // find the nearest date in the database
 
 	public:
 		BitcoinExchange();
+		BitcoinExchange(char	*inputFile);
 		BitcoinExchange(const BitcoinExchange& other);
 		BitcoinExchange& operator=(const BitcoinExchange& other);
 		~BitcoinExchange();
-		int loadDatabase(std::string);
-		int	loadFileInput(std::string) {return 0;}
+		int saveDatabase(const char* dataBase);
+		int	loadFileInput(const std::string& inputFile);
 		//int	printResult();
 };
 
+// std::string*	split(std::string, char);
+bool		validDate(const std::string& date);
+bool		validValue(double value);
+// std::string	split(std::string str, char delimiter);
+// find the neartest date in the database
 #endif // BitcoinExchange_HPP

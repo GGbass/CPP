@@ -14,7 +14,7 @@ CLASS_NAME = $(CLASS)
 HPP_FILE = $(CLASS_NAME).hpp
 CPP_FILE = $(CLASS_NAME).cpp
 
-NAME = bitcoinexchange
+NAME = btc
 INCLUDE = 
 
 SRC =	./BitcoinExchange.cpp \
@@ -23,7 +23,7 @@ SRC =	./BitcoinExchange.cpp \
 
 OBJ = $(SRC:.cpp=.o)
 
-CXXFLAGS = -Wall -Werror -Wextra -I -std=c++98 -fsanitize=address,leak
+CXXFLAGS = -Wall -Werror -Wextra -I -g3 -std=c++98 -fsanitize=address,leak
 
 CXX = c++
 
