@@ -62,23 +62,83 @@ int	BitcoinExchange::saveDatabase(const char* dataBase)
 	return (1);
 }
 
-int	BitcoinExchange::loadFileInput(std::string infile)
+int	BitcoinExchange::loadFileInput(const std::string& infile)
 {
 	std::ifstream inputFile(infile.c_str());
 	if (!inputFile.is_open())
 		throw std::runtime_error("Error: could not open the file");
 	std::string	line;
+	bool isFirstLine = true;
 	while(std::getline(inputFile, line))
 	{
-		//check dates on line
-		if (not validDate(line))
-			std::cerr << "Error: invalid date => " << line << std::endl;
-		this->closestDate(line);
-		// calculate value * exchange rate
+		if (line.empty())
+			continue;
+		if (isFirstLine)
+		{
+			isFirstLine = false;
+			if (line == "date,value")
+				continue;
+		}
+		
+		// Parse the line: date,value
+		std::istringstream ss(line);
+		std::string token;
+		std::string date;
+		double amount;
+		
+		if (!std::getline(ss, token, ','))
+		{
+			std::cerr << "Error: bad input => " << line << std::endl;
+			continue;
+		}
+		date = token;
+		
+		if (!std::getline(ss, token, ','))
+		{
+			std::cerr << "Error: bad input => " << line << std::endl;
+			continue;
+		}
+		
+		try
+		{
+			amount = std::atof(token.c_str());
+		}
+		catch(const std::exception& e)
+		{
+			std::cerr << "Error: bad input => " << line << std::endl;
+			continue;
+		}
+		if (!validDate(date))
+		{
+			std::cerr << "Error: invalid date => " << date << std::endl;
+			continue;
+		}
+		
+		if (amount < 0)
+		{
+			std::cerr << "Error: not a positive number." << std::endl;
+			continue;
+		}
+		
+		if (amount > INT_MAX)
+		{
+			std::cerr << "Error: too large a number." << std::endl;
+			continue;
+		}
+		try
+		{
+			double exchangeRate = getRateValue(date);
+			double result = amount * exchangeRate;
+			std::cout << date << " => " << amount << " = " << result << std::endl;
+		}
+		catch(const std::exception& e)
+		{
+			std::cerr << e.what() << std::endl;
+		}
 	}
+	inputFile.close();
 	return (0);
 }
-
 
 /* utils */
 
@@ -100,16 +160,15 @@ bool	validDate(const std::string& date)
 
 bool	validValue(double value)
 {
+	// std::cout << "Validating value: " << value << std::endl;
 	if (value < 0 or value > INT_MAX)
-		return (false);
-	if (value > 1000) // following the subject
 		return (false);
 	return (true);
 }
 
 std::string BitcoinExchange::closestDate(const std::string& date)
 {
-	this->_dataBase::iterator it = this->_dataBase.begin();
+	std::map<std::string, double>::iterator it = this->_dataBase.begin();
 	std::string closestDate;
 	if (date.length() < 10)
 		return (std::string());
@@ -143,4 +202,12 @@ std::string BitcoinExchange::closestDate(const std::string& date)
 		closestDate = it->first;
 	}
 	return (closestDate);
+}
+
+double	BitcoinExchange::getRateValue(const std::string& date)
+{
+	std::string closest = this->closestDate(date);
+	if (closest.empty())
+		throw std::runtime_error("Error: no valid date found for " + date);
+	return (this->_dataBase[closest]);
 }

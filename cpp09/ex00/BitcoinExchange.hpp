@@ -14,10 +14,11 @@ class	BitcoinExchange
 {
 	private:
 		std::map<std::string, double> _dataBase;
-		int		parseLine(std::string line);
-		void	printDataBase();
-		std::string	closestDate(); // find the nearest date in the database
-
+		double		rate;
+		int			parseLine(std::string line);
+		void		printDataBase();
+		std::string	closestDate(const std::string& date); // find the nearest date in the database
+		
 	public:
 		BitcoinExchange();
 		BitcoinExchange(char	*inputFile);
@@ -27,6 +28,7 @@ class	BitcoinExchange
 		int saveDatabase(const char* dataBase);
 		int	loadFileInput(const std::string& inputFile);
 		//int	printResult();
+		double	getRateValue(const std::string& date);
 };
 
 // std::string*	split(std::string, char);
