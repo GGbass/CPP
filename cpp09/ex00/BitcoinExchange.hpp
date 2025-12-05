@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   BitcoinExchange.hpp                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gongarci <gongarci@student.42madrid.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/12/05 23:47:41 by gongarci          #+#    #+#             */
+/*   Updated: 2025/12/05 23:47:43 by gongarci         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef BitcoinExchange_HPP
 #define BitcoinExchange_HPP
 #include <iostream>
@@ -7,7 +19,6 @@
 #include <sstream>
 #include <fstream>
 #include <exception>
-#include <cstring>
 #include <climits>
 
 class	BitcoinExchange
@@ -31,9 +42,6 @@ class	BitcoinExchange
 		double	getRateValue(const std::string& date);
 };
 
-// std::string*	split(std::string, char);
 bool		validDate(const std::string& date);
 bool		validValue(double value);
-// std::string	split(std::string str, char delimiter);
-// find the neartest date in the database
-#endif // BitcoinExchange_HPP
+#endif

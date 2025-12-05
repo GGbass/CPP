@@ -31,13 +31,8 @@ all: $(NAME)
 
 run: fclean all
 	@echo "$(GREEN)Running $(NAME)...$(DEFAULT)\n"
-	@./$(NAME) infile.txt
+	@./$(NAME) input.txt
 	
-
-test: clean all
-	@echo "$(GREEN)Running tests...$(DEFAULT)\n"
-	@./tester.sh $(NAME)
-
 class:
 	@if [ -z "$(CLASS)" ]; then \
 		echo "Error: CLASS variable not set. Usage: make class CLASS=YourClassName"; \
