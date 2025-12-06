@@ -8,6 +8,7 @@ For each input line: parse date and value, validate value range (0..1000, float 
 To get the correct rate when input date is missing: use it = db.upper_bound(date); if it == db.begin() 
 then no lower date exists → error; otherwise --it gives the greatest key <= date (the required lower date).
 
-Error cases to cover: file open, bad date format, non-positive number, >1000, overflow, malformed line. Print exact messages as subject examples.
+Error cases to cover: file open, bad date format, non-positive number, >1000, overflow, malformed line. Print exact messages as subject
+examples.
 
 Why map: ordered keys and O(log n) lookup; upper_bound provides the "closest lower date" semantics directly.
