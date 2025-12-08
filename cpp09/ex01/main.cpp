@@ -12,13 +12,18 @@
 
 #include "RPN.hpp"
 
+static int	checkArguments(int argc, char **argv)
+{
+	if (argc < 2 || argc > 10)
+		return (std::cerr << "Error: No rights arguments provided." << std::endl, 0);
+	return (0);
+}
+
 int	main(int argc, char** argv)
 {
-	if (argc == 1)
-		return (std::cerr << "Error: invalid number of arguments." << std::endl, 1);
-
+	if (!checkArguments(argc, argv))
+		return (1);
 	RPN	*rpn = new RPN();
-
-	delete rpn;
+	delete	rpn;
 	return (0);
 }

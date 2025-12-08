@@ -6,7 +6,7 @@
 /*   By: gongarci <gongarci@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/06 00:08:40 by gongarci          #+#    #+#             */
-/*   Updated: 2025/12/06 19:37:29 by gongarci         ###   ########.fr       */
+/*   Updated: 2025/12/07 23:33:47 by gongarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ RPN::RPN()
 RPN::RPN(char **argv)
 {
 	(void)argv;
-	// checks argvs and process RPN expression
 }
 
 RPN::RPN(const RPN& other)
