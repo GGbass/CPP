@@ -17,7 +17,7 @@ CPP_FILE = $(CLASS_NAME).cpp
 NAME = PmergeMe
 INCLUDE = 
 
-SRC =	./BitcoinExchange.cpp \
+SRC =	./PmergeMe.cpp \
 		./main.cpp
 
 
@@ -31,7 +31,7 @@ all: $(NAME)
 
 run: fclean all
 	@echo "$(GREEN)Running $(NAME)...$(DEFAULT)\n"
-	@./$(NAME) input.txt
+	@./$(NAME) 
 	
 class:
 	@if [ -z "$(CLASS)" ]; then \

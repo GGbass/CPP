@@ -6,32 +6,27 @@
 /*   By: gongarci <gongarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/06 00:08:40 by gongarci          #+#    #+#             */
-/*   Updated: 2025/12/08 20:01:54 by gongarci         ###   ########.fr       */
+/*   Updated: 2025/12/08 20:33:43 by gongarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RPN.hpp"
 
-RPN::RPN()
-{
-	
-}
+RPN::RPN(){ }
 
 RPN::RPN(const RPN& other)
 {
-	(void)other;
+	this->_stack = other._stack;
 }
 
 RPN& RPN::operator=(const RPN& other)
 {
-	(void)other;
+	if (this not_eq &other)
+		this->_stack = other._stack;
 	return (*this);
 }
 
-RPN::~RPN()
-{
-	
-}
+RPN::~RPN() { }
 
 int	RPN::run(std::string input)
 {
@@ -58,9 +53,6 @@ int	RPN::run(std::string input)
 	return (1);
 }
 
-
-/* private tools */
-
 int	RPN::doOps(char op, int left, int right)
 {
 	switch (op)
@@ -80,10 +72,7 @@ int	RPN::doOps(char op, int left, int right)
 	}
 }
 
-int	RPN::getResult() const
-{
-	return (this->_stack.top());
-}
+int	RPN::getResult() const { return (this->_stack.top()); }
 
 std::ostream& operator<<(std::ostream& os, const RPN& rpn)
 {
