@@ -6,7 +6,7 @@
 /*   By: gongarci <gongarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/06 00:08:32 by gongarci          #+#    #+#             */
-/*   Updated: 2025/12/08 20:03:03 by gongarci         ###   ########.fr       */
+/*   Updated: 2025/12/08 20:08:06 by gongarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static int	checkArguments(int argc, char **argv)
 		if (!isdigit(argv[1][i]) && !IS_OP(argv[1][i]))
 			return (std::cerr << "Error" << std::endl, 0);
 		size++;
-		if (size > 20)
+		if (size > 20) // actually the numbers  cannot be greater than 10, it doesn't matter the ammount of operationss !!!
 			return (std::cerr << "Error: Too many operations provided." << std::endl, 0);
 	}
 	return (1);
