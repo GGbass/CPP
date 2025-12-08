@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gongarci <gongarci@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: gongarci <gongarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/05 23:47:41 by gongarci          #+#    #+#             */
-/*   Updated: 2025/12/05 23:47:43 by gongarci         ###   ########.fr       */
+/*   Updated: 2025/12/08 18:58:21 by gongarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
