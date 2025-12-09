@@ -1,28 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PmergeMe.cpp                                       :+:      :+:    :+:   */
+/*   PmergeMe.tpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gongarci <gongarci@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gongarci <gongarci@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/06 00:11:20 by gongarci          #+#    #+#             */
-/*   Updated: 2025/12/08 20:41:01 by gongarci         ###   ########.fr       */
+/*   Updated: 2025/12/09 01:29:11 by gongarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
 
-PmergeMe::PmergeMe()
+
+template <typename T>
+PmergeMe<T>::PmergeMe()
 {
 	std::cout << "PmergeMe default constructor called." <<  std::endl;
 }
 
-PmergeMe::PmergeMe(const PmergeMe& other)
+template <typename T>
+PmergeMe<T>::PmergeMe(const PmergeMe& other)
 {
 	(void)other;
 }
 
-PmergeMe& PmergeMe::operator=(const PmergeMe& other)
+template <typename T>
+PmergeMe<T>& PmergeMe<T>::operator=(const PmergeMe& other)
 {
 	if (this not_eq &other)
 	{
@@ -31,7 +35,8 @@ PmergeMe& PmergeMe::operator=(const PmergeMe& other)
 	return (*this);
 }
 
-PmergeMe::~PmergeMe()
+template <typename T>
+PmergeMe<T>::~PmergeMe()
 {
 	std::cout << "PmergeMe destructor called." <<  std::endl;
 }

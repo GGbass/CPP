@@ -15,10 +15,9 @@ HPP_FILE = $(CLASS_NAME).hpp
 CPP_FILE = $(CLASS_NAME).cpp
 
 NAME = PmergeMe
-INCLUDE = 
+INCLUDE = PmergeMe.hpp , PmergeMe.tpp
 
-SRC =	./PmergeMe.cpp \
-		./main.cpp
+SRC =	./main.cpp
 
 
 OBJ = $(SRC:.cpp=.o)

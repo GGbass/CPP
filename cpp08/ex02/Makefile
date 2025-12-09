@@ -15,7 +15,7 @@ HPP_FILE = $(CLASS_NAME).hpp
 CPP_FILE = $(CLASS_NAME).cpp
 
 NAME = mutantstack
-INCLUDE = MutantStack.hpp,  MutantStack.tpp
+INCLUDE = MutantStack.hpp, MutantStack.tpp
 
 SRC =	./main.cpp
 
