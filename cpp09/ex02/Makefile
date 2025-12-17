@@ -15,7 +15,7 @@ HPP_FILE = $(CLASS_NAME).hpp
 CPP_FILE = $(CLASS_NAME).cpp
 
 NAME = PmergeMe
-INCLUDE = PmergeMe.hpp
+INCLUDE = PmergeMe.tpp
 
 SRC =	./dequeMergeSort.cpp \
 		./vectorMergeSort.cpp \
@@ -31,9 +31,11 @@ CXX = c++
 
 all: $(NAME)
 
+#./PmergeMe $(shuf -i 1-3000 -n 100)
+
 run: fclean all
 	@echo "$(GREEN)Running $(NAME)...$(DEFAULT)\n"
-	@./$(NAME)  2 3 1 5 4 8 7 6
+	@./$(NAME)  2 3 1 5 4 8 7 6 9
 
 class:
 	@if [ -z "$(CLASS)" ]; then \

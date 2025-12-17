@@ -1,7 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   vectorMergeSort.cpp                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gongarci <gongarci@student.42madrid.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/12/17 23:59:04 by gongarci          #+#    #+#             */
+/*   Updated: 2025/12/17 23:59:04 by gongarci         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "PmergeMe.hpp"
 
-// Helper function: simple binary search to find insertion position
-static size_t	binarySearchPos(const std::vector<int>& arr, int value)
+
+
+/* static size_t	binarySearchPos(const std::vector<int>& arr, int value)
 {
 	size_t left = 0;
 	size_t right = arr.size();
@@ -15,7 +28,7 @@ static size_t	binarySearchPos(const std::vector<int>& arr, int value)
 			right = mid;
 	}
 	return (left);
-}
+} */
 
 // Binary search insertion for a single element
 void	PmergeMe::binaryInsertVector(std::vector<int>& arr, int value, size_t upTo)
@@ -37,32 +50,8 @@ void	PmergeMe::binaryInsertVector(std::vector<int>& arr, int value, size_t upTo)
 	arr.insert(arr.begin() + left, value);
 }
 
-// Simple insertion sort for small subarrays
-void	PmergeMe::insertionSortVector(std::vector<int>& arr, size_t left, size_t right)
-{
-	for (size_t i = left + 1; i <= right; i++)
-	{
-		int	key = arr[i];
-		size_t	j = i;
-		while (j > left && arr[j - 1] > key)
-		{
-			arr[j] = arr[j - 1];
-			j--;
-		}
-		arr[j] = key;
-	}
-}
-
 void	PmergeMe::mergeInsertVectorSort(std::vector<int>& arr, size_t left, size_t right)
 {
-	// Base case: use insertion sort for small arrays
-/* 	size_t size = right - left + 1;
-	if (size <= 10)
-	{
-		insertionSortVector(arr, left, right);
-		return;
-	} */
-
 	// Create a temporary vector for this recursion level
 	std::vector<int> temp;
 	for (size_t i = left; i <= right; i++)
@@ -140,17 +129,17 @@ void	PmergeMe::runVector(int argc, char **argv)
 {
 	std::cout << "--- VECTOR ---" << std::endl;
 	std::cout << "Before: ";
-	
 	clock_t	start = clock();
+
 	for (int i = 1; i < argc; i++)
 		this->vect.push_back(atoi(argv[i]));
+
 	this->printVector();
 	mergeInsertVectorSort(this->vect, 0, this->vect.size() - 1);
 	clock_t	end = clock();
 	double	runTime = static_cast<double>(end - start) / CLOCKS_PER_SEC * 1000;
 	std::cout << "After:  ";
 	this->printVector();
-
 		std::cout << "Time to process a range of " << vect.size() << " elements with std::vector : "
 			  << runTime << " ms" << std::endl;
 }

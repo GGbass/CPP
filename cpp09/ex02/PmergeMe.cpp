@@ -6,7 +6,7 @@
 /*   By: gongarci <gongarci@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/06 00:11:20 by gongarci          #+#    #+#             */
-/*   Updated: 2025/12/17 17:36:11 by gongarci         ###   ########.fr       */
+/*   Updated: 2025/12/17 22:25:02 by gongarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ PmergeMe& PmergeMe::operator=(const PmergeMe& other)
 {
 	if (this not_eq &other)
 	{
-		// Copy member variables here if there are any
+		this->vect = other.vect;
+		this->deque = other.deque;
 	}
 	return (*this);
 }
@@ -57,6 +58,3 @@ void	PmergeMe::printDeque(void)
 		std::cout << deque[i] << " ";
 	std::cout << std::endl;
 }
-
-
-

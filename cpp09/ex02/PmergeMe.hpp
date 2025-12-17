@@ -6,7 +6,7 @@
 /*   By: gongarci <gongarci@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/06 00:11:44 by gongarci          #+#    #+#             */
-/*   Updated: 2025/12/17 17:35:32 by gongarci         ###   ########.fr       */
+/*   Updated: 2025/12/18 00:00:00 by gongarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,5 +43,9 @@ class PmergeMe
 		void	printDeque(void);
 };
 
+#include "PmergeMe.tpp"
+
+template <typename T, typename U>
+size_t binarySearchPos(const T& arr, U value);
 
 #endif
