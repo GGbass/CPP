@@ -6,7 +6,7 @@
 /*   By: gongarci <gongarci@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/06 00:11:44 by gongarci          #+#    #+#             */
-/*   Updated: 2025/12/09 01:29:28 by gongarci         ###   ########.fr       */
+/*   Updated: 2025/12/17 17:35:32 by gongarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,32 @@
 #include <stdexcept>
 #include <vector>
 #include <deque>
-#include <ctime> // clock_t, clock(), CLOCKS_PER_SEC
-#include <cstdlib> // atoi
+#include <ctime>
+#include <cstdlib>
 
-template <typename T>
 class PmergeMe
 {
+	private:
+		std::vector<int>	vect;
+		std::deque<int>		deque;
+		/* vector */
+		void				runVector(int argc, char **argv);
+		void				mergeInsertVectorSort(std::vector<int>& arr, size_t left, size_t right);
+		void				insertionSortVector(std::vector<int>& arr, size_t left, size_t right);
+		void				binaryInsertVector(std::vector<int>& arr, int value, size_t upTo);
+		/* deque */
+		void				mergeInsertionDequeSort(std::deque<int>& arr, size_t left, size_t right);
+		void				runDeque(int argc, char **argv);
+
 	public:
 		PmergeMe();
 		PmergeMe(const PmergeMe& other);
 		PmergeMe& operator=(const PmergeMe& other);
 		~PmergeMe();
+		void	run(int argc, char **argv);
+		void	printVector(void);
+		void	printDeque(void);
 };
 
-#include "PmergeMe.tpp"
 
 #endif

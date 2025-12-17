@@ -15,9 +15,12 @@ HPP_FILE = $(CLASS_NAME).hpp
 CPP_FILE = $(CLASS_NAME).cpp
 
 NAME = PmergeMe
-INCLUDE = PmergeMe.hpp , PmergeMe.tpp
+INCLUDE = PmergeMe.hpp
 
-SRC =	./main.cpp
+SRC =	./dequeMergeSort.cpp \
+		./vectorMergeSort.cpp \
+		./PmergeMe.cpp \
+		./main.cpp
 
 
 OBJ = $(SRC:.cpp=.o)
@@ -30,8 +33,8 @@ all: $(NAME)
 
 run: fclean all
 	@echo "$(GREEN)Running $(NAME)...$(DEFAULT)\n"
-	@./$(NAME) 
-	
+	@./$(NAME)  2 3 1 5 4 8 7 6
+
 class:
 	@if [ -z "$(CLASS)" ]; then \
 		echo "Error: CLASS variable not set. Usage: make class CLASS=YourClassName"; \
@@ -88,6 +91,6 @@ git:
 
 # Dummy target to handle class names passed as arguments
 %:
-	@:
+@:
 
 .PHONY: clean fclean re all show_progress run class
