@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gongarci <gongarci@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gongarci <gongarci@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/05 23:47:41 by gongarci          #+#    #+#             */
-/*   Updated: 2025/12/08 18:58:21 by gongarci         ###   ########.fr       */
+/*   Updated: 2025/12/21 22:51:47 by gongarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,5 +43,5 @@ class	BitcoinExchange
 };
 
 bool		validDate(const std::string& date);
-bool		validValue(double value);
+bool		validValue(double value, int flag);
 #endif
