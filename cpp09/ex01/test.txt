@@ -1,0 +1,95 @@
+
+Exercise 01 Reverse Polish Notation
+Regular cases
+Simple valid expression
+
+Input: "8 9 * 9 - 9 - 9 - 4 - 1 +"
+
+Expected: 42
+
+Single number
+
+Input: "42"
+
+Expected: 42 (valid output)
+
+Multiple spaces
+
+Input: "7 7 * 7 -"
+
+Check: tokenization robust to extra spaces.
+
+Edge cases
+Division by zero
+
+Input: "4 0 /"
+
+Expected: error on standard error (e.g., Error or Error: division by zero).
+
+Too few operands
+
+Input: "+" or "1 +" or "1 2 + +" (operator without enough operands)
+
+Expected: error.
+
+Too many operands left
+
+Input: "1 2" (no operator to combine)
+
+Expected: error.
+
+Invalid token
+
+Input: "1 2 &"
+
+Expected: error.
+
+Negative intermediate results
+
+Input: "1 2 - 5 *" → valid; ensure negative numbers are handled as intermediate results even if input tokens are non-negative.
+
+Large expression depth
+
+Input: long chain of operations to test stack growth.
+
+Check: no stack overflow; use std::vector<int> or std::stack<int>.
+
+Non-integer tokens
+
+Input: "1 2.5 +" (decimals not required)
+
+Expected: error (spec says no decimals).
+
+Invalid inputs and error messages
+Brackets or infix
+
+Input: "(1 + 1)"
+
+Expected: Error (as in subject).
+
+Characters and letters
+
+Input: "a b +" or "1 two +"
+
+Expected: error.
+
+Implementation checks
+Tokenization
+
+Check: split on whitespace only; ignore empty tokens.
+
+Type constraints
+
+Check: input numbers are single-digit (<10) per spec; still handle multi-digit if defensive, but document behavior.
+
+Error reporting
+
+Check: errors go to std::cerr and program exits non-zero.
+
+Operator precedence
+
+Check: RPN inherently encodes precedence; ensure you do not attempt to re-parse.
+
+Division semantics
+
+Check: integer division vs float — spec implies integers; be explicit and consistent.

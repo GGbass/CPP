@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   dequeMergeSort.cpp                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gongarci <gongarci@student.42madrid.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/12/18 00:32:10 by gongarci          #+#    #+#             */
+/*   Updated: 2025/12/18 00:32:10 by gongarci         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "PmergeMe.hpp"
 
 /* --------------------- deque method ---------------------------------*/
@@ -8,7 +20,6 @@ void	PmergeMe::mergeInsertionDequeSort(std::deque<int>& arr, size_t left, size_t
 	for (size_t i = left; i <= right; i++)
 		temp.push_back(arr[i]);
 
-	// Step 1: Pair elements and create larger/smaller deques
 	std::deque<int> larger;
 	std::deque<int> smaller;
 	int		unpaired = -1;
@@ -26,34 +37,25 @@ void	PmergeMe::mergeInsertionDequeSort(std::deque<int>& arr, size_t left, size_t
 			larger.push_back(temp[i]);
 		}
 	}
-	// Handle odd element
 	if (temp.size() % 2 == 1)
 	{
 		unpaired = temp[temp.size() - 1];
 		hasUnpaired = true;
 	}
-	// Step 2: Recursively sort larger elements
 	if (larger.size() > 1)
 		mergeInsertionDequeSort(larger, 0, larger.size() - 1);
-	// Step 3: Use the now-sorted "larger" elements as the foundation
-	// The "larger" vector now contains sorted values from the pairs.
-	// "smaller" contains the elements that were smaller in each pair.
-	
-	// Step 4: Insert smaller elements into the sorted larger sequence
+
 	std::deque<int> sorted = larger;
 	if (not smaller.empty())
 	{
 		size_t pos = binarySearchPos(sorted, smaller[0]);
 		sorted.insert(sorted.begin() + pos, smaller[0]);
 	}
-	// Insert remaining smaller elements
 	for (size_t i = 1; i < smaller.size(); i++)
 	{
-		// int value = smaller[i];
 		size_t pos = binarySearchPos(sorted, smaller[i]);
 		sorted.insert(sorted.begin() + pos, smaller[i]);
 	}
-	// Step 5: Insert unpaired element
 	if (hasUnpaired)
 	{
 		size_t pos = binarySearchPos(sorted, unpaired);

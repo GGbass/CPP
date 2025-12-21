@@ -12,24 +12,6 @@
 
 #include "PmergeMe.hpp"
 
-
-
-/* static size_t	binarySearchPos(const std::vector<int>& arr, int value)
-{
-	size_t left = 0;
-	size_t right = arr.size();
-	
-	while (left < right)
-	{
-		size_t mid = left + (right - left) / 2;
-		if (arr[mid] < value)
-			left = mid + 1;
-		else
-			right = mid;
-	}
-	return (left);
-} */
-
 // Binary search insertion for a single element
 void	PmergeMe::binaryInsertVector(std::vector<int>& arr, int value, size_t upTo)
 {

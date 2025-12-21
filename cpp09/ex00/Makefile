@@ -32,7 +32,11 @@ all: $(NAME)
 run: fclean all
 	@echo "$(GREEN)Running $(NAME)...$(DEFAULT)\n"
 	@./$(NAME) input.txt
-	
+
+test: fclean all
+	@echo "$(CYAN)Running $(NAME) with test.txt...$(DEFAULT)\n"
+	@./$(NAME) test.txt
+
 class:
 	@if [ -z "$(CLASS)" ]; then \
 		echo "Error: CLASS variable not set. Usage: make class CLASS=YourClassName"; \

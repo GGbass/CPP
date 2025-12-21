@@ -67,3 +67,101 @@ MERGE(Arreglo A, índice p, índice q, índice r):
 El Paso Clave del Ford-Johnson
 La diferencia entre el Merge Sort estándar y el Merge-Insert Sort (Ford-Johnson) radica en cómo se manejan las secuencias pequeñas.
 El Ford-Johnson típicamente utiliza el algoritmo de ordenación por inserción (Insertion Sort) para sub-secuencias de tamaño muy pequeño, ya que Insertion Sort es más eficiente que Merge Sort en esas condiciones. Además, el Ford-Johnson utiliza una técnica de inserción binaria específica para reinsertar elementos.
+
+
+
+test : !!!!!!!!!!!!!!!!!!
+
+Exercise 02 PmergeMe
+Regular cases
+Small list
+
+Input: 3 5 9 7 4
+
+Expected:
+
+Before: 3 5 9 7 4
+
+After: 3 4 5 7 9
+
+Two timing lines for the two containers used.
+
+Already sorted
+
+Input: 1 2 3 4 5
+
+Check: algorithm handles best-case quickly.
+
+Reverse sorted
+
+Input: 5 4 3 2 1
+
+Check: algorithm handles worst-case.
+
+Edge cases
+Single element
+
+Input: 42
+
+Expected: Before: 42 After: 42 timings small.
+
+Even and odd counts
+
+Input: test with n=2, n=3, n=4, n=5 to ensure pairing logic in Ford-Johnson works.
+
+Duplicates
+
+Input: 3 3 2 2 1 1
+
+Check: decide and document duplicate handling; algorithm must still sort.
+
+Large input near limit
+
+Input: 3000 unique integers
+
+Check: memory usage, correctness, and timing differences between containers.
+
+Invalid inputs and error messages
+Negative or zero
+
+Input: -1 2 or 0 5
+
+Expected: Error (subject shows Error for -1).
+
+Non-integer token
+
+Input: 1 2 a
+
+Expected: Error.
+
+Too many arguments or empty
+
+Input: no args
+
+Expected: Error.
+
+Performance and measurement
+Timing reproducibility
+
+Check: measure total time including parsing and data structure setup, not only the core sort. Use std::chrono::high_resolution_clock. Print microsecond or nanosecond precision.
+
+Two containers
+
+Check: implement algorithm separately for both containers (e.g., std::vector<int> and std::deque<int>). Ensure you do not reuse containers from previous exercises.
+
+Stability and memory
+
+Check: Ford-Johnson is comparison-based; ensure memory footprint is reasonable for 3000 elements.
+
+Implementation checks
+Correct Ford-Johnson implementation
+
+Check: pairing, sorting pairs, inserting pendants in correct order. Provide comments in code explaining each step for reviewers.
+
+Separate implementations
+
+Check: avoid a single templated function if the subject advises separate implementations.
+
+Timing output format
+
+Check: match required lines and include container name in the message

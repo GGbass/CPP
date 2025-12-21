@@ -6,13 +6,13 @@
 /*   By: gongarci <gongarci@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/05 23:47:29 by gongarci          #+#    #+#             */
-/*   Updated: 2025/12/05 23:53:34 by gongarci         ###   ########.fr       */
+/*   Updated: 2025/12/21 00:50:22 by gongarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
 
-BitcoinExchange::BitcoinExchange(){ }
+BitcoinExchange::BitcoinExchange() { }
 
 BitcoinExchange::BitcoinExchange(char	*inputFile)
 {
@@ -54,7 +54,6 @@ int	BitcoinExchange::parseLine(std::string line)
 		throw std::runtime_error("Error: invalid date => " + date);
 	if (!validValue(value))
 		throw std::runtime_error("Error: invalid value => " + token);
-	
 	this->_dataBase[date] = value;
 	return (0);
 }
@@ -71,7 +70,7 @@ int	BitcoinExchange::saveDatabase(const char* dataBase)
 	return (1);
 }
 
-static std::string	trimString(const std::string& str)
+static	std::string	trimString(const std::string& str)
 {
 	size_t start = str.find_first_not_of(" \t");
 	size_t end = str.find_last_not_of(" \t");
@@ -135,9 +134,9 @@ bool	validDate(const std::string& date)
 	if (date.length() != 10 || date[4] != '-' || date[7] != '-')
 		return (std::cerr << "Error: wrong date format" << std::endl, false);
 
-	int year = std::atoi(date.substr(0, 4).c_str());
-	int month = std::atoi(date.substr(5, 2).c_str());
-	int day = std::atoi(date.substr(8, 2).c_str());
+	int	year = std::atoi(date.substr(0, 4).c_str());
+	int	month = std::atoi(date.substr(5, 2).c_str());
+	int	day = std::atoi(date.substr(8, 2).c_str());
 
 	if (year < 2009 || year > 2025)
 		return (std::cerr << "Error: year out of range" << std::endl, false);
@@ -199,7 +198,7 @@ std::string BitcoinExchange::closestDate(const std::string& date)
 double	BitcoinExchange::getRateValue(const std::string& date)
 {
 	std::string closest = this->closestDate(date);
-	
+
 	if (closest.empty())
 		throw std::runtime_error("Error: no valid date found for " + date);
 	
