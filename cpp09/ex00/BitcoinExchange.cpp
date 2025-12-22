@@ -6,7 +6,7 @@
 /*   By: gongarci <gongarci@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/05 23:47:29 by gongarci          #+#    #+#             */
-/*   Updated: 2025/12/21 23:04:57 by gongarci         ###   ########.fr       */
+/*   Updated: 2025/12/22 01:00:11 by gongarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,6 +112,11 @@ int	BitcoinExchange::loadFileInput(const std::string& infile)
 			continue;
 		}
 		std::string amountStr = trimString(amountToken);
+		if (!isdigit(amountStr[0]))
+		{
+			std::cerr << "Error: bad input => " << line << std::endl;
+			continue;
+		}
 		double rate = std::atof(amountStr.c_str());
 		if (not validDate(date) or not validValue(rate, 1))
 			continue;
