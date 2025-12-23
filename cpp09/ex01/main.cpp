@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gongarci <gongarci@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gongarci <gongarci@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/06 00:08:32 by gongarci          #+#    #+#             */
-/*   Updated: 2025/12/08 20:29:52 by gongarci         ###   ########.fr       */
+/*   Updated: 2025/12/23 00:31:05 by gongarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static int	checkArguments(int argc, char **argv)
 {
 	int	size = 0;
 	if (argc != 2)
-		return (std::cerr << "Error: No rights arguments provided." << std::endl, 0);
+		return (std::cerr << "Error" << std::endl, 0);
 	for (int i = 0; argv[1][i]; i++)
 	{
 		if (argv[1][i] == ' ') {continue;}
@@ -42,6 +42,7 @@ int	main(int argc, char** argv)
 	catch (const std::exception& e)
 	{
 		std::cerr << "Error: " << e.what() << std::endl;
+		delete rpn;
 		return (1);
 	}
 	delete rpn;

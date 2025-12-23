@@ -6,7 +6,7 @@
 /*   By: gongarci <gongarci@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/05 23:47:29 by gongarci          #+#    #+#             */
-/*   Updated: 2025/12/22 01:00:11 by gongarci         ###   ########.fr       */
+/*   Updated: 2025/12/22 23:55:57 by gongarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,65 +71,71 @@ static	std::string	trimString(const std::string& str)
 {
 	size_t start = str.find_first_not_of(" \t");
 	size_t end = str.find_last_not_of(" \t");
-
 	if (start == std::string::npos)
 		return (std::string());
 	return (str.substr(start, end - start + 1));
 }
 
+static bool	goodLine(std::string& line, bool &isFirstLine)
+{
+	if (line.empty() or (line.size() == 1 && line[0] == '\n'))
+	{
+		std::cerr << "Error: bad input =>  empty or new line" << line << std::endl;
+		return (false);
+	}
+	if (isFirstLine && (line == "date | value"))
+	{
+		isFirstLine = false;
+		return (false);
+	}
+	return (true);
+}
+
+static bool getDateAndRate(std::string& line, std::string& date, double& rate)
+{
+	std::istringstream	ss(line);
+	std::string			dateToken;
+	std::string			amountToken;
+	if (!std::getline(ss, dateToken, '|'))
+	{
+		std::cerr << "Error: bad input => " << line << std::endl;
+		return (false);
+	}
+	date = trimString(dateToken);
+	if (!std::getline(ss, amountToken))
+	{
+		std::cerr << "Error: bad input => " << line << std::endl;
+		return (false);
+	}
+	std::string amountStr = trimString(amountToken);
+	// if 
+	if (!isdigit(amountStr[0]))
+	{
+		std::cerr << "Error: bad input => " << line << std::endl;
+		return (false);
+	}
+	rate = std::atof(amountStr.c_str());
+	return (true);
+}
+
 int	BitcoinExchange::loadFileInput(const std::string& infile)
 {
 	std::ifstream inputFile(infile.c_str());
-	if (!inputFile.is_open())
+	if (not inputFile.is_open())
 		throw std::runtime_error("Error: could not open the file");
 	std::string line;
 	bool isFirstLine = true;
 	while (std::getline(inputFile, line))
 	{
-		if (line.empty() or (line.size() == 1 && line[0] == '\n'))
-		{
-			std::cerr << "Error: bad input =>  empty or new line" << line << std::endl;
+		if (not goodLine(line, isFirstLine))
 			continue;
-		}
-		/* if (line.empty() and !isFirstLine)
-			continue; */
-		if (isFirstLine && (line == "date | value"))
-		{
-			isFirstLine = false;
+		std::string	date;
+		double		rate;
+		if (not getDateAndRate(line, date, rate))
 			continue;
-		}
-		std::istringstream ss(line);
-		std::string dateToken, amountToken;
-		if (!std::getline(ss, dateToken, ','))
-		{
-			std::cerr << "Error: bad input => " << line << std::endl;
-			continue;
-		}
-		std::string date = trimString(dateToken);
-		if (!std::getline(ss, amountToken))
-		{
-			std::cerr << "Error: bad input => " << line << std::endl;
-			continue;
-		}
-		std::string amountStr = trimString(amountToken);
-		if (!isdigit(amountStr[0]))
-		{
-			std::cerr << "Error: bad input => " << line << std::endl;
-			continue;
-		}
-		double rate = std::atof(amountStr.c_str());
 		if (not validDate(date) or not validValue(rate, 1))
 			continue;
-		try
-		{
-			double exchangeRate = this->getRateValue(date);
-			double result = rate * exchangeRate;
-			std::cout << date << " => " << rate << " = " << result << std::endl;
-		}
-		catch (const std::exception& e)
-		{
-			std::cerr << e.what() << std::endl;
-		}
+		printRate(date, rate);
 	}
 	inputFile.close();
 	return (0);
@@ -178,19 +184,18 @@ std::string BitcoinExchange::closestDate(const std::string& date)
 	if (date.length() < 10)
 		return (std::string());
 	std::string subDate = date.substr(0, 10);
-	if (subDate.empty() or not validDate(subDate))
-		return (std::string());
 	std::map<std::string, double>::iterator it = this->_dataBase.begin();
-	std::string closestDate;
-	for (; it != this->_dataBase.end(); ++it)
+	std::map<std::string, double>::iterator end = this->_dataBase.end();
+	std::string closestDate = "";
+	for (; it != end; ++it)
 	{
 		if (it->first == subDate)
 			return (it->first);
 		if (it->first > subDate)
 		{
 			if (it == this->_dataBase.begin())
-				closestDate = it->first; // No prior dates exist
-			else // Use the previous (closest prior) date
+				closestDate = it->first;
+			else
 			{
 				--it;
 				closestDate = it->first;
@@ -198,7 +203,7 @@ std::string BitcoinExchange::closestDate(const std::string& date)
 			break;
 		}
 	}
-	if (it == this->_dataBase.end() && !closestDate.empty() == false)
+	if (it == end && closestDate.empty())
 	{
 		--it;
 		closestDate = it->first;
@@ -206,11 +211,16 @@ std::string BitcoinExchange::closestDate(const std::string& date)
 	return (closestDate);
 }
 
-double	BitcoinExchange::getRateValue(const std::string& date)
+bool	BitcoinExchange::printRate(const std::string& date, double rate)
 {
-	std::string closest = this->closestDate(date);
-
-	if (closest.empty())
-		throw std::runtime_error("Error: no valid date found for " + date);
-	return (this->_dataBase[closest]);
+	std::string closestDate = this->closestDate(date);
+	if (closestDate.empty())
+	{
+		std::cerr << "Error: no valid date found for " + date << std::endl;
+		return (false);
+	}
+	double	exchangeRate = this->_dataBase[closestDate];
+	double	result = rate * exchangeRate;
+	std::cout << date << " => " << rate << " = " << result << std::endl;
+	return (true);
 }

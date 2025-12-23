@@ -6,7 +6,7 @@
 /*   By: gongarci <gongarci@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/05 23:47:41 by gongarci          #+#    #+#             */
-/*   Updated: 2025/12/21 22:51:47 by gongarci         ###   ########.fr       */
+/*   Updated: 2025/12/22 17:57:14 by gongarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ class	BitcoinExchange
 		int saveDatabase(const char* dataBase);
 		int	loadFileInput(const std::string& inputFile);
 		//int	printResult();
-		double	getRateValue(const std::string& date);
+		bool	printRate(const std::string& date, double rate);
 };
 
 bool		validDate(const std::string& date);
