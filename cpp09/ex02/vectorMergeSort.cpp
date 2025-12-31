@@ -39,7 +39,7 @@ void	PmergeMe::mergeInsertVectorSort(std::vector<int>& arr, size_t left, size_t 
 	for (size_t i = left; i <= right; i++)
 		temp.push_back(arr[i]);
 	
-	// Step 1: Pair elements and create larger/smaller vectors  
+	// Step 1: Pair elements and create larger/smaller vectors 
 	std::vector<int> larger;
 	std::vector<int> smaller;
 	int		unpaired = -1;
@@ -77,14 +77,16 @@ void	PmergeMe::mergeInsertVectorSort(std::vector<int>& arr, size_t left, size_t 
 	// Step 4: Insert smaller elements into the sorted larger sequence
 	std::vector<int> sorted = larger;  // Start with sorted larger elements
 	
+	// for (size_t i = 0; i < sorted.size() - 1; i++)
+	// 	std::cout << "-- " << sorted[i] << " ";
 	// Insert smaller[0] (which pairs with larger[0])
-	if (!smaller.empty())
+	if (not smaller.empty())
 	{
 		// Find correct position for smaller[0]
 		size_t pos = binarySearchPos(sorted, smaller[0]);
 		sorted.insert(sorted.begin() + pos, smaller[0]);
 	}
-	
+
 	// Insert remaining smaller elements
 	for (size_t i = 1; i < smaller.size(); i++)
 	{
@@ -99,7 +101,7 @@ void	PmergeMe::mergeInsertVectorSort(std::vector<int>& arr, size_t left, size_t 
 		size_t pos = binarySearchPos(sorted, unpaired);
 		sorted.insert(sorted.begin() + pos, unpaired);
 	}
-	
+
 	// Copy sorted result back to original array
 	for (size_t i = 0; i < sorted.size() && left + i <= right; i++)
 	{
@@ -120,7 +122,7 @@ void	PmergeMe::runVector(int argc, char **argv)
 	mergeInsertVectorSort(this->vect, 0, this->vect.size() - 1);
 	clock_t	end = clock();
 	double	runTime = static_cast<double>(end - start) / CLOCKS_PER_SEC * 1000;
-	std::cout << "After:  ";
+	std::cout << "After: ";
 	this->printVector();
 		std::cout << "Time to process a range of " << vect.size() << " elements with std::vector : "
 			  << runTime << " ms" << std::endl;

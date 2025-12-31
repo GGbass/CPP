@@ -35,7 +35,7 @@ all: $(NAME)
 
 run: fclean all
 	@echo "$(GREEN)Running $(NAME)...$(DEFAULT)\n"
-	@./$(NAME)  2 3 1 5 4 8 7 6 9
+	@./$(NAME) 2 3 1 5 4 8 7 6 9
 
 class:
 	@if [ -z "$(CLASS)" ]; then \

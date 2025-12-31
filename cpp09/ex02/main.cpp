@@ -44,7 +44,7 @@ static int	checkArgs(int argc, char** argv)
 		if (argv[i][0] == '\0')
 			return (std::cerr << "Error: Empty argument" << std::endl, 0);
 	}
-	if (not doublesNum(argv) || wrongArg(argv))
+	if (not doublesNum(argv) or wrongArg(argv))
 		return (0);
 	return (1);
 }
@@ -53,15 +53,16 @@ int	main(int argc, char** argv)
 {
 	if (!checkArgs(argc, argv))
 		return (1);
-	PmergeMe	pmergeMe;
+	PmergeMe	*pmergeMe = new PmergeMe();
 	try
 	{
-		pmergeMe.run(argc, argv);
+		pmergeMe->run(argc, argv);
 	}
 	catch (const std::exception& e)
 	{
 		std::cerr << "Exception: " << e.what() << std::endl;
 		return (1);
 	}
+	delete pmergeMe;
 	return (0);
 }
