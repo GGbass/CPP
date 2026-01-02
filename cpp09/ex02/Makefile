@@ -32,10 +32,10 @@ CXX = c++
 all: $(NAME)
 
 #./PmergeMe $(shuf -i 1-3000 -n 100)
-
+#@./$(NAME) 2 3 1 5 4 8 7 6 9
 run: fclean all
 	@echo "$(GREEN)Running $(NAME)...$(DEFAULT)\n"
-	@./$(NAME) 2 3 1 5 4 8 7 6 9
+	@./$(NAME) 1 2 3 4 5 6 7 8 9
 
 class:
 	@if [ -z "$(CLASS)" ]; then \

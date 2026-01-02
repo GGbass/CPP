@@ -12,6 +12,16 @@
 
 #include "PmergeMe.hpp"
 
+static int	sorted(char **argv)
+{
+	for (int i = 1; argv[i + 1]; i++)
+	{
+		if (atoi(argv[i]) < atoi(argv[i + 1]))
+			return (std::cerr << "Error: Sorted list " << std::endl, 1);
+	}
+	return (0);
+}
+
 static int	doublesNum(char **argv)
 {
 	for (int i = 0; argv[i]; i++)
@@ -19,10 +29,10 @@ static int	doublesNum(char **argv)
 		for (int j = i + 1; argv[j]; j++)
 		{
 			if (atoi(argv[i]) == atoi(argv[j]))
-				return (std::cerr << "Error: Duplicated number '" << argv[i] << "'" << std::endl, 0);
+				return (std::cerr << "Error: Duplicated number '" << argv[i] << "'" << std::endl, 1);
 		}
 	}
-	return (1);
+	return (0);
 }
 
 static int	wrongArg(char **arg)
@@ -44,7 +54,7 @@ static int	checkArgs(int argc, char** argv)
 		if (argv[i][0] == '\0')
 			return (std::cerr << "Error: Empty argument" << std::endl, 0);
 	}
-	if (not doublesNum(argv) or wrongArg(argv))
+	if (doublesNum(argv) or wrongArg(argv) or sorted(argv))
 		return (0);
 	return (1);
 }

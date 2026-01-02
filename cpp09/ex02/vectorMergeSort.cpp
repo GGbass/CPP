@@ -34,11 +34,9 @@ void	PmergeMe::binaryInsertVector(std::vector<int>& arr, int value, size_t upTo)
 
 void	PmergeMe::mergeInsertVectorSort(std::vector<int>& arr, size_t left, size_t right)
 {
-	// Create a temporary vector for this recursion level
 	std::vector<int> temp;
 	for (size_t i = left; i <= right; i++)
 		temp.push_back(arr[i]);
-	
 	// Step 1: Pair elements and create larger/smaller vectors 
 	std::vector<int> larger;
 	std::vector<int> smaller;
@@ -80,7 +78,7 @@ void	PmergeMe::mergeInsertVectorSort(std::vector<int>& arr, size_t left, size_t 
 	// for (size_t i = 0; i < sorted.size() - 1; i++)
 	// 	std::cout << "-- " << sorted[i] << " ";
 	// Insert smaller[0] (which pairs with larger[0])
-	if (not smaller.empty())
+/* 	if (not smaller.empty())
 	{
 		// Find correct position for smaller[0]
 		size_t pos = binarySearchPos(sorted, smaller[0]);
@@ -89,6 +87,12 @@ void	PmergeMe::mergeInsertVectorSort(std::vector<int>& arr, size_t left, size_t 
 
 	// Insert remaining smaller elements
 	for (size_t i = 1; i < smaller.size(); i++)
+	{
+		int value = smaller[i];
+		size_t pos = binarySearchPos(sorted, value);
+		sorted.insert(sorted.begin() + pos, value);
+	} */
+	for (size_t i = 0; i < smaller.size(); i++)
 	{
 		int value = smaller[i];
 		size_t pos = binarySearchPos(sorted, value);
