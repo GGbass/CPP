@@ -22,7 +22,7 @@ SRC =	./RPN.cpp \
 
 OBJ = $(SRC:.cpp=.o)
 
-CXXFLAGS = -Wall -Werror -Wextra -I -g3 -std=c++98 -fsanitize=address,leak
+CXXFLAGS = -Wall -Werror -Wextra -g3 -std=c++98 -fsanitize=address,leak
 
 CXX = c++
 
@@ -30,7 +30,7 @@ all: $(NAME)
 
 run: fclean all
 	@echo "$(GREEN)Running $(NAME)...$(DEFAULT)\n"
-	@./$(NAME) input.txt
+	@./$(NAME) " 1 2 * / 2 + 5 * 6 1 3 * 4 5 * * 8"
 	
 class:
 	@if [ -z "$(CLASS)" ]; then \

@@ -23,7 +23,7 @@ SRC =	./BitcoinExchange.cpp \
 
 OBJ = $(SRC:.cpp=.o)
 
-CXXFLAGS = -Wall -Werror -Wextra -I -g3 -std=c++98 -fsanitize=address,leak
+CXXFLAGS = -Wall -Werror -Wextra -g3 -std=c++98 -fsanitize=address,leak
 
 CXX = c++
 
@@ -31,7 +31,7 @@ all: $(NAME)
 
 run: fclean all
 	@echo "$(GREEN)Running $(NAME)...$(DEFAULT)\n"
-	@./$(NAME) input.txt
+	@./$(NAME) input.csv
 
 test: fclean all
 	@echo "$(CYAN)Running $(NAME) with test.txt...$(DEFAULT)\n"

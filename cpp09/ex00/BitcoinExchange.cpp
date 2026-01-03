@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gongarci <gongarci@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: gongarci <gongarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/05 23:47:29 by gongarci          #+#    #+#             */
-/*   Updated: 2025/12/22 23:55:57 by gongarci         ###   ########.fr       */
+/*   Updated: 2026/01/03 22:26:04 by gongarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,11 +118,18 @@ static bool getDateAndRate(std::string& line, std::string& date, double& rate)
 	return (true);
 }
 
+static bool	emptyFile(std::ifstream& file)
+{
+	return (file.peek() == std::ifstream::traits_type::eof());
+}
+
 int	BitcoinExchange::loadFileInput(const std::string& infile)
 {
 	std::ifstream inputFile(infile.c_str());
 	if (not inputFile.is_open())
 		throw std::runtime_error("Error: could not open the file");
+	if (emptyFile(inputFile))
+		throw std::runtime_error("Error: file is empty");
 	std::string line;
 	bool isFirstLine = true;
 	while (std::getline(inputFile, line))

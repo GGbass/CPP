@@ -25,13 +25,14 @@ SRC =	./dequeMergeSort.cpp \
 
 OBJ = $(SRC:.cpp=.o)
 
-CXXFLAGS = -Wall -Werror -Wextra -I -g3 -std=c++98 -fsanitize=address,leak
+CXXFLAGS = -Wall -Werror -Wextra -g3 -std=c++98 -fsanitize=address,leak
 
 CXX = c++
 
 all: $(NAME)
 
-#./PmergeMe $(shuf -i 1-3000 -n 100)
+#./PmergeMe $(shuf -i 1-3000 -n 3000)
+#./PmergeMe $(shuf -i 1-1000 -n 3000) | tr "\n" " "
 #@./$(NAME) 2 3 1 5 4 8 7 6 9
 run: fclean all
 	@echo "$(GREEN)Running $(NAME)...$(DEFAULT)\n"

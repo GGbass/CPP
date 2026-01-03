@@ -16,10 +16,10 @@ static int	sorted(char **argv)
 {
 	for (int i = 1; argv[i + 1]; i++)
 	{
-		if (atoi(argv[i]) < atoi(argv[i + 1]))
-			return (std::cerr << "Error: Sorted list " << std::endl, 1);
+		if (atoi(argv[i]) > atoi(argv[i + 1]))
+			return (std::cerr << "Error: Sorted list " << std::endl, 0);
 	}
-	return (0);
+	return (1);
 }
 
 static int	doublesNum(char **argv)

@@ -12,9 +12,8 @@
 
 #include "PmergeMe.hpp"
 
-// Helper function: simple binary search to find insertion position
 template <typename T, typename U>
-size_t binarySearchPos(const T& arr, U value)
+size_t	binarySearchPos(const T& arr, U value)
 {
 	size_t	left = 0;
 	size_t	right = arr.size();
