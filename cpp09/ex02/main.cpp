@@ -17,8 +17,9 @@ static int	sorted(char **argv)
 	for (int i = 1; argv[i + 1]; i++)
 	{
 		if (atoi(argv[i]) > atoi(argv[i + 1]))
-			return (std::cerr << "Error: Sorted list " << std::endl, 0);
+			return (0);
 	}
+	std::cerr << "Error: Sorted list " << std::endl;
 	return (1);
 }
 
@@ -47,7 +48,7 @@ static int	wrongArg(char **arg)
 
 static int	checkArgs(int argc, char** argv)
 {
-	if (argc < 2)
+	if (argc <= 2)
 		return (std::cerr << "Error: Not enough arguments" << std::endl, 0);
 	for (int i = 1; argv[i]; i++)
 	{
