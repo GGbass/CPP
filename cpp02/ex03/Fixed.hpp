@@ -14,9 +14,7 @@ class Fixed
 		Fixed();
 		Fixed(const Fixed &other); //coppy constructor
 		Fixed &operator=(const Fixed &other); //assignment operator
-		~Fixed();
-		friend std::ostream &operator<<(std::ostream &os, const Fixed &fixed);
-		
+		~Fixed();		
 		Fixed (const int value);
 		Fixed (const float value);
 		int		getRawBits(void) const;
@@ -51,5 +49,6 @@ class Fixed
 
 };
 
+std::ostream &operator<<(std::ostream &os, const Fixed &fixed);
 
 #endif

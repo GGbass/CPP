@@ -6,7 +6,7 @@
 /*   By: gongarci <gongarci@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/05 23:47:41 by gongarci          #+#    #+#             */
-/*   Updated: 2025/12/22 17:57:14 by gongarci         ###   ########.fr       */
+/*   Updated: 2026/01/04 01:30:28 by gongarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ class	BitcoinExchange
 		BitcoinExchange(const BitcoinExchange& other);
 		BitcoinExchange& operator=(const BitcoinExchange& other);
 		~BitcoinExchange();
-		int saveDatabase(const char* dataBase);
+		int	saveDatabase(const char* dataBase);
 		int	loadFileInput(const std::string& inputFile);
 		//int	printResult();
 		bool	printRate(const std::string& date, double rate);

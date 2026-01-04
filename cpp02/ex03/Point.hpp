@@ -6,9 +6,8 @@
 
 class Point
 {
-
 	public:
-	Point();
+		Point();
 		Point(const Fixed x, const Fixed y);
 		Point(const float x, const float y);
 		Point(const Point &other); // copy constructor

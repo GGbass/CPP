@@ -28,6 +28,7 @@ CXX = c++
 
 all: $(NAME)
 
+# "1 2 * 2 / 2 + 5 * 6 - 1 3 * - 4 5 * * 8 /"
 run: fclean all
 	@echo "$(GREEN)Running $(NAME)...$(DEFAULT)\n"
 	@./$(NAME) " 1 2 * / 2 + 5 * 6 1 3 * 4 5 * * 8"

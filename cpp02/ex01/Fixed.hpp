@@ -18,11 +18,12 @@ class Fixed
 		float	toFloat(void) const;
 		int		toInt(void) const;
 		// Overload the insertion operator for output
-		friend std::ostream &operator<<(std::ostream &os, const Fixed &fixed);
 
 	private:
 		int	_value;
 		static const int	_fractionalBits = 8;
 };
+
+std::ostream &operator<<(std::ostream &os, const Fixed &fixed);
 
 #endif
